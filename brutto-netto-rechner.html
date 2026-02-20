@@ -1,0 +1,2315 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brutto-Netto-Rechner 2026 — Kostenlos Nettogehalt berechnen</title>
+  <meta name="description" content="Brutto-Netto-Rechner 2026: Berechnen Sie kostenlos Ihr Nettogehalt. Mit Steuerklasse, Kirchensteuer, Kinderfreibetrag und allen Sozialabgaben. Sofort-Ergebnis.">
+  <link rel="canonical" href="https://www.rechner-online.info/brutto-netto-rechner">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Brutto-Netto-Rechner 2026 — Kostenlos Nettogehalt berechnen">
+  <meta property="og:description" content="Brutto-Netto-Rechner 2026: Berechnen Sie kostenlos Ihr Nettogehalt. Mit Steuerklasse, Kirchensteuer, Kinderfreibetrag und allen Sozialabgaben. Sofort-Ergebnis.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="de_DE">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700&family=Source+Sans+3:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+/* ── variables.css ── */
+/* ══════════════════════════════════════════════════════════
+   DESIGN TOKENS — Rechner-Online.info
+   Edit these variables to change the entire site's look.
+   ══════════════════════════════════════════════════════════ */
+
+:root {
+  /* ── Brand Colors ── */
+  --color-primary: #1a3a5c;
+  --color-primary-light: #2a5a8c;
+  --color-primary-dark: #0e2540;
+  --color-primary-subtle: #e8f0f8;
+  
+  --color-accent: #e8870e;
+  --color-accent-light: #f5a623;
+  --color-accent-dark: #c06d00;
+  --color-accent-subtle: #fef4e6;
+  
+  --color-success: #1a8754;
+  --color-success-subtle: #e6f5ed;
+  --color-error: #c53030;
+  --color-error-subtle: #fde8e8;
+  --color-info: #2b6cb0;
+  --color-info-subtle: #e8f0fe;
+  
+  /* ── Neutrals ── */
+  --color-white: #ffffff;
+  --color-bg: #f5f7fa;
+  --color-bg-alt: #edf1f7;
+  --color-surface: #ffffff;
+  --color-border: #d2d8e0;
+  --color-border-light: #e8ecf1;
+  --color-text: #1a2332;
+  --color-text-secondary: #4a5568;
+  --color-text-muted: #8393a7;
+  --color-text-inverse: #ffffff;
+  
+  /* ── Typography ── */
+  --font-body: 'Source Sans 3', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --font-heading: 'Plus Jakarta Sans', 'Source Sans 3', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+  
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+  
+  --leading-tight: 1.25;
+  --leading-normal: 1.6;
+  --leading-relaxed: 1.75;
+  
+  --weight-normal: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+  
+  /* ── Spacing ── */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  
+  /* ── Layout ── */
+  --max-width: 1200px;
+  --max-width-narrow: 900px;
+  --sidebar-width: 380px;
+  --header-height: 64px;
+  
+  /* ── Borders & Radius ── */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-full: 9999px;
+  
+  /* ── Shadows ── */
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+  --shadow-lg: 0 8px 30px rgba(0,0,0,0.12);
+  --shadow-xl: 0 20px 60px rgba(0,0,0,0.15);
+  --shadow-inner: inset 0 2px 4px rgba(0,0,0,0.06);
+  
+  /* ── Transitions ── */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+  --transition-slow: 400ms ease;
+  
+  /* ── Z-Index Scale ── */
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-header: 300;
+  --z-overlay: 400;
+  --z-modal: 500;
+}
+
+/* ── base.css ── */
+/* ══════════════════════════════════════════════════════════
+   BASE STYLES — Reset + Typography + Fundamentals
+   ══════════════════════════════════════════════════════════ */
+
+/* ── Reset ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  color: var(--color-text);
+  background: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+img, svg { display: block; max-width: 100%; }
+a { color: var(--color-primary-light); text-decoration: none; transition: color var(--transition-fast); }
+a:hover { color: var(--color-accent); }
+button, input, select, textarea { font: inherit; color: inherit; }
+table { border-collapse: collapse; width: 100%; }
+ul, ol { list-style: none; }
+
+/* ── Typography ── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-tight);
+  color: var(--color-primary-dark);
+}
+h1 { font-size: var(--text-3xl); margin-bottom: var(--space-6); }
+h2 { font-size: var(--text-2xl); margin-bottom: var(--space-4); margin-top: var(--space-10); }
+h3 { font-size: var(--text-xl); margin-bottom: var(--space-3); margin-top: var(--space-8); }
+h4 { font-size: var(--text-lg); margin-bottom: var(--space-2); }
+p { margin-bottom: var(--space-4); }
+strong { font-weight: var(--weight-semibold); }
+small { font-size: var(--text-sm); color: var(--color-text-secondary); }
+
+/* ── Layout Utilities ── */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+}
+.container--narrow { max-width: var(--max-width-narrow); }
+.sr-only {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0,0,0,0); border: 0;
+}
+main { flex: 1; }
+
+/* ── Skip Link ── */
+.skip-link {
+  position: absolute; top: -100%; left: var(--space-4);
+  background: var(--color-primary); color: var(--color-white);
+  padding: var(--space-2) var(--space-4); border-radius: var(--radius-md);
+  z-index: var(--z-modal); font-weight: var(--weight-semibold);
+}
+.skip-link:focus { top: var(--space-4); }
+
+/* ── components.css ── */
+/* ══════════════════════════════════════════════════════════
+   COMPONENTS — Header, Footer, Nav, Buttons, Cards, etc.
+   ══════════════════════════════════════════════════════════ */
+
+/* ── Header ── */
+.site-header {
+  background: var(--color-primary-dark);
+  color: var(--color-text-inverse);
+  position: sticky;
+  top: 0;
+  z-index: var(--z-header);
+  box-shadow: var(--shadow-md);
+}
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--header-height);
+}
+.site-logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-family: var(--font-heading);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-xl);
+  color: var(--color-white);
+  text-decoration: none;
+}
+.site-logo:hover { color: var(--color-accent-light); }
+.site-logo__icon {
+  width: 36px;
+  height: 36px;
+  background: var(--color-accent);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--text-lg);
+  font-weight: var(--weight-bold);
+  color: var(--color-white);
+}
+.site-logo__year {
+  font-size: var(--text-xs);
+  font-weight: var(--weight-medium);
+  background: var(--color-accent);
+  color: var(--color-white);
+  padding: 1px 6px;
+  border-radius: var(--radius-sm);
+  margin-left: var(--space-1);
+  vertical-align: super;
+}
+
+/* ── Navigation ── */
+.main-nav { display: flex; align-items: center; gap: var(--space-1); }
+.main-nav__link {
+  color: rgba(255,255,255,0.8);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+.main-nav__link:hover { color: var(--color-white); background: rgba(255,255,255,0.1); }
+.main-nav__link.active {
+  color: var(--color-white);
+  background: var(--color-primary-light);
+}
+
+/* Mobile menu toggle */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--color-white);
+  cursor: pointer;
+  padding: var(--space-2);
+  font-size: var(--text-xl);
+}
+
+/* ── Breadcrumb ── */
+.breadcrumb {
+  padding: var(--space-3) 0;
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+.breadcrumb a { color: var(--color-text-secondary); }
+.breadcrumb a:hover { color: var(--color-primary); }
+.breadcrumb__sep { margin: 0 var(--space-2); opacity: 0.5; }
+
+/* ── Page Hero ── */
+.page-hero {
+  background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
+  color: var(--color-white);
+  padding: var(--space-10) 0 var(--space-12);
+  margin-bottom: calc(-1 * var(--space-8));
+  position: relative;
+}
+.page-hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background: var(--color-bg);
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+}
+.page-hero h1 { color: var(--color-white); margin-bottom: var(--space-3); }
+.page-hero__subtitle {
+  font-size: var(--text-lg);
+  opacity: 0.85;
+  max-width: 640px;
+  line-height: var(--leading-relaxed);
+}
+.page-hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  background: rgba(255,255,255,0.15);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  margin-bottom: var(--space-4);
+  backdrop-filter: blur(4px);
+}
+
+/* ── Cards ── */
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition-base);
+}
+.card:hover { box-shadow: var(--shadow-md); }
+.card__header {
+  padding: var(--space-5) var(--space-6);
+  border-bottom: 1px solid var(--color-border-light);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+.card__header h2, .card__header h3 {
+  margin: 0;
+  font-size: var(--text-lg);
+}
+.card__body { padding: var(--space-6); }
+.card__footer {
+  padding: var(--space-4) var(--space-6);
+  border-top: 1px solid var(--color-border-light);
+  background: var(--color-bg);
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+}
+
+/* ── Buttons ── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-6);
+  border: 2px solid transparent;
+  border-radius: var(--radius-md);
+  font-weight: var(--weight-semibold);
+  font-size: var(--text-base);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-decoration: none;
+  line-height: 1.4;
+}
+.btn:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 2px;
+}
+.btn--primary {
+  background: var(--color-accent);
+  color: var(--color-white);
+  border-color: var(--color-accent);
+}
+.btn--primary:hover {
+  background: var(--color-accent-dark);
+  border-color: var(--color-accent-dark);
+  color: var(--color-white);
+}
+.btn--secondary {
+  background: var(--color-white);
+  color: var(--color-primary);
+  border-color: var(--color-border);
+}
+.btn--secondary:hover {
+  border-color: var(--color-primary);
+  background: var(--color-primary-subtle);
+}
+.btn--large {
+  padding: var(--space-4) var(--space-8);
+  font-size: var(--text-lg);
+  border-radius: var(--radius-lg);
+}
+.btn--block { width: 100%; }
+.btn--icon {
+  width: 40px; height: 40px;
+  padding: 0;
+  border-radius: var(--radius-md);
+}
+
+/* ── Footer ── */
+.site-footer {
+  background: var(--color-primary-dark);
+  color: rgba(255,255,255,0.7);
+  padding: var(--space-12) 0 var(--space-8);
+  margin-top: var(--space-16);
+}
+.site-footer__grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: var(--space-10);
+  margin-bottom: var(--space-10);
+}
+.site-footer__brand p {
+  font-size: var(--text-sm);
+  line-height: var(--leading-relaxed);
+  max-width: 320px;
+}
+.site-footer h4 {
+  color: var(--color-white);
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--space-4);
+}
+.site-footer__links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+.site-footer__links a {
+  color: rgba(255,255,255,0.65);
+  font-size: var(--text-sm);
+  transition: color var(--transition-fast);
+}
+.site-footer__links a:hover { color: var(--color-accent-light); }
+.site-footer__bottom {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: var(--space-6);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--text-sm);
+}
+.site-footer__legal {
+  display: flex;
+  gap: var(--space-4);
+}
+.site-footer__legal a { color: rgba(255,255,255,0.5); }
+.site-footer__legal a:hover { color: var(--color-white); }
+
+/* ── Disclaimer Banner ── */
+.disclaimer {
+  background: var(--color-info-subtle);
+  border: 1px solid #b8d4f0;
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  margin-top: var(--space-6);
+}
+.disclaimer strong { color: var(--color-text); }
+
+/* ── Tooltip ── */
+.tooltip { position: relative; cursor: help; }
+.tooltip__text {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-primary-dark);
+  color: var(--color-white);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  white-space: nowrap;
+  transition: all var(--transition-fast);
+  z-index: var(--z-dropdown);
+  margin-bottom: var(--space-2);
+  pointer-events: none;
+}
+.tooltip:hover .tooltip__text,
+.tooltip:focus .tooltip__text {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* ── Index Page: Calculator Grid ── */
+.calc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--space-6);
+  margin-top: var(--space-6);
+}
+.calc-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  transition: all var(--transition-base);
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+}
+.calc-card:hover {
+  border-color: var(--color-primary-light);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+  color: inherit;
+}
+.calc-card__icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--text-2xl);
+  margin-bottom: var(--space-4);
+}
+.calc-card__icon--gehalt { background: #e8f0f8; color: var(--color-primary); }
+.calc-card__icon--rente { background: #fef4e6; color: var(--color-accent-dark); }
+.calc-card__icon--arbeit { background: #e6f5ed; color: var(--color-success); }
+.calc-card__icon--studium { background: #f0e8f8; color: #6b46c1; }
+.calc-card h3 {
+  font-size: var(--text-lg);
+  margin: 0 0 var(--space-2);
+}
+.calc-card p {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  margin: 0;
+  flex: 1;
+}
+.calc-card__arrow {
+  margin-top: var(--space-4);
+  color: var(--color-primary-light);
+  font-weight: var(--weight-semibold);
+  font-size: var(--text-sm);
+}
+
+/* ── calculator.css ── */
+/* ══════════════════════════════════════════════════════════
+   CALCULATOR STYLES — Forms, Results, Charts
+   ══════════════════════════════════════════════════════════ */
+
+/* ── Calculator Layout ── */
+.calc-layout {
+  display: grid;
+  grid-template-columns: 1fr var(--sidebar-width);
+  gap: var(--space-8);
+  align-items: start;
+  margin: var(--space-8) 0;
+}
+.calc-form-wrap { min-width: 0; }
+.calc-results-wrap {
+  position: sticky;
+  top: calc(var(--header-height) + var(--space-6));
+}
+
+/* ── Form Groups ── */
+.form-section {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  margin-bottom: var(--space-6);
+}
+.form-section__title {
+  font-size: var(--text-lg);
+  font-weight: var(--weight-semibold);
+  color: var(--color-primary-dark);
+  margin: 0 0 var(--space-5);
+  padding-bottom: var(--space-3);
+  border-bottom: 2px solid var(--color-primary-subtle);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+.form-section__icon {
+  font-size: var(--text-xl);
+  width: 32px;
+  text-align: center;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4) var(--space-6);
+}
+.form-grid--single { grid-template-columns: 1fr; }
+.form-group { display: flex; flex-direction: column; gap: var(--space-1); }
+.form-group--full { grid-column: 1 / -1; }
+
+/* ── Labels ── */
+.form-label {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  color: var(--color-text-secondary);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+.form-label__help {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--color-bg-alt);
+  color: var(--color-text-muted);
+  font-size: 11px;
+  font-weight: var(--weight-bold);
+  cursor: help;
+  border: 1px solid var(--color-border);
+  flex-shrink: 0;
+}
+
+/* ── Inputs ── */
+.form-input, .form-select {
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-size: var(--text-base);
+  background: var(--color-white);
+  transition: all var(--transition-fast);
+  color: var(--color-text);
+}
+.form-input:hover, .form-select:hover { border-color: var(--color-primary-light); }
+.form-input:focus, .form-select:focus {
+  border-color: var(--color-primary);
+  outline: none;
+  box-shadow: 0 0 0 3px var(--color-primary-subtle);
+}
+.form-input--euro {
+  padding-right: var(--space-10);
+}
+.form-input--percent {
+  padding-right: var(--space-8);
+}
+.input-wrapper {
+  position: relative;
+}
+.input-suffix {
+  position: absolute;
+  right: var(--space-4);
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-text-muted);
+  font-weight: var(--weight-medium);
+  font-size: var(--text-sm);
+  pointer-events: none;
+}
+
+.form-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%234a5568' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: var(--space-10);
+  cursor: pointer;
+}
+
+/* ── Radio/Checkbox Groups (styled as button groups) ── */
+.radio-group {
+  display: flex;
+  gap: 0;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--color-white);
+}
+.radio-group input[type="radio"] { position: absolute; opacity: 0; pointer-events: none; }
+.radio-group label {
+  flex: 1;
+  padding: var(--space-3) var(--space-4);
+  text-align: center;
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  color: var(--color-text-secondary);
+  border-right: 1px solid var(--color-border-light);
+}
+.radio-group label:last-child { border-right: none; }
+.radio-group label:hover { background: var(--color-bg); }
+.radio-group input[type="radio"]:checked + label {
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+.radio-group input[type="radio"]:focus-visible + label {
+  box-shadow: inset 0 0 0 2px var(--color-accent);
+}
+
+/* ── Checkbox Toggle ── */
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  cursor: pointer;
+}
+.toggle input { position: absolute; opacity: 0; }
+.toggle__track {
+  width: 44px;
+  height: 24px;
+  background: var(--color-border);
+  border-radius: var(--radius-full);
+  position: relative;
+  transition: background var(--transition-fast);
+  flex-shrink: 0;
+}
+.toggle__track::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--color-white);
+  transition: transform var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+}
+.toggle input:checked ~ .toggle__track {
+  background: var(--color-primary);
+}
+.toggle input:checked ~ .toggle__track::after {
+  transform: translateX(20px);
+}
+.toggle__label {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  color: var(--color-text-secondary);
+}
+
+/* ── Results Panel ── */
+.results-panel {
+  background: var(--color-surface);
+  border: 2px solid var(--color-primary-subtle);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+}
+.results-panel__header {
+  background: linear-gradient(135deg, var(--color-primary-dark), var(--color-primary));
+  color: var(--color-white);
+  padding: var(--space-5) var(--space-6);
+}
+.results-panel__header h3 {
+  color: var(--color-white);
+  font-size: var(--text-lg);
+  margin: 0;
+}
+.results-panel__body { padding: var(--space-6); }
+
+/* Netto highlight */
+.result-netto {
+  text-align: center;
+  padding: var(--space-6) 0;
+  border-bottom: 1px solid var(--color-border-light);
+  margin-bottom: var(--space-5);
+}
+.result-netto__label {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: var(--weight-medium);
+}
+.result-netto__value {
+  font-family: var(--font-heading);
+  font-size: var(--text-4xl);
+  font-weight: var(--weight-bold);
+  color: var(--color-success);
+  line-height: 1.2;
+  margin-top: var(--space-2);
+}
+.result-netto__period {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  margin-top: var(--space-1);
+}
+
+/* Result rows */
+.result-rows { display: flex; flex-direction: column; gap: var(--space-2); }
+.result-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-2) 0;
+  font-size: var(--text-sm);
+}
+.result-row--header {
+  font-weight: var(--weight-semibold);
+  color: var(--color-text);
+  border-bottom: 1px solid var(--color-border-light);
+  padding-bottom: var(--space-3);
+  margin-bottom: var(--space-1);
+  margin-top: var(--space-4);
+}
+.result-row--header:first-child { margin-top: 0; }
+.result-row__label { color: var(--color-text-secondary); }
+.result-row__value {
+  font-weight: var(--weight-semibold);
+  font-variant-numeric: tabular-nums;
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+}
+.result-row__value--negative { color: var(--color-error); }
+.result-row--total {
+  border-top: 2px solid var(--color-primary-subtle);
+  padding-top: var(--space-3);
+  margin-top: var(--space-2);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-base);
+}
+.result-row--total .result-row__value { font-size: var(--text-base); }
+
+/* ── Donut Chart ── */
+.chart-container {
+  display: flex;
+  justify-content: center;
+  padding: var(--space-4) 0;
+  margin-bottom: var(--space-4);
+}
+.donut-chart { position: relative; width: 200px; height: 200px; }
+.donut-chart svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+.donut-chart__center {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.donut-chart__center-value {
+  font-family: var(--font-heading);
+  font-size: var(--text-xl);
+  font-weight: var(--weight-bold);
+  color: var(--color-text);
+}
+.donut-chart__center-label {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}
+.chart-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  justify-content: center;
+  padding: 0 var(--space-4);
+  margin-bottom: var(--space-4);
+}
+.chart-legend__item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-xs);
+  color: var(--color-text-secondary);
+}
+.chart-legend__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* ── Content Section (below calculator) ── */
+.content-section {
+  max-width: 780px;
+  margin: var(--space-12) auto 0;
+  padding: 0 var(--space-6);
+}
+.content-section h2 {
+  font-size: var(--text-2xl);
+  padding-bottom: var(--space-3);
+  border-bottom: 2px solid var(--color-primary-subtle);
+}
+.content-section p, .content-section li {
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-secondary);
+}
+.content-section ul { padding-left: var(--space-6); }
+.content-section li {
+  list-style: disc;
+  margin-bottom: var(--space-2);
+}
+
+/* ── FAQ Accordion ── */
+.faq-list { margin-top: var(--space-6); }
+.faq-item {
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-3);
+  overflow: hidden;
+}
+.faq-question {
+  width: 100%;
+  padding: var(--space-4) var(--space-5);
+  background: var(--color-surface);
+  border: none;
+  text-align: left;
+  font-size: var(--text-base);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background var(--transition-fast);
+}
+.faq-question:hover { background: var(--color-bg); }
+.faq-question::after {
+  content: '+';
+  font-size: var(--text-xl);
+  color: var(--color-text-muted);
+  transition: transform var(--transition-base);
+  flex-shrink: 0;
+  margin-left: var(--space-4);
+}
+.faq-item.open .faq-question::after {
+  content: '−';
+}
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height var(--transition-slow);
+}
+.faq-answer__inner {
+  padding: 0 var(--space-5) var(--space-5);
+  font-size: var(--text-sm);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-secondary);
+}
+
+/* ── responsive.css ── */
+/* ══════════════════════════════════════════════════════════
+   RESPONSIVE — Breakpoints & Mobile Overrides
+   ══════════════════════════════════════════════════════════ */
+
+/* ── Tablet (≤1024px) ── */
+@media (max-width: 1024px) {
+  .calc-layout {
+    grid-template-columns: 1fr;
+  }
+  .calc-results-wrap {
+    position: static;
+    order: -1; /* Results above form on tablet */
+  }
+  .site-footer__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-8);
+  }
+}
+
+/* ── Mobile (≤768px) ── */
+@media (max-width: 768px) {
+  :root {
+    --header-height: 56px;
+  }
+  
+  h1 { font-size: var(--text-2xl); }
+  h2 { font-size: var(--text-xl); }
+  
+  .container { padding: 0 var(--space-4); }
+  
+  /* Header */
+  .nav-toggle { display: block; }
+  .main-nav {
+    display: none;
+    position: absolute;
+    top: var(--header-height);
+    left: 0;
+    right: 0;
+    background: var(--color-primary-dark);
+    flex-direction: column;
+    padding: var(--space-4);
+    border-top: 1px solid rgba(255,255,255,0.1);
+    box-shadow: var(--shadow-lg);
+  }
+  .main-nav.open { display: flex; }
+  .main-nav__link {
+    width: 100%;
+    padding: var(--space-3) var(--space-4);
+    border-radius: var(--radius-md);
+  }
+  
+  /* Hero */
+  .page-hero { padding: var(--space-8) 0 var(--space-10); }
+  .page-hero__subtitle { font-size: var(--text-base); }
+  
+  /* Form */
+  .form-grid { grid-template-columns: 1fr; }
+  .form-section { padding: var(--space-4); }
+  
+  /* Results */
+  .result-netto__value { font-size: var(--text-3xl); }
+  .results-panel__body { padding: var(--space-4); }
+  
+  /* Footer */
+  .site-footer__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+  .site-footer__bottom {
+    flex-direction: column;
+    gap: var(--space-4);
+    text-align: center;
+  }
+  
+  /* Calculator Grid (Index) */
+  .calc-grid { grid-template-columns: 1fr; }
+}
+
+/* ── Small Mobile (≤480px) ── */
+@media (max-width: 480px) {
+  .radio-group { flex-direction: column; }
+  .radio-group label { border-right: none; border-bottom: 1px solid var(--color-border-light); }
+  .radio-group label:last-child { border-bottom: none; }
+  
+  .chart-container { padding: var(--space-2) 0; }
+  .donut-chart { width: 160px; height: 160px; }
+}
+
+/* ── Print ── */
+@media print {
+  .site-header, .site-footer, .nav-toggle, .form-section,
+  .page-hero, .breadcrumb { display: none !important; }
+  .calc-layout { display: block; }
+  .results-panel { border: 2px solid #000; box-shadow: none; }
+  body { background: #fff; }
+}
+
+
+  </style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Zum Inhalt springen</a>
+<header class="site-header" role="banner">
+  <div class="container">
+    <div class="site-header__inner">
+      <a href="index.html" class="site-logo" aria-label="Rechner-Online.info Startseite">
+        <span class="site-logo__icon">R</span>
+        <span>Rechner-Online<span class="site-logo__year">2026</span></span>
+      </a>
+      <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false">☰</button>
+      <nav class="main-nav" role="navigation" aria-label="Hauptnavigation">
+        <a href="index.html" class="main-nav__link ">Startseite</a>
+        <a href="brutto-netto-rechner.html" class="main-nav__link active">Gehaltsrechner</a>
+        <a href="geldwerter-vorteil.html" class="main-nav__link ">Firmenwagen</a>
+        <a href="teilzeitrechner.html" class="main-nav__link ">Teilzeit</a>
+        <a href="arbeitslosengeld-rechner.html" class="main-nav__link ">ALG I</a>
+        <a href="rentenrechner.html" class="main-nav__link ">Rente</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+
+<section class="page-hero">
+  <div class="container">
+    <span class="page-hero__badge">✓ Aktualisiert für 2026</span>
+    <h1>Brutto-Netto-Rechner 2026</h1>
+    <p class="page-hero__subtitle">Wie viel bleibt netto von Ihrem Gehalt? Berechnen Sie kostenlos Ihr Nettoeinkommen — mit allen Steuern und Sozialabgaben für das Jahr 2026.</p>
+  </div>
+</section>
+
+<main id="main-content">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Startseite</a>
+      <span class="breadcrumb__sep">›</span>
+      <span>Brutto-Netto-Rechner</span>
+    </nav>
+
+    <div class="calc-layout" id="calc-form">
+
+      <!-- ═══ LEFT: FORM ═══ -->
+      <div class="calc-form-wrap">
+
+        <!-- Einkommen -->
+        <div class="form-section">
+          <h2 class="form-section__title"><span class="form-section__icon">💶</span> Einkommen</h2>
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label" for="brutto">Bruttoeinkommen</label>
+              <div class="input-wrapper">
+                <input type="text" id="brutto" class="form-input form-input--euro" data-field="brutto" data-type="euro" value="3.500,00" inputmode="decimal" aria-describedby="brutto-hint">
+                <span class="input-suffix">€</span>
+              </div>
+              <small id="brutto-hint">Ihr monatliches oder jährliches Bruttoeinkommen</small>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="zeitraum">Abrechnungszeitraum</label>
+              <div class="radio-group">
+                <input type="radio" name="zeitraum" id="zeitraum-monat" value="monat" data-field="zeitraum" checked>
+                <label for="zeitraum-monat">Monat</label>
+                <input type="radio" name="zeitraum" id="zeitraum-jahr" value="jahr" data-field="zeitraum">
+                <label for="zeitraum-jahr">Jahr</label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="geldwerterVorteil">Geldwerter Vorteil <span class="form-label__help tooltip" tabindex="0" aria-label="Info: Geldwerter Vorteil">?<span class="tooltip__text">z.B. Firmenwagen, Sachbezüge (monatlich)</span></span></label>
+              <div class="input-wrapper">
+                <input type="text" id="geldwerterVorteil" class="form-input form-input--euro" data-field="geldwerterVorteil" data-type="euro" value="0" inputmode="decimal">
+                <span class="input-suffix">€</span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="steuerfreibetrag">Jährl. Steuerfreibetrag</label>
+              <div class="input-wrapper">
+                <input type="text" id="steuerfreibetrag" class="form-input form-input--euro" data-field="steuerfreibetrag" data-type="euro" value="0" inputmode="decimal">
+                <span class="input-suffix">€</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Steuermerkmale -->
+        <div class="form-section">
+          <h2 class="form-section__title"><span class="form-section__icon">📋</span> Steuermerkmale</h2>
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label" for="steuerklasse">Steuerklasse</label>
+              <select id="steuerklasse" class="form-select" data-field="steuerklasse" data-type="number">
+                <option value="1" selected>Klasse I — Ledig</option>
+                <option value="2">Klasse II — Alleinerziehend</option>
+                <option value="3">Klasse III — Verheiratet (Allein-/Mehrverdiener)</option>
+                <option value="4">Klasse IV — Verheiratet (gleiches Einkommen)</option>
+                <option value="5">Klasse V — Verheiratet (Partner hat III)</option>
+                <option value="6">Klasse VI — Zweitjob</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="bundesland">Bundesland</label>
+              <select id="bundesland" class="form-select" data-field="bundesland">
+                <option value="Baden-Württemberg">Baden-Württemberg</option>
+                <option value="Bayern">Bayern</option>
+                <option value="Berlin">Berlin</option>
+                <option value="Brandenburg">Brandenburg</option>
+                <option value="Bremen">Bremen</option>
+                <option value="Hamburg">Hamburg</option>
+                <option value="Hessen">Hessen</option>
+                <option value="Mecklenburg-Vorpommern">Mecklenburg-Vorpommern</option>
+                <option value="Niedersachsen">Niedersachsen</option>
+                <option value="Nordrhein-Westfalen" selected>Nordrhein-Westfalen</option>
+                <option value="Rheinland-Pfalz">Rheinland-Pfalz</option>
+                <option value="Saarland">Saarland</option>
+                <option value="Sachsen">Sachsen</option>
+                <option value="Sachsen-Anhalt">Sachsen-Anhalt</option>
+                <option value="Schleswig-Holstein">Schleswig-Holstein</option>
+                <option value="Thüringen">Thüringen</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Kirchensteuer</label>
+              <div class="radio-group">
+                <input type="radio" name="kirchensteuer" id="kist-nein" value="false" data-field="kirchensteuer" checked>
+                <label for="kist-nein">Nein</label>
+                <input type="radio" name="kirchensteuer" id="kist-ja" value="true" data-field="kirchensteuer">
+                <label for="kist-ja">Ja</label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="alter">Alter</label>
+              <div class="input-wrapper">
+                <input type="number" id="alter" class="form-input" data-field="alter" data-type="number" value="30" min="16" max="99">
+                <span class="input-suffix">J.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Kinder -->
+        <div class="form-section">
+          <h2 class="form-section__title"><span class="form-section__icon">👨‍👩‍👧</span> Kinder</h2>
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label">Haben Sie Kinder?</label>
+              <div class="radio-group">
+                <input type="radio" name="hatKinder" id="kinder-nein" value="false" data-field="hatKinder" checked>
+                <label for="kinder-nein">Nein</label>
+                <input type="radio" name="hatKinder" id="kinder-ja" value="true" data-field="hatKinder">
+                <label for="kinder-ja">Ja</label>
+              </div>
+            </div>
+            <div class="form-group" id="kinder-details" style="display:none">
+              <label class="form-label" for="kinderfreibetrag">Kinderfreibetrag</label>
+              <select id="kinderfreibetrag" class="form-select" data-field="kinderfreibetrag" data-type="number">
+                <option value="0">0</option>
+                <option value="0.5">0,5</option>
+                <option value="1" selected>1,0</option>
+                <option value="1.5">1,5</option>
+                <option value="2">2,0</option>
+                <option value="2.5">2,5</option>
+                <option value="3">3,0</option>
+                <option value="3.5">3,5</option>
+                <option value="4">4,0</option>
+                <option value="4.5">4,5</option>
+                <option value="5">5,0</option>
+              </select>
+            </div>
+            <div class="form-group" id="kinder-u25-wrap" style="display:none">
+              <label class="form-label" for="kinderUnter25">Kinder unter 25 Jahre <span class="form-label__help tooltip" tabindex="0">?<span class="tooltip__text">Relevant für die Pflegeversicherung</span></span></label>
+              <select id="kinderUnter25" class="form-select" data-field="kinderUnter25" data-type="number">
+                <option value="0">0</option>
+                <option value="1" selected>1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5 oder mehr</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Krankenversicherung -->
+        <div class="form-section">
+          <h2 class="form-section__title"><span class="form-section__icon">🏥</span> Versicherung</h2>
+          <div class="form-grid">
+            <div class="form-group form-group--full">
+              <label class="form-label">Krankenversicherung</label>
+              <div class="radio-group">
+                <input type="radio" name="krankenversicherung" id="kv-gesetzlich" value="gesetzlich" data-field="krankenversicherung" checked>
+                <label for="kv-gesetzlich">Gesetzlich</label>
+                <input type="radio" name="krankenversicherung" id="kv-privat" value="privat" data-field="krankenversicherung">
+                <label for="kv-privat">Privat</label>
+                <input type="radio" name="krankenversicherung" id="kv-freiwillig" value="freiwillig" data-field="krankenversicherung">
+                <label for="kv-freiwillig">Freiwillig</label>
+              </div>
+            </div>
+            <div class="form-group" id="kv-zusatz-wrap">
+              <label class="form-label" for="kvZusatzbeitrag">KV-Zusatzbeitrag</label>
+              <div class="input-wrapper">
+                <input type="text" id="kvZusatzbeitrag" class="form-input form-input--percent" data-field="kvZusatzbeitrag" data-type="percent" value="2,9" inputmode="decimal">
+                <span class="input-suffix">%</span>
+              </div>
+            </div>
+            <div class="form-group" id="pkv-wrap" style="display:none">
+              <label class="form-label" for="pkvBeitrag">Monatl. PKV-Beitrag</label>
+              <div class="input-wrapper">
+                <input type="text" id="pkvBeitrag" class="form-input form-input--euro" data-field="pkvBeitrag" data-type="euro" value="0" inputmode="decimal">
+                <span class="input-suffix">€</span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Rentenversicherung</label>
+              <div class="radio-group">
+                <input type="radio" name="rentenversichert" id="rv-ja" value="true" data-field="rentenversichert" checked>
+                <label for="rv-ja">Pflichtversichert</label>
+                <input type="radio" name="rentenversichert" id="rv-nein" value="false" data-field="rentenversichert">
+                <label for="rv-nein">Nicht versichert</label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Arbeitslosenversicherung</label>
+              <div class="radio-group">
+                <input type="radio" name="arbeitslosenversichert" id="av-ja" value="true" data-field="arbeitslosenversichert" checked>
+                <label for="av-ja">Pflichtversichert</label>
+                <input type="radio" name="arbeitslosenversichert" id="av-nein" value="false" data-field="arbeitslosenversichert">
+                <label for="av-nein">Nicht versichert</label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ═══ RIGHT: RESULTS ═══ -->
+      <div class="calc-results-wrap">
+        <div class="results-panel">
+          <div class="results-panel__header">
+            <h3>Ihr Ergebnis</h3>
+          </div>
+          <div class="results-panel__body">
+
+            <div class="result-netto">
+              <div class="result-netto__label">Ihr Nettoeinkommen</div>
+              <div class="result-netto__value" id="result-netto">— €</div>
+              <div class="result-netto__period" id="result-period">pro Monat</div>
+            </div>
+
+            <div id="chart-container" class="chart-container"></div>
+            <div class="chart-legend" id="chart-legend"></div>
+
+            <div class="result-rows">
+              <div class="result-row result-row--header"><span>Steuern</span><span>Monatlich</span></div>
+              <div class="result-row"><span class="result-row__label">Lohnsteuer</span><span class="result-row__value result-row__value--negative" id="r-lst">—</span></div>
+              <div class="result-row"><span class="result-row__label">Solidaritätszuschlag</span><span class="result-row__value result-row__value--negative" id="r-soli">—</span></div>
+              <div class="result-row"><span class="result-row__label">Kirchensteuer</span><span class="result-row__value result-row__value--negative" id="r-kist">—</span></div>
+
+              <div class="result-row result-row--header"><span>Sozialabgaben</span><span></span></div>
+              <div class="result-row"><span class="result-row__label">Krankenversicherung</span><span class="result-row__value result-row__value--negative" id="r-kv">—</span></div>
+              <div class="result-row"><span class="result-row__label">Pflegeversicherung</span><span class="result-row__value result-row__value--negative" id="r-pv">—</span></div>
+              <div class="result-row"><span class="result-row__label">Rentenversicherung</span><span class="result-row__value result-row__value--negative" id="r-rv">—</span></div>
+              <div class="result-row"><span class="result-row__label">Arbeitslosenvers.</span><span class="result-row__value result-row__value--negative" id="r-av">—</span></div>
+
+              <div class="result-row result-row--total">
+                <span>Gesamtabzüge</span>
+                <span class="result-row__value result-row__value--negative" id="r-abzuege">—</span>
+              </div>
+            </div>
+
+            <div class="disclaimer" style="margin-top:var(--space-5)">
+              <strong>Hinweis:</strong> Berechnung ohne Gewähr. Für verbindliche Ergebnisse nutzen Sie den <a href="https://www.bmf-steuerrechner.de" target="_blank" rel="noopener">offiziellen BMF-Steuerrechner</a>.
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ═══ SEO CONTENT ═══ -->
+    <section class="content-section">
+      <h2>So funktioniert der Brutto-Netto-Rechner 2026</h2>
+      <p>Unser Gehaltsrechner ermittelt auf Basis Ihres Bruttoeinkommens sämtliche gesetzlichen Abzüge — von der Lohnsteuer über den Solidaritätszuschlag bis hin zu den Beiträgen für Kranken-, Pflege-, Renten- und Arbeitslosenversicherung. Die Berechnung berücksichtigt die aktuellen steuerlichen Regelungen und Sozialversicherungswerte für das Jahr 2026.</p>
+
+      <h2>Steuerliche Neuerungen 2026 in Deutschland</h2>
+      <p>Für das Steuerjahr 2026 wurden mehrere relevante Anpassungen vorgenommen. Der Grundfreibetrag steigt auf 12.348 Euro (24.696 Euro für verheiratete Ehepaare). Der Kinderfreibetrag beträgt nun 9.756 Euro pro Kind. Die Beitragsbemessungsgrenze in der Kranken- und Pflegeversicherung liegt bei 69.750 Euro jährlich (5.812,50 Euro monatlich). In der Renten- und Arbeitslosenversicherung gilt eine einheitliche Grenze von 101.400 Euro jährlich (8.450 Euro monatlich) — erstmals ohne Unterscheidung zwischen Ost und West.</p>
+
+      <h3>Sozialversicherungsbeiträge 2026 im Überblick</h3>
+      <p>Die Beitragssätze für 2026 verteilen sich wie folgt: Die gesetzliche Krankenversicherung beträgt 14,6 Prozent (je 7,3 Prozent Arbeitnehmer und Arbeitgeber), zuzüglich eines durchschnittlichen Zusatzbeitrags von 2,9 Prozent. Die Rentenversicherung liegt bei 18,6 Prozent, die Arbeitslosenversicherung bei 2,6 Prozent und die Pflegeversicherung bei 3,6 Prozent — wobei sich der Arbeitnehmeranteil bei letzterer nach der Anzahl der Kinder richtet.</p>
+
+      <h2>Die sechs Steuerklassen in Deutschland</h2>
+      <p>Ihre Steuerklasse beeinflusst die Höhe der monatlichen Lohnsteuer erheblich. Steuerklasse I gilt für Ledige, Geschiedene und Verwitwete. Steuerklasse II steht Alleinerziehenden zu und gewährt einen zusätzlichen Entlastungsbetrag von 4.260 Euro. In Steuerklasse III profitiert der besserverdienende Ehepartner von höheren Freibeträgen, während der andere Partner Steuerklasse V erhält. Steuerklasse IV eignet sich für Ehepaare mit ähnlichem Einkommen. Steuerklasse VI betrifft Nebenbeschäftigungen.</p>
+
+      <h2>Häufige Fragen zum Brutto-Netto-Rechner</h2>
+      <div class="faq-list" itemscope itemtype="https://schema.org/FAQPage">
+        <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <button class="faq-question" itemprop="name">Wie berechnet sich das Nettogehalt?</button>
+          <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div class="faq-answer__inner" itemprop="text">
+              Das Nettogehalt ergibt sich aus dem Bruttogehalt abzüglich aller Steuern (Lohnsteuer, Solidaritätszuschlag, ggf. Kirchensteuer) und Sozialversicherungsbeiträge (Kranken-, Pflege-, Renten- und Arbeitslosenversicherung). Die genaue Höhe hängt von Ihrer Steuerklasse, Ihrem Bundesland, Ihrer Krankenversicherung und weiteren individuellen Faktoren ab.
+            </div>
+          </div>
+        </div>
+        <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <button class="faq-question" itemprop="name">Was hat sich 2026 steuerlich geändert?</button>
+          <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div class="faq-answer__inner" itemprop="text">
+              Die wichtigsten Änderungen für 2026: Der Grundfreibetrag wurde auf 12.348 Euro angehoben, der Kinderfreibetrag auf 9.756 Euro erhöht, und die Beitragsbemessungsgrenzen in der Sozialversicherung wurden angepasst. Zudem gilt erstmals eine einheitliche Beitragsbemessungsgrenze für die Rentenversicherung in Ost und West.
+            </div>
+          </div>
+        </div>
+        <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <button class="faq-question" itemprop="name">Welche Steuerklasse ist die richtige für mich?</button>
+          <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div class="faq-answer__inner" itemprop="text">
+              Ledige erhalten automatisch Steuerklasse I. Alleinerziehende sollten Steuerklasse II beantragen. Ehepaare können zwischen den Kombinationen III/V (bei unterschiedlichem Einkommen) und IV/IV (bei ähnlichem Einkommen) wählen. Die Kombination III/V lohnt sich, wenn ein Partner deutlich mehr verdient als der andere.
+            </div>
+          </div>
+        </div>
+        <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <button class="faq-question" itemprop="name">Wie wirkt sich die Kirchensteuer auf mein Netto aus?</button>
+          <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div class="faq-answer__inner" itemprop="text">
+              Die Kirchensteuer beträgt je nach Bundesland 8 Prozent (Bayern und Baden-Württemberg) oder 9 Prozent (alle übrigen Bundesländer) der Lohnsteuer. Bei einem durchschnittlichen Einkommen kann das mehrere hundert Euro im Jahr ausmachen. Wer aus der Kirche austritt, spart diesen Betrag vollständig.
+            </div>
+          </div>
+        </div>
+        <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+          <button class="faq-question" itemprop="name">Was ist ein geldwerter Vorteil?</button>
+          <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <div class="faq-answer__inner" itemprop="text">
+              Ein geldwerter Vorteil ist eine Sachleistung des Arbeitgebers, die dem Bruttoeinkommen steuerlich hinzugerechnet wird — zum Beispiel ein Firmenwagen zur privaten Nutzung, Essensgutscheine oder ein Jobticket. Dadurch steigt das zu versteuernde Einkommen und die Steuerlast nimmt zu, obwohl kein zusätzliches Bargeld fließt.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<script>
+(function() {
+  'use strict';
+
+  // Show/hide conditional fields
+  function updateVisibility(values) {
+    const isKinder = values.hatKinder === 'true' || values.hatKinder === true;
+    document.getElementById('kinder-details').style.display = isKinder ? '' : 'none';
+    document.getElementById('kinder-u25-wrap').style.display = isKinder ? '' : 'none';
+
+    const isPrivat = values.krankenversicherung === 'privat';
+    document.getElementById('pkv-wrap').style.display = isPrivat ? '' : 'none';
+    document.getElementById('kv-zusatz-wrap').style.display = isPrivat ? 'none' : '';
+  }
+
+  // Main calculation handler
+  function calculate(v) {
+    updateVisibility(v);
+
+    const hatKinder = v.hatKinder === 'true' || v.hatKinder === true;
+    const kirchensteuer = v.kirchensteuer === 'true' || v.kirchensteuer === true;
+    const rentenversichert = v.rentenversichert === 'true' || v.rentenversichert !== 'false';
+    const arbeitslosenversichert = v.arbeitslosenversichert === 'true' || v.arbeitslosenversichert !== 'false';
+
+    const result = Steuer2026.bruttoNetto({
+      brutto: v.brutto || 0,
+      zeitraum: v.zeitraum || 'monat',
+      steuerklasse: v.steuerklasse || 1,
+      bundesland: v.bundesland || 'Nordrhein-Westfalen',
+      kirchensteuer: kirchensteuer,
+      krankenversicherung: v.krankenversicherung || 'gesetzlich',
+      kvZusatzbeitrag: v.kvZusatzbeitrag || 0.029,
+      pkvBeitrag: v.pkvBeitrag || 0,
+      rentenversichert: rentenversichert,
+      arbeitslosenversichert: arbeitslosenversichert,
+      hatKinder: hatKinder,
+      kinderfreibetrag: hatKinder ? (v.kinderfreibetrag || 0) : 0,
+      kinderUnter25: hatKinder ? (v.kinderUnter25 || 0) : 0,
+      alter: v.alter || 30,
+      steuerfreibetrag: v.steuerfreibetrag || 0,
+      geldwerterVorteil: v.geldwerterVorteil || 0,
+    });
+
+    const r = result.ergebnis;
+    const st = result.steuern;
+    const sv = result.sozialversicherung;
+    const fmt = Steuer2026.formatEuro;
+
+    // Update result display
+    document.getElementById('result-netto').textContent = fmt(r.nettoMonat);
+    document.getElementById('result-period').textContent =
+      `pro Monat (${fmt(r.nettoJahr)} pro Jahr)`;
+
+    document.getElementById('r-lst').textContent = '- ' + fmt(st.lohnsteuer);
+    document.getElementById('r-soli').textContent = '- ' + fmt(st.soli);
+    document.getElementById('r-kist').textContent = '- ' + fmt(st.kirchensteuer);
+    document.getElementById('r-kv').textContent = '- ' + fmt(sv.kv);
+    document.getElementById('r-pv').textContent = '- ' + fmt(sv.pv);
+    document.getElementById('r-rv').textContent = '- ' + fmt(sv.rv);
+    document.getElementById('r-av').textContent = '- ' + fmt(sv.av);
+    document.getElementById('r-abzuege').textContent = '- ' + fmt(r.abzuegeMonat);
+
+    // Donut chart
+    RechnerUI.drawDonut('chart-container', [
+      { label: 'Netto', value: r.nettoMonat, color: '#1a8754' },
+      { label: 'Steuern', value: st.gesamt, color: '#c53030' },
+      { label: 'Sozialabgaben', value: sv.gesamt, color: '#e8870e' },
+    ], Math.round(r.nettoQuote) + '%', 'Netto-Quote');
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    RechnerUI.bindCalculation('calc-form', calculate);
+  });
+})();
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Brutto-Netto-Rechner 2026",
+  "url": "https://www.rechner-online.info/brutto-netto-rechner",
+  "description": "Brutto-Netto-Rechner 2026: Berechnen Sie kostenlos Ihr Nettogehalt. Mit Steuerklasse, Kirchensteuer, Kinderfreibetrag und allen Sozialabgaben. Sofort-Ergebnis.",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Web",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "EUR"
+  }
+}
+</script>
+
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="site-footer__grid">
+      <div class="site-footer__brand">
+        <a href="index.html" class="site-logo" style="margin-bottom:var(--space-4)">
+          <span class="site-logo__icon">R</span>
+          <span>Rechner-Online</span>
+        </a>
+        <p>Kostenlose Online-Rechner für Gehalt, Steuern, Rente und Sozialversicherung in Deutschland. Alle Berechnungen basieren auf den aktuellen gesetzlichen Vorgaben für das Jahr 2026.</p>
+      </div>
+      <div>
+        <h4>Gehaltsrechner</h4>
+        <div class="site-footer__links">
+          <a href="brutto-netto-rechner.html">Brutto-Netto-Rechner</a>
+          <a href="gehaltsrechner-arbeitgeber.html">Arbeitgeberrechner</a>
+          <a href="geldwerter-vorteil.html">Firmenwagenrechner</a>
+          <a href="teilzeitrechner.html">Teilzeitrechner</a>
+          <a href="kurzarbeitergeld.html">Kurzarbeitergeld</a>
+          <a href="pendlerpauschale.html">Pendlerpauschale</a>
+          <a href="elterngeldrechner.html">Elterngeldrechner</a>
+        </div>
+      </div>
+      <div>
+        <h4>Rente &amp; Soziales</h4>
+        <div class="site-footer__links">
+          <a href="rentenrechner.html">Rentenrechner</a>
+          <a href="rentenpunkte.html">Rentenpunkte</a>
+          <a href="riester-rente.html">Riester-Rente</a>
+          <a href="witwenrente.html">Witwenrente</a>
+          <a href="arbeitslosengeld-rechner.html">ALG I Rechner</a>
+          <a href="buergergeld-rechner.html">Bürgergeld</a>
+        </div>
+      </div>
+      <div>
+        <h4>Studium &amp; mehr</h4>
+        <div class="site-footer__links">
+          <a href="bafoeg-rechner.html">BAföG-Rechner</a>
+          <a href="bafoeg-rueckzahlung.html">BAföG-Rückzahlung</a>
+          <a href="grundsicherung.html">Grundsicherung</a>
+        </div>
+      </div>
+    </div>
+    <div class="site-footer__bottom">
+      <span>&copy; 2026 Rechner-Online.info &mdash; Alle Angaben ohne Gewähr</span>
+      <div class="site-footer__legal">
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ══════════════════════════════════════════════════════════
+   STEUERRECHNER 2026 — German Tax Calculation Engine
+   
+   Sources:
+   - BMF Programmablaufplan 2026 (published 12.11.2025)
+   - §32a EStG (Einkommensteuertarif 2026)
+   - Steuerfortentwicklungsgesetz
+   - Sozialversicherungs-Rechengrößenverordnung 2026
+   
+   IMPORTANT: Verify results against bmf-steuerrechner.de
+   This implementation follows the official PAP logic.
+   ══════════════════════════════════════════════════════════ */
+
+const Steuer2026 = (() => {
+  'use strict';
+
+  // ══════════════════════════════════════════════════════
+  // CONSTANTS — Steuerdaten 2026
+  // ══════════════════════════════════════════════════════
+
+  const CONST = Object.freeze({
+    YEAR: 2026,
+
+    // Grundfreibetrag §32a EStG
+    GRUNDFREIBETRAG: 12348,
+
+    // Kinderfreibetrag (both parents combined)
+    KINDERFREIBETRAG: 9756,
+
+    // Einkommensteuertarif §32a — zone boundaries
+    TARIF_ZONE2_BIS: 17005,
+    TARIF_ZONE3_BIS: 66760,
+    TARIF_ZONE4_BIS: 277825,
+
+    // Einkommensteuertarif §32a — coefficients
+    // Zone 2: (a * y + 1400) * y, y = (zvE - GF) / 10000
+    TARIF_ZONE2_A: 922.98,
+    TARIF_ZONE2_B: 1400,
+    // Zone 3: (a * z + b) * z + c, z = (zvE - 17005) / 10000
+    TARIF_ZONE3_A: 181.19,
+    TARIF_ZONE3_B: 2397,
+    TARIF_ZONE3_C: 1025.38,
+    // Zone 4: 0.42 * zvE - offset
+    TARIF_ZONE4_SATZ: 0.42,
+    TARIF_ZONE4_ABZUG: 10636.31,
+    // Zone 5: 0.45 * zvE - offset
+    TARIF_ZONE5_SATZ: 0.45,
+    TARIF_ZONE5_ABZUG: 18971.06,
+
+    // Solidaritätszuschlag
+    SOLI_SATZ: 0.055,
+    SOLI_FREIGRENZE: 18130,       // Jahres-LSt Freigrenze (StKl I equivalent)
+    SOLI_FREIGRENZE_VERHEIRATET: 36260,
+
+    // Kirchensteuer by Bundesland
+    KIRCHENSTEUER: {
+      'Baden-Württemberg': 0.08,
+      'Bayern': 0.08,
+      'Berlin': 0.09,
+      'Brandenburg': 0.09,
+      'Bremen': 0.09,
+      'Hamburg': 0.09,
+      'Hessen': 0.09,
+      'Mecklenburg-Vorpommern': 0.09,
+      'Niedersachsen': 0.09,
+      'Nordrhein-Westfalen': 0.09,
+      'Rheinland-Pfalz': 0.09,
+      'Saarland': 0.09,
+      'Sachsen': 0.09,
+      'Sachsen-Anhalt': 0.09,
+      'Schleswig-Holstein': 0.09,
+      'Thüringen': 0.09,
+    },
+
+    // ── Sozialversicherung 2026 ──
+
+    // Beitragsbemessungsgrenzen (monthly)
+    BBG_KV_MONAT: 5812.50,    // KV + PV
+    BBG_RV_MONAT: 8450.00,    // RV + AV (unified Ost/West since 2025)
+
+    // Beitragssätze (Gesamtsatz)
+    KV_SATZ: 0.146,            // 14.6% gesamt
+    KV_ZUSATZ_DEFAULT: 0.029,  // 2.9% durchschnittlicher Zusatzbeitrag
+    PV_SATZ: 0.036,            // 3.6% gesamt
+    RV_SATZ: 0.186,            // 18.6% gesamt
+    AV_SATZ: 0.026,            // 2.6% gesamt
+
+    // Pflegeversicherung — AN rates by number of children
+    // (outside Sachsen)
+    PV_AN_RATE: {
+      kinderlos: 0.023,    // base 1.8% + 0.6% Zuschlag (> 23 Jahre, kinderlos)
+      kinder_1: 0.017,     // base 1.8% - applies even if child > 24
+      kinder_2: 0.0145,    // -0.25% per child under 25
+      kinder_3: 0.012,
+      kinder_4: 0.0095,
+      kinder_5plus: 0.007,
+    },
+
+    // Sachsen: AN pays 0.5% more, AG 0.5% less
+    PV_SACHSEN_AN_EXTRA: 0.005,
+
+    // Minijob-Grenze
+    MINIJOB_GRENZE: 556,       // 2026 monthly
+
+    // Versicherungspflichtgrenze PKV
+    VERSICHERUNGSPFLICHTGRENZE: 77400,
+
+    // Werbungskostenpauschale
+    WERBUNGSKOSTEN_PAUSCHALE: 1230,
+
+    // Sonderausgabenpauschale
+    SONDERAUSGABEN_PAUSCHALE: 36,
+
+    // Vorsorgepauschale max
+    VORSORGE_MAX_KV: 1900,    // für AN (Steuerklasse I/II/IV/V/VI)
+    VORSORGE_MAX_KV_3: 3000,  // für Steuerklasse III
+
+    MONTHS: 12,
+  });
+
+  // Bundesländer list
+  const BUNDESLAENDER = [
+    'Baden-Württemberg', 'Bayern', 'Berlin', 'Brandenburg',
+    'Bremen', 'Hamburg', 'Hessen', 'Mecklenburg-Vorpommern',
+    'Niedersachsen', 'Nordrhein-Westfalen', 'Rheinland-Pfalz',
+    'Saarland', 'Sachsen', 'Sachsen-Anhalt',
+    'Schleswig-Holstein', 'Thüringen'
+  ];
+
+  // ══════════════════════════════════════════════════════
+  // EINKOMMENSTEUER — §32a EStG
+  // ══════════════════════════════════════════════════════
+
+  /**
+   * Calculate Einkommensteuer for a given zvE (zu versteuerndes Einkommen).
+   * Implements §32a EStG 2026 tariff.
+   * @param {number} zvE - zu versteuerndes Einkommen (yearly, Euro)
+   * @returns {number} Einkommensteuer in Euro (floored to full Euro)
+   */
+  function einkommensteuer(zvE) {
+    zvE = Math.floor(zvE);
+    if (zvE <= 0) return 0;
+
+    let est;
+    if (zvE <= CONST.GRUNDFREIBETRAG) {
+      est = 0;
+    } else if (zvE <= CONST.TARIF_ZONE2_BIS) {
+      const y = (zvE - CONST.GRUNDFREIBETRAG) / 10000;
+      est = (CONST.TARIF_ZONE2_A * y + CONST.TARIF_ZONE2_B) * y;
+    } else if (zvE <= CONST.TARIF_ZONE3_BIS) {
+      const z = (zvE - CONST.TARIF_ZONE2_BIS) / 10000;
+      est = (CONST.TARIF_ZONE3_A * z + CONST.TARIF_ZONE3_B) * z + CONST.TARIF_ZONE3_C;
+    } else if (zvE <= CONST.TARIF_ZONE4_BIS) {
+      est = CONST.TARIF_ZONE4_SATZ * zvE - CONST.TARIF_ZONE4_ABZUG;
+    } else {
+      est = CONST.TARIF_ZONE5_SATZ * zvE - CONST.TARIF_ZONE5_ABZUG;
+    }
+    return Math.floor(est);
+  }
+
+  // ══════════════════════════════════════════════════════
+  // LOHNSTEUER — Simplified
+  // ══════════════════════════════════════════════════════
+
+  /**
+   * Approximate the annual Lohnsteuer based on input parameters.
+   * This is a simplified version — the full PAP has ~200 steps.
+   * For official calculations, use bmf-steuerrechner.de
+   */
+  function lohnsteuer(params) {
+    const {
+      bruttoJahr,
+      steuerklasse = 1,
+      kirchensteuer = false,
+      bundesland = 'Nordrhein-Westfalen',
+      kinderfreibetrag = 0,
+      steuerfreibetrag = 0,
+      geldwerterVorteil = 0,
+    } = params;
+
+    // Jahresbrutto inklusive geldwerter Vorteil
+    const brutto = bruttoJahr + geldwerterVorteil * 12;
+
+    // Determine if married splitting applies
+    const isSplitting = steuerklasse === 3 || steuerklasse === 4;
+    const isPartnerLow = steuerklasse === 5;
+    const isStKl6 = steuerklasse === 6;
+
+    // Werbungskosten
+    const werbungskosten = isStKl6 ? 0 : CONST.WERBUNGSKOSTEN_PAUSCHALE;
+
+    // Sonderausgaben
+    const sonderausgaben = isStKl6 ? 0 : CONST.SONDERAUSGABEN_PAUSCHALE;
+
+    // Vorsorgepauschale (simplified)
+    const bbgRvJahr = CONST.BBG_RV_MONAT * 12;
+    const rvBrutto = Math.min(brutto, bbgRvJahr);
+    const vorsorgeRV = rvBrutto * (CONST.RV_SATZ / 2); // AN-Anteil RV
+
+    const bbgKvJahr = CONST.BBG_KV_MONAT * 12;
+    const kvBrutto = Math.min(brutto, bbgKvJahr);
+    const vorsorgeKV = kvBrutto * ((CONST.KV_SATZ + CONST.KV_ZUSATZ_DEFAULT) / 2);
+
+    // Simplified Vorsorgepauschale
+    const vorsorgepauschale = vorsorgeRV + vorsorgeKV;
+
+    // zu versteuerndes Einkommen
+    let zvE = brutto - werbungskosten - sonderausgaben - vorsorgepauschale - steuerfreibetrag;
+
+    // Kinderfreibetrag for Soli/KiSt calculation
+    const kinderfreibetragJahr = kinderfreibetrag * CONST.KINDERFREIBETRAG;
+
+    // Steuerklasse adjustments
+    let lstJahr;
+    if (steuerklasse === 3) {
+      // Splitting: double the Grundfreibetrag effectively
+      zvE = Math.max(0, zvE);
+      lstJahr = einkommensteuer(zvE / 2) * 2;
+    } else if (steuerklasse === 5) {
+      // Higher rate, no Grundfreibetrag
+      zvE = Math.max(0, zvE);
+      lstJahr = einkommensteuer(zvE);
+      // StKl V: use special calculation (simplified: use full tariff)
+    } else if (steuerklasse === 2) {
+      // Alleinerziehendenentlastung: 4260€
+      zvE = Math.max(0, zvE - 4260);
+      lstJahr = einkommensteuer(zvE);
+    } else if (steuerklasse === 6) {
+      // No Freibeträge
+      zvE = Math.max(0, brutto - vorsorgepauschale);
+      lstJahr = einkommensteuer(zvE);
+    } else {
+      // StKl 1 and 4
+      zvE = Math.max(0, zvE);
+      lstJahr = einkommensteuer(zvE);
+    }
+
+    // Solidaritätszuschlag
+    const soliFreigrenze = (steuerklasse === 3)
+      ? CONST.SOLI_FREIGRENZE_VERHEIRATET
+      : CONST.SOLI_FREIGRENZE;
+
+    // For Soli, use LSt minus Kinderfreibetrag effect
+    const zvEFuerSoli = Math.max(0, zvE - kinderfreibetragJahr);
+    let lstFuerSoli;
+    if (steuerklasse === 3) {
+      lstFuerSoli = einkommensteuer(zvEFuerSoli / 2) * 2;
+    } else {
+      lstFuerSoli = einkommensteuer(zvEFuerSoli);
+    }
+
+    let soli = 0;
+    if (lstFuerSoli > soliFreigrenze) {
+      soli = lstFuerSoli * CONST.SOLI_SATZ;
+      // Milderungszone: max 11.9% of difference
+      const milderung = (lstFuerSoli - soliFreigrenze) * 0.119;
+      soli = Math.min(soli, milderung);
+    }
+    soli = Math.floor(soli * 100) / 100;
+
+    // Kirchensteuer
+    let kist = 0;
+    if (kirchensteuer) {
+      const kistSatz = CONST.KIRCHENSTEUER[bundesland] || 0.09;
+      // For KiSt, also apply Kinderfreibetrag
+      let lstFuerKist;
+      if (steuerklasse === 3) {
+        lstFuerKist = einkommensteuer(Math.max(0, zvE - kinderfreibetragJahr) / 2) * 2;
+      } else {
+        lstFuerKist = einkommensteuer(Math.max(0, zvE - kinderfreibetragJahr));
+      }
+      kist = lstFuerKist * kistSatz;
+    }
+    kist = Math.floor(kist * 100) / 100;
+
+    return {
+      lohnsteuer: Math.round(lstJahr * 100) / 100,
+      soli: soli,
+      kirchensteuer: kist,
+      steuerGesamt: Math.round((lstJahr + soli + kist) * 100) / 100,
+    };
+  }
+
+  // ══════════════════════════════════════════════════════
+  // SOZIALVERSICHERUNG
+  // ══════════════════════════════════════════════════════
+
+  /**
+   * Calculate monthly social insurance contributions (Arbeitnehmeranteil).
+   */
+  function sozialversicherung(params) {
+    const {
+      bruttoMonat,
+      bundesland = 'Nordrhein-Westfalen',
+      krankenversicherung = 'gesetzlich', // 'gesetzlich', 'privat', 'freiwillig'
+      kvZusatzbeitrag = CONST.KV_ZUSATZ_DEFAULT,
+      pkvBeitrag = 0,
+      arbeitgeberzuschussPKV = true,
+      rentenversichert = true,
+      arbeitslosenversichert = true,
+      kinderAnzahl = 0, // children under 25 for PV
+      hatKinder = false,
+      alter = 30,
+    } = params;
+
+    const isSachsen = bundesland === 'Sachsen';
+    const result = {
+      kv: { an: 0, ag: 0 },
+      pv: { an: 0, ag: 0 },
+      rv: { an: 0, ag: 0 },
+      av: { an: 0, ag: 0 },
+      summeAN: 0,
+      summeAG: 0,
+    };
+
+    // ── Krankenversicherung ──
+    if (krankenversicherung === 'gesetzlich' || krankenversicherung === 'freiwillig') {
+      const basisKV = Math.min(bruttoMonat, CONST.BBG_KV_MONAT);
+      const kvAnSatz = (CONST.KV_SATZ / 2) + (kvZusatzbeitrag / 2);
+      const kvAgSatz = (CONST.KV_SATZ / 2) + (kvZusatzbeitrag / 2);
+      result.kv.an = round2(basisKV * kvAnSatz);
+      result.kv.ag = round2(basisKV * kvAgSatz);
+    } else if (krankenversicherung === 'privat') {
+      result.kv.an = round2(pkvBeitrag);
+      if (arbeitgeberzuschussPKV) {
+        // AG pays max half of what GKV would cost
+        const maxAGZuschuss = Math.min(bruttoMonat, CONST.BBG_KV_MONAT) *
+          ((CONST.KV_SATZ / 2) + (CONST.KV_ZUSATZ_DEFAULT / 2));
+        result.kv.ag = round2(Math.min(pkvBeitrag / 2, maxAGZuschuss));
+      }
+    }
+
+    // ── Pflegeversicherung ──
+    if (krankenversicherung !== 'privat') {
+      const basisPV = Math.min(bruttoMonat, CONST.BBG_KV_MONAT);
+
+      // Determine AN rate based on children and age
+      let pvAnRate;
+      if (!hatKinder && alter >= 23) {
+        pvAnRate = CONST.PV_AN_RATE.kinderlos; // 2.3%
+      } else if (kinderAnzahl <= 1) {
+        pvAnRate = CONST.PV_AN_RATE.kinder_1; // 1.7%
+      } else if (kinderAnzahl === 2) {
+        pvAnRate = CONST.PV_AN_RATE.kinder_2; // 1.45%
+      } else if (kinderAnzahl === 3) {
+        pvAnRate = CONST.PV_AN_RATE.kinder_3; // 1.2%
+      } else if (kinderAnzahl === 4) {
+        pvAnRate = CONST.PV_AN_RATE.kinder_4; // 0.95%
+      } else {
+        pvAnRate = CONST.PV_AN_RATE.kinder_5plus; // 0.7%
+      }
+
+      // Sachsen: AN pays 0.5% more
+      if (isSachsen) {
+        pvAnRate += CONST.PV_SACHSEN_AN_EXTRA;
+      }
+
+      // AG rate = total - AN rate
+      const pvAgRate = CONST.PV_SATZ - pvAnRate + (isSachsen ? CONST.PV_SACHSEN_AN_EXTRA : 0);
+      // Actually: AG rate in Sachsen is 0.5% less
+      const pvAgRateActual = isSachsen
+        ? (CONST.PV_SATZ - pvAnRate)
+        : (CONST.PV_SATZ - pvAnRate);
+
+      result.pv.an = round2(basisPV * pvAnRate);
+      result.pv.ag = round2(basisPV * (CONST.PV_SATZ - pvAnRate));
+    }
+
+    // ── Rentenversicherung ──
+    if (rentenversichert) {
+      const basisRV = Math.min(bruttoMonat, CONST.BBG_RV_MONAT);
+      result.rv.an = round2(basisRV * (CONST.RV_SATZ / 2));
+      result.rv.ag = round2(basisRV * (CONST.RV_SATZ / 2));
+    }
+
+    // ── Arbeitslosenversicherung ──
+    if (arbeitslosenversichert) {
+      const basisAV = Math.min(bruttoMonat, CONST.BBG_RV_MONAT);
+      result.av.an = round2(basisAV * (CONST.AV_SATZ / 2));
+      result.av.ag = round2(basisAV * (CONST.AV_SATZ / 2));
+    }
+
+    // Summen
+    result.summeAN = round2(result.kv.an + result.pv.an + result.rv.an + result.av.an);
+    result.summeAG = round2(result.kv.ag + result.pv.ag + result.rv.ag + result.av.ag);
+
+    return result;
+  }
+
+  // ══════════════════════════════════════════════════════
+  // BRUTTO-NETTO HAUPTBERECHNUNG
+  // ══════════════════════════════════════════════════════
+
+  /**
+   * Full Brutto-Netto calculation.
+   * @param {Object} input
+   * @returns {Object} Complete breakdown
+   */
+  function bruttoNetto(input) {
+    const {
+      brutto,
+      zeitraum = 'monat',              // 'monat' or 'jahr'
+      steuerklasse = 1,
+      bundesland = 'Nordrhein-Westfalen',
+      kirchensteuer = false,
+      krankenversicherung = 'gesetzlich',
+      kvZusatzbeitrag = CONST.KV_ZUSATZ_DEFAULT,
+      pkvBeitrag = 0,
+      arbeitgeberzuschussPKV = true,
+      rentenversichert = true,
+      arbeitslosenversichert = true,
+      hatKinder = false,
+      kinderfreibetrag = 0,
+      kinderUnter25 = 0,
+      alter = 30,
+      steuerfreibetrag = 0,
+      geldwerterVorteil = 0,
+    } = input;
+
+    // Normalize to monthly and yearly
+    const bruttoMonat = zeitraum === 'jahr' ? brutto / 12 : brutto;
+    const bruttoJahr = zeitraum === 'jahr' ? brutto : brutto * 12;
+
+    // ── Steuern (yearly, then /12) ──
+    const steuern = lohnsteuer({
+      bruttoJahr,
+      steuerklasse,
+      kirchensteuer,
+      bundesland,
+      kinderfreibetrag,
+      steuerfreibetrag,
+      geldwerterVorteil,
+    });
+
+    const steuerMonat = {
+      lohnsteuer: round2(steuern.lohnsteuer / 12),
+      soli: round2(steuern.soli / 12),
+      kirchensteuer: round2(steuern.kirchensteuer / 12),
+      gesamt: round2(steuern.steuerGesamt / 12),
+    };
+
+    // ── Sozialversicherung (monthly) ──
+    const sv = sozialversicherung({
+      bruttoMonat: bruttoMonat + geldwerterVorteil,
+      bundesland,
+      krankenversicherung,
+      kvZusatzbeitrag,
+      pkvBeitrag,
+      arbeitgeberzuschussPKV,
+      rentenversichert,
+      arbeitslosenversichert,
+      kinderAnzahl: kinderUnter25,
+      hatKinder,
+      alter,
+    });
+
+    // ── Netto ──
+    const abzuegeMonat = round2(steuerMonat.gesamt + sv.summeAN);
+    const nettoMonat = round2(bruttoMonat - abzuegeMonat);
+    const nettoJahr = round2(nettoMonat * 12);
+
+    return {
+      input: {
+        bruttoMonat,
+        bruttoJahr,
+        geldwerterVorteil,
+        steuerklasse,
+        bundesland,
+      },
+      steuern: {
+        lohnsteuer: steuerMonat.lohnsteuer,
+        soli: steuerMonat.soli,
+        kirchensteuer: steuerMonat.kirchensteuer,
+        gesamt: steuerMonat.gesamt,
+        // Yearly values
+        lohnsteuerJahr: steuern.lohnsteuer,
+        soliJahr: steuern.soli,
+        kirchensteuerJahr: steuern.kirchensteuer,
+        gesamtJahr: steuern.steuerGesamt,
+      },
+      sozialversicherung: {
+        kv: sv.kv.an,
+        pv: sv.pv.an,
+        rv: sv.rv.an,
+        av: sv.av.an,
+        gesamt: sv.summeAN,
+        // AG
+        agKV: sv.kv.ag,
+        agPV: sv.pv.ag,
+        agRV: sv.rv.ag,
+        agAV: sv.av.ag,
+        agGesamt: sv.summeAG,
+      },
+      ergebnis: {
+        bruttoMonat,
+        bruttoJahr,
+        nettoMonat,
+        nettoJahr,
+        abzuegeMonat,
+        abzuegeJahr: round2(abzuegeMonat * 12),
+        steuerquote: bruttoMonat > 0 ? round2(steuerMonat.gesamt / bruttoMonat * 100) : 0,
+        svQuote: bruttoMonat > 0 ? round2(sv.summeAN / bruttoMonat * 100) : 0,
+        nettoQuote: bruttoMonat > 0 ? round2(nettoMonat / bruttoMonat * 100) : 0,
+      },
+    };
+  }
+
+  // ══════════════════════════════════════════════════════
+  // HELPERS
+  // ══════════════════════════════════════════════════════
+
+  function round2(n) {
+    return Math.round(n * 100) / 100;
+  }
+
+  /** Format number as German currency string */
+  function formatEuro(n, decimals = 2) {
+    return n.toLocaleString('de-DE', {
+      minimumFractionDigits: decimals,
+      maximumFractionDigits: decimals,
+    }) + ' €';
+  }
+
+  /** Format percentage */
+  function formatProzent(n, decimals = 1) {
+    return n.toLocaleString('de-DE', {
+      minimumFractionDigits: decimals,
+      maximumFractionDigits: decimals,
+    }) + ' %';
+  }
+
+  // ══════════════════════════════════════════════════════
+  // PUBLIC API
+  // ══════════════════════════════════════════════════════
+
+  return {
+    CONST,
+    BUNDESLAENDER,
+    einkommensteuer,
+    lohnsteuer,
+    sozialversicherung,
+    bruttoNetto,
+    formatEuro,
+    formatProzent,
+  };
+})();
+
+// Make available globally
+if (typeof window !== 'undefined') window.Steuer2026 = Steuer2026;
+if (typeof module !== 'undefined') module.exports = Steuer2026;
+
+</script>
+<script>
+/* ══════════════════════════════════════════════════════════
+   UI UTILITIES — Shared UI helpers for all calculator pages
+   ══════════════════════════════════════════════════════════ */
+
+const RechnerUI = (() => {
+  'use strict';
+
+  // ── Mobile Navigation ──
+  function initNav() {
+    const toggle = document.querySelector('.nav-toggle');
+    const nav = document.querySelector('.main-nav');
+    if (toggle && nav) {
+      toggle.addEventListener('click', () => {
+        nav.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', nav.classList.contains('open'));
+      });
+      // Close on outside click
+      document.addEventListener('click', (e) => {
+        if (!toggle.contains(e.target) && !nav.contains(e.target)) {
+          nav.classList.remove('open');
+          toggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
+  }
+
+  // ── FAQ Accordion ──
+  function initFAQ() {
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.parentElement;
+        const answer = item.querySelector('.faq-answer');
+        const isOpen = item.classList.contains('open');
+
+        // Close all others
+        document.querySelectorAll('.faq-item.open').forEach(openItem => {
+          if (openItem !== item) {
+            openItem.classList.remove('open');
+            openItem.querySelector('.faq-answer').style.maxHeight = '0';
+          }
+        });
+
+        if (isOpen) {
+          item.classList.remove('open');
+          answer.style.maxHeight = '0';
+        } else {
+          item.classList.add('open');
+          answer.style.maxHeight = answer.scrollHeight + 'px';
+        }
+      });
+    });
+  }
+
+  // ── Number Input Formatting ──
+  function initEuroInputs() {
+    document.querySelectorAll('.form-input[data-type="euro"]').forEach(input => {
+      input.addEventListener('blur', () => {
+        let val = parseGermanNumber(input.value);
+        if (!isNaN(val) && val > 0) {
+          input.value = val.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        }
+      });
+      input.addEventListener('focus', () => {
+        let val = parseGermanNumber(input.value);
+        if (!isNaN(val)) {
+          input.value = val.toString().replace('.', ',');
+        }
+      });
+    });
+  }
+
+  /** Parse German number format (1.234,56 → 1234.56) */
+  function parseGermanNumber(str) {
+    if (typeof str === 'number') return str;
+    if (!str) return 0;
+    return parseFloat(str.toString().replace(/\./g, '').replace(',', '.')) || 0;
+  }
+
+  // ── Donut Chart ──
+  /**
+   * Draw a donut chart using SVG.
+   * @param {string} containerId - ID of the container element
+   * @param {Array} segments - [{label, value, color}]
+   * @param {string} centerText - Text to show in center
+   */
+  function drawDonut(containerId, segments, centerText, centerLabel) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+
+    const total = segments.reduce((sum, s) => sum + s.value, 0);
+    if (total <= 0) {
+      container.innerHTML = '<p style="text-align:center;color:var(--color-text-muted);padding:2rem;">Bitte Bruttoeinkommen eingeben</p>';
+      return;
+    }
+
+    const size = 200;
+    const cx = size / 2, cy = size / 2;
+    const outerR = 90, innerR = 60;
+    const gap = 0.02; // gap between segments in radians
+
+    let currentAngle = 0;
+    let paths = '';
+
+    segments.forEach(seg => {
+      if (seg.value <= 0) return;
+      const fraction = seg.value / total;
+      const startAngle = currentAngle + gap / 2;
+      const endAngle = currentAngle + fraction * Math.PI * 2 - gap / 2;
+
+      if (endAngle - startAngle < 0.01) {
+        currentAngle += fraction * Math.PI * 2;
+        return;
+      }
+
+      const x1o = cx + outerR * Math.cos(startAngle);
+      const y1o = cy + outerR * Math.sin(startAngle);
+      const x2o = cx + outerR * Math.cos(endAngle);
+      const y2o = cy + outerR * Math.sin(endAngle);
+      const x1i = cx + innerR * Math.cos(endAngle);
+      const y1i = cy + innerR * Math.sin(endAngle);
+      const x2i = cx + innerR * Math.cos(startAngle);
+      const y2i = cy + innerR * Math.sin(startAngle);
+
+      const largeArc = fraction > 0.5 ? 1 : 0;
+
+      paths += `<path d="M ${x1o} ${y1o} A ${outerR} ${outerR} 0 ${largeArc} 1 ${x2o} ${y2o} L ${x1i} ${y1i} A ${innerR} ${innerR} 0 ${largeArc} 0 ${x2i} ${y2i} Z" fill="${seg.color}" opacity="0.9"><title>${seg.label}: ${Steuer2026.formatEuro(seg.value)}</title></path>`;
+
+      currentAngle += fraction * Math.PI * 2;
+    });
+
+    container.innerHTML = `
+      <div class="donut-chart">
+        <svg viewBox="0 0 ${size} ${size}" role="img" aria-label="Gehaltsaufteilung">
+          ${paths}
+        </svg>
+        <div class="donut-chart__center">
+          <div class="donut-chart__center-value">${centerText}</div>
+          <div class="donut-chart__center-label">${centerLabel || ''}</div>
+        </div>
+      </div>
+    `;
+
+    // Legend
+    const legendHTML = segments.filter(s => s.value > 0).map(s =>
+      `<span class="chart-legend__item"><span class="chart-legend__dot" style="background:${s.color}"></span>${s.label}</span>`
+    ).join('');
+    
+    // Insert legend after chart
+    const legendEl = container.parentElement.querySelector('.chart-legend');
+    if (legendEl) legendEl.innerHTML = legendHTML;
+  }
+
+  // ── Form Binding Helper ──
+  /**
+   * Collect all form values from a calculator form.
+   * Uses data-field attributes on inputs.
+   */
+  function collectFormValues(formId) {
+    const form = document.getElementById(formId);
+    if (!form) return {};
+    const values = {};
+    form.querySelectorAll('[data-field]').forEach(el => {
+      const field = el.dataset.field;
+      const type = el.dataset.type || 'text';
+
+      if (el.type === 'radio') {
+        if (el.checked) values[field] = type === 'number' ? parseFloat(el.value) : el.value;
+      } else if (el.type === 'checkbox') {
+        values[field] = el.checked;
+      } else if (type === 'euro' || type === 'number') {
+        values[field] = parseGermanNumber(el.value);
+      } else if (type === 'percent') {
+        values[field] = parseGermanNumber(el.value) / 100;
+      } else {
+        values[field] = el.value;
+      }
+    });
+    return values;
+  }
+
+  /**
+   * Bind onChange/onInput to all form fields and trigger a callback.
+   */
+  function bindCalculation(formId, callback) {
+    const form = document.getElementById(formId);
+    if (!form) return;
+    const handler = () => {
+      const values = collectFormValues(formId);
+      try {
+        callback(values);
+      } catch (e) {
+        console.error('Calculation error:', e);
+      }
+    };
+    form.querySelectorAll('input, select').forEach(el => {
+      el.addEventListener('input', handler);
+      el.addEventListener('change', handler);
+    });
+    // Initial calculation
+    handler();
+  }
+
+  // ── Smooth Number Animation ──
+  function animateValue(elementId, newValue, duration = 300) {
+    const el = document.getElementById(elementId);
+    if (!el) return;
+    el.textContent = Steuer2026.formatEuro(newValue);
+  }
+
+  // ── Init All ──
+  function init() {
+    initNav();
+    initFAQ();
+    initEuroInputs();
+  }
+
+  // Auto-init on DOMContentLoaded
+  if (typeof document !== 'undefined') {
+    document.addEventListener('DOMContentLoaded', init);
+  }
+
+  return {
+    init,
+    initNav,
+    initFAQ,
+    parseGermanNumber,
+    drawDonut,
+    collectFormValues,
+    bindCalculation,
+    animateValue,
+    formatEuro: (n) => Steuer2026.formatEuro(n),
+  };
+})();
+
+if (typeof window !== 'undefined') window.RechnerUI = RechnerUI;
+
+</script>
+</body>
+</html>

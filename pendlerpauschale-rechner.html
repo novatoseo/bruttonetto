@@ -1,0 +1,522 @@
+---
+title: "Pendlerpauschale-Rechner 2026 – Entfernungspauschale berechnen"
+description: "Pendlerpauschale 2026 berechnen: Ermitteln Sie Ihre Entfernungspauschale, den Überschuss über den Pauschbetrag und Ihre tatsächliche Steuerersparnis — inklusive erhöhter Fernpendlerpauschale ab dem 21. Kilometer."
+slug: pendlerpauschale-rechner
+layout: calculator
+---
+
+<main id="main-content">
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <h1>Pendlerpauschale-Rechner 2026</h1>
+      <p>Berechnen Sie Ihre Entfernungspauschale für den Arbeitsweg und ermitteln Sie, wie viel Steuern Sie tatsächlich sparen. Mit erhöhter Fernpendlerpauschale von 0,38 € ab dem 21. Kilometer.</p>
+    </div>
+  </section>
+
+  <!-- Calculator -->
+  <div class="container">
+    <div class="calc-layout" id="calc-form">
+
+      <!-- Form -->
+      <div class="calc-form-wrap">
+
+        <div class="form-section">
+          <h2 class="form-section__title">
+            <span class="form-section__icon">🚗</span> Arbeitsweg
+          </h2>
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label" for="entfernung">
+                Einfache Entfernung
+                <span class="form-label__help" title="Kürzeste Straßenverbindung zwischen Wohnung und erster Tätigkeitsstätte — nur der einfache Weg (eine Richtung), nicht Hin- und Rückfahrt.">?</span>
+              </label>
+              <div class="input-wrapper">
+                <input class="form-input" type="text" id="entfernung"
+                       data-field="entfernung" data-type="number" value="30" inputmode="decimal">
+                <span class="input-suffix">km</span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="arbeitstage">
+                Arbeitstage pro Jahr
+                <span class="form-label__help" title="Typisch: 220–230 bei 5-Tage-Woche abzüglich Urlaub, Feiertagen und Krankheit. Das Finanzamt akzeptiert maximal 230 Tage bei einer 5-Tage-Woche.">?</span>
+              </label>
+              <div class="input-wrapper">
+                <input class="form-input" type="text" id="arbeitstage"
+                       data-field="arbeitstage" data-type="number" value="230" inputmode="numeric">
+                <span class="input-suffix">Tage</span>
+              </div>
+            </div>
+            <div class="form-group form-group--full">
+              <label class="form-label">Verkehrsmittel</label>
+              <div class="radio-group" data-field="verkehrsmittel">
+                <label><input type="radio" name="verkehrsmittel" value="auto" checked> Auto</label>
+                <label><input type="radio" name="verkehrsmittel" value="oepnv"> ÖPNV</label>
+                <label><input type="radio" name="verkehrsmittel" value="fahrrad"> Fahrrad</label>
+                <label><input type="radio" name="verkehrsmittel" value="motorrad"> Motorrad</label>
+              </div>
+            </div>
+            <div class="form-group form-group--full" id="oepnv-group" style="display:none;">
+              <label class="form-label" for="ticketkosten">
+                ÖPNV-Jahresticket
+                <span class="form-label__help" title="Jährliche Kosten für Ihr ÖPNV-Ticket (z.B. Deutschlandticket: 588 €/Jahr). Wird mit der Pendlerpauschale verglichen — das Finanzamt berücksichtigt den höheren Betrag.">?</span>
+              </label>
+              <div class="input-wrapper">
+                <input class="form-input form-input--euro" type="text" id="ticketkosten"
+                       data-field="ticketkosten" data-type="euro" value="588" inputmode="decimal">
+                <span class="input-suffix">€</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <h2 class="form-section__title">
+            <span class="form-section__icon">📋</span> Steuerliche Angaben
+          </h2>
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label" for="brutto">
+                Bruttogehalt monatlich
+                <span class="form-label__help" title="Ihr monatliches Bruttoeinkommen — wird benötigt, um die tatsächliche Steuerersparnis zu berechnen.">?</span>
+              </label>
+              <div class="input-wrapper">
+                <input class="form-input form-input--euro" type="text" id="brutto"
+                       data-field="brutto" data-type="euro" value="3.500" inputmode="decimal">
+                <span class="input-suffix">€</span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="steuerklasse">Steuerklasse</label>
+              <select class="form-select" id="steuerklasse" data-field="steuerklasse">
+                <option value="1" selected>I</option>
+                <option value="2">II</option>
+                <option value="3">III</option>
+                <option value="4">IV</option>
+                <option value="5">V</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="bundesland">Bundesland</label>
+              <select class="form-select" id="bundesland" data-field="bundesland">
+                <option value="baden-wuerttemberg">Baden-Württemberg</option>
+                <option value="bayern">Bayern</option>
+                <option value="berlin">Berlin</option>
+                <option value="brandenburg">Brandenburg</option>
+                <option value="bremen">Bremen</option>
+                <option value="hamburg">Hamburg</option>
+                <option value="hessen">Hessen</option>
+                <option value="mecklenburg-vorpommern">Mecklenburg-Vorpommern</option>
+                <option value="niedersachsen">Niedersachsen</option>
+                <option value="nordrhein-westfalen" selected>Nordrhein-Westfalen</option>
+                <option value="rheinland-pfalz">Rheinland-Pfalz</option>
+                <option value="saarland">Saarland</option>
+                <option value="sachsen">Sachsen</option>
+                <option value="sachsen-anhalt">Sachsen-Anhalt</option>
+                <option value="schleswig-holstein">Schleswig-Holstein</option>
+                <option value="thueringen">Thüringen</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="kirchensteuer">Kirchensteuer</label>
+              <select class="form-select" id="kirchensteuer" data-field="kirchensteuer">
+                <option value="ja">Ja</option>
+                <option value="nein" selected>Nein</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Results -->
+      <div class="calc-results-wrap">
+
+        <div class="results-panel">
+          <div class="results-panel__header">
+            <span>Ihre Pendlerpauschale</span>
+          </div>
+          <div class="results-panel__body">
+
+            <div class="result-netto">
+              <span class="result-netto__label">Jährliche Pendlerpauschale</span>
+              <span class="result-netto__value" id="res-pauschale">0,00 €</span>
+              <span class="result-netto__period" id="res-pro-tag">0,00 € pro Arbeitstag</span>
+            </div>
+
+            <div class="result-rows">
+              <div class="result-row result-row--header">
+                <span class="result-row__label">Berechnung der Pauschale</span>
+                <span class="result-row__value">Jahr</span>
+              </div>
+              <div class="result-row">
+                <span class="result-row__label" id="res-label-bis20">Erste 20 km × 0,30 €</span>
+                <span class="result-row__value" id="res-bis20">0,00 €</span>
+              </div>
+              <div class="result-row" id="row-ab21" style="display:none;">
+                <span class="result-row__label" id="res-label-ab21">Ab 21. km × 0,38 €</span>
+                <span class="result-row__value" id="res-ab21">0,00 €</span>
+              </div>
+              <div class="result-row result-row--total">
+                <span class="result-row__label">Pendlerpauschale gesamt</span>
+                <span class="result-row__value" id="res-gesamt">0,00 €</span>
+              </div>
+            </div>
+
+            <div class="result-rows" style="margin-top:1rem;">
+              <div class="result-row result-row--header">
+                <span class="result-row__label">Steuerersparnis</span>
+                <span class="result-row__value"></span>
+              </div>
+              <div class="result-row">
+                <span class="result-row__label">Arbeitnehmer-Pauschbetrag</span>
+                <span class="result-row__value">1.230,00 €</span>
+              </div>
+              <div class="result-row">
+                <span class="result-row__label">
+                  Zusätzlicher Freibetrag
+                  <span class="form-label__help" title="Nur der Teil der Pendlerpauschale, der den Arbeitnehmer-Pauschbetrag von 1.230 € übersteigt, bringt einen steuerlichen Vorteil.">?</span>
+                </span>
+                <span class="result-row__value" id="res-ueberschuss">0,00 €</span>
+              </div>
+              <div class="result-row result-row--total">
+                <span class="result-row__label">Steuerersparnis jährlich</span>
+                <span class="result-row__value" id="res-ersparnis-jahr">0,00 €</span>
+              </div>
+              <div class="result-row">
+                <span class="result-row__label">Steuerersparnis monatlich</span>
+                <span class="result-row__value" id="res-ersparnis-monat">0,00 €</span>
+              </div>
+            </div>
+
+            <div class="result-rows" id="oepnv-vergleich" style="margin-top:1rem; display:none;">
+              <div class="result-row result-row--header">
+                <span class="result-row__label">ÖPNV-Vergleich</span>
+                <span class="result-row__value"></span>
+              </div>
+              <div class="result-row">
+                <span class="result-row__label">ÖPNV-Jahresticket</span>
+                <span class="result-row__value" id="res-ticket">0,00 €</span>
+              </div>
+              <div class="result-row">
+                <span class="result-row__label">Pendlerpauschale</span>
+                <span class="result-row__value" id="res-vergleich-pauschale">0,00 €</span>
+              </div>
+              <div class="result-row result-row--total">
+                <span class="result-row__label" id="res-vergleich-label">Ergebnis</span>
+                <span class="result-row__value" id="res-vergleich-wert">0,00 €</span>
+              </div>
+            </div>
+
+            <div id="donut-chart" style="margin-top:1.5rem;"></div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- SEO Content -->
+    <section class="content-section">
+      <h2>Pendlerpauschale 2026: Entfernungspauschale berechnen und Steuern sparen</h2>
+
+      <p>Wer täglich zur Arbeit pendelt, kann die Fahrtkosten über die Entfernungspauschale steuerlich geltend machen. Die sogenannte Pendlerpauschale ist für Millionen von Arbeitnehmerinnen und Arbeitnehmern in Deutschland einer der wichtigsten Steuerabzüge überhaupt. Unser Rechner zeigt Ihnen auf einen Blick, wie hoch Ihre Pendlerpauschale ausfällt und wie viel Steuern Sie dadurch tatsächlich sparen.</p>
+
+      <h3>Aktuelle Sätze der Entfernungspauschale 2026</h3>
+
+      <p>Für das Steuerjahr 2026 gelten zwei unterschiedliche Kilometersätze. Für die ersten 20 Kilometer der einfachen Entfernung zwischen Wohnung und erster Tätigkeitsstätte beträgt die Pauschale 0,30 Euro pro Kilometer und Arbeitstag. Ab dem einundzwanzigsten Kilometer greift die erhöhte Fernpendlerpauschale von 0,38 Euro pro Kilometer. Diese Erhöhung wurde eingeführt, um Pendler mit langen Arbeitswegen gezielt zu entlasten — sie gilt befristet bis einschließlich 2026. Maßgeblich ist stets die kürzeste Straßenverbindung, und zwar nur die einfache Strecke, nicht Hin- und Rückweg. Eine längere Strecke darf nur angesetzt werden, wenn sie verkehrsgünstiger ist und regelmäßig genutzt wird.</p>
+
+      <h3>Arbeitnehmer-Pauschbetrag und tatsächlicher Steuervorteil</h3>
+
+      <p>Ein häufiges Missverständnis betrifft das Zusammenspiel von Pendlerpauschale und Arbeitnehmer-Pauschbetrag. Jedem Arbeitnehmer steht automatisch ein Werbungskosten-Pauschbetrag von 1.230 Euro pro Jahr zu, den der Arbeitgeber bereits bei der monatlichen Lohnabrechnung berücksichtigt. Die Pendlerpauschale bringt nur dann einen zusätzlichen Steuervorteil, wenn sie diesen Pauschbetrag übersteigt. Bei einer einfachen Entfernung von 20 Kilometern und 230 Arbeitstagen ergibt sich eine Pauschale von 1.380 Euro — der steuerliche Mehrwert beträgt dann nur 150 Euro über dem Pauschbetrag. Unser Rechner zeigt Ihnen diesen entscheidenden Überschuss und die daraus resultierende tatsächliche Steuerersparnis.</p>
+
+      <h3>Mobilitätsprämie für Geringverdiener</h3>
+
+      <p>Arbeitnehmer, deren zu versteuerndes Einkommen unter dem Grundfreibetrag von 12.348 Euro liegt, profitieren nicht von der Pendlerpauschale als Steuerabzug, da sie ohnehin keine Einkommensteuer zahlen. Für diese Gruppe gibt es seit 2021 die Mobilitätsprämie. Sie beträgt 14 Prozent der erhöhten Fernpendlerpauschale ab dem einundzwanzigsten Kilometer und wird als direkte Zahlung ausgezahlt. Die Mobilitätsprämie muss in der Einkommensteuererklärung beantragt werden und stellt sicher, dass auch Geringverdiener mit langen Arbeitswegen eine finanzielle Entlastung erhalten.</p>
+
+      <h3>Tatsächliche Kosten statt Pauschale ansetzen</h3>
+
+      <p>In bestimmten Fällen kann es günstiger sein, die tatsächlichen Fahrtkosten anstelle der Entfernungspauschale anzusetzen. Dies ist allerdings nur bei Nutzung öffentlicher Verkehrsmittel möglich. Wenn die Kosten für Jahrestickets den Betrag der Pendlerpauschale übersteigen, können stattdessen die tatsächlichen ÖPNV-Kosten als Werbungskosten geltend gemacht werden. Bei PKW-Nutzung ist dies nicht möglich — hier gilt ausschließlich die Kilometerpauschale, unabhängig von den tatsächlichen Kosten für Kraftstoff, Versicherung oder Abschreibung.</p>
+
+      <h3>Jobticket und Deutschlandticket: Steuerfreier Zuschuss</h3>
+
+      <p>Arbeitgeber können ihren Beschäftigten seit 2019 ein Jobticket für den öffentlichen Nahverkehr steuerfrei gewähren. Dies gilt auch für das Deutschlandticket (49-Euro-Ticket). Der steuerfreie Zuschuss wird allerdings auf die Entfernungspauschale angerechnet, sodass die in der Steuererklärung abzugsfähige Pendlerpauschale um den Zuschussbetrag gemindert wird. Dennoch profitieren Arbeitnehmer doppelt: Sie erhalten ein vergünstigtes oder kostenloses Ticket und können den verbleibenden Teil der Pendlerpauschale weiterhin steuerlich geltend machen. Alternativ kann der Arbeitgeber das Jobticket pauschal mit 25 Prozent versteuern — in diesem Fall erfolgt keine Anrechnung auf die Pendlerpauschale.</p>
+
+      <h3>Homeoffice und Pendlerpauschale</h3>
+
+      <p>An Tagen, an denen im Homeoffice gearbeitet wird, kann keine Pendlerpauschale angesetzt werden. Stattdessen gilt die Homeoffice-Pauschale von 6 Euro pro Tag, maximal 1.260 Euro pro Jahr (210 Tage). Wer teilweise im Büro und teilweise im Homeoffice arbeitet, kann für jeden Bürotag die Pendlerpauschale und für jeden Homeoffice-Tag die Homeoffice-Pauschale geltend machen. Beide Pauschalen zusammen werden als Werbungskosten angerechnet. Pendler, die regelmäßig im Homeoffice arbeiten, sollten die Anzahl der tatsächlichen Arbeitstage vor Ort sorgfältig dokumentieren, da das Finanzamt Nachweise verlangen kann.</p>
+
+      <!-- FAQ Section -->
+      <div class="faq-list">
+        <h2>Häufig gestellte Fragen zur Pendlerpauschale</h2>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Wie viele Arbeitstage kann ich für die Pendlerpauschale ansetzen?
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer__inner">
+              <p>Das Finanzamt akzeptiert in der Regel maximal 230 Arbeitstage bei einer 5-Tage-Woche und 280 Tage bei einer 6-Tage-Woche. Von der Gesamtzahl der Arbeitstage müssen Urlaubstage, Feiertage, Krankheitstage und Homeoffice-Tage abgezogen werden. Es ist empfehlenswert, ein Fahrtenbuch oder einen Kalender zu führen, um die tatsächlichen Fahrten nachweisen zu können.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Gilt die Pendlerpauschale auch für Fahrradfahrer?
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer__inner">
+              <p>Ja, die Entfernungspauschale ist verkehrsmittelunabhängig. Egal ob Sie mit dem Auto, dem Fahrrad, dem E-Bike, zu Fuß oder mit öffentlichen Verkehrsmitteln zur Arbeit kommen — der Kilometersatz von 0,30 € (bzw. 0,38 € ab dem 21. km) gilt immer. Allerdings werden nur volle Kilometer der einfachen Entfernung berücksichtigt.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Kann ich Pendlerpauschale und Homeoffice-Pauschale kombinieren?
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer__inner">
+              <p>Ja, aber nicht für denselben Tag. An Bürotagen setzen Sie die Pendlerpauschale an, an Homeoffice-Tagen die Homeoffice-Pauschale (6 €/Tag, max. 1.260 €/Jahr). Beide werden gemeinsam als Werbungskosten berücksichtigt. Es ist wichtig, die Tage sorgfältig zu dokumentieren, da für jeden Tag nur eine Pauschale gilt.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Was ist die erhöhte Fernpendlerpauschale?
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer__inner">
+              <p>Seit 2022 gilt ab dem 21. Entfernungskilometer eine erhöhte Pauschale von 0,38 € statt der regulären 0,30 €. Diese Regelung ist befristet bis einschließlich 2026 und soll Fernpendler mit besonders langen Arbeitswegen gezielt entlasten. Für die ersten 20 Kilometer gilt weiterhin der Satz von 0,30 € pro Kilometer.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Lohnt sich ein Lohnsteuer-Ermäßigungsantrag für Pendler?
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer__inner">
+              <p>Wenn Ihre Werbungskosten (inklusive Pendlerpauschale) den Pauschbetrag von 1.230 € deutlich übersteigen, können Sie beim Finanzamt einen Lohnsteuer-Ermäßigungsantrag stellen. Dadurch wird ein Freibetrag in Ihren ELStAM eingetragen und Sie zahlen monatlich weniger Lohnsteuer, statt auf die jährliche Erstattung zu warten. Der Antrag muss bis zum 30. November des laufenden Jahres gestellt werden.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Pendlerpauschale-Rechner 2026",
+        "description": "Berechnen Sie Ihre Entfernungspauschale 2026 und ermitteln Sie die tatsächliche Steuerersparnis — inklusive erhöhter Fernpendlerpauschale ab dem 21. Kilometer.",
+        "url": "https://rechner-online.info/pendlerpauschale-rechner",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "All",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "EUR"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Wie viele Arbeitstage kann ich für die Pendlerpauschale ansetzen?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Das Finanzamt akzeptiert maximal 230 Arbeitstage bei einer 5-Tage-Woche und 280 bei einer 6-Tage-Woche. Urlaub, Feiertage, Krankheit und Homeoffice-Tage müssen abgezogen werden."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Gilt die Pendlerpauschale auch für Fahrradfahrer?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Ja, die Entfernungspauschale ist verkehrsmittelunabhängig. Der Satz von 0,30 € (bzw. 0,38 € ab dem 21. km) gilt für alle Verkehrsmittel, auch Fahrrad und zu Fuß."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Kann ich Pendlerpauschale und Homeoffice-Pauschale kombinieren?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Ja, aber nicht am selben Tag. Bürotage nutzen die Pendlerpauschale, Homeoffice-Tage die Homeoffice-Pauschale von 6 €/Tag (max. 1.260 €/Jahr). Beide zählen als Werbungskosten."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Was ist die erhöhte Fernpendlerpauschale?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Ab dem 21. Entfernungskilometer gilt eine erhöhte Pauschale von 0,38 € statt 0,30 €. Diese Regelung ist befristet bis einschließlich 2026."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Lohnt sich ein Lohnsteuer-Ermäßigungsantrag für Pendler?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Wenn Ihre Werbungskosten den Pauschbetrag von 1.230 € deutlich übersteigen, können Sie einen Freibetrag eintragen lassen und monatlich weniger Lohnsteuer zahlen. Der Antrag muss bis zum 30. November gestellt werden."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <!-- Inline Script -->
+  <script>
+  (function() {
+    'use strict';
+
+    function round2(n) { return Math.round(n * 100) / 100; }
+
+    var SATZ_BIS_20 = 0.30;
+    var SATZ_AB_21 = 0.38;
+    var PAUSCHBETRAG = 1230;
+
+    // Toggle ÖPNV ticket field
+    var oepnvGroup = document.getElementById('oepnv-group');
+    document.querySelectorAll('input[name="verkehrsmittel"]').forEach(function(radio) {
+      radio.addEventListener('change', function() {
+        oepnvGroup.style.display = this.value === 'oepnv' ? '' : 'none';
+      });
+    });
+
+    function berechnePendlerpauschale(values) {
+      var entfernung = Math.floor(RechnerUI.parseGermanNumber(values.entfernung) || 30);
+      var arbeitstage = parseInt(RechnerUI.parseGermanNumber(values.arbeitstage), 10) || 230;
+      var verkehrsmittel = values.verkehrsmittel || 'auto';
+      var ticketkosten = RechnerUI.parseGermanNumber(values.ticketkosten) || 0;
+      var bruttoMonat = RechnerUI.parseGermanNumber(values.brutto) || 3500;
+      var steuerklasse = parseInt(values.steuerklasse, 10);
+      var bundesland = values.bundesland;
+      var kirchensteuer = values.kirchensteuer === 'ja';
+      var bruttoJahr = round2(bruttoMonat * 12);
+
+      // --- Pendlerpauschale berechnen ---
+      var kmBis20 = Math.min(entfernung, 20);
+      var kmAb21 = Math.max(entfernung - 20, 0);
+
+      var betragBis20 = round2(kmBis20 * arbeitstage * SATZ_BIS_20);
+      var betragAb21 = round2(kmAb21 * arbeitstage * SATZ_AB_21);
+      var pauschaleGesamt = round2(betragBis20 + betragAb21);
+
+      // Bei ÖPNV: höherer Betrag zählt (tatsächliche Kosten vs. Pauschale)
+      var werbungskosten = pauschaleGesamt;
+      if (verkehrsmittel === 'oepnv' && ticketkosten > pauschaleGesamt) {
+        werbungskosten = ticketkosten;
+      }
+
+      // Überschuss über Pauschbetrag
+      var ueberschuss = round2(Math.max(werbungskosten - PAUSCHBETRAG, 0));
+
+      // --- Steuerersparnis berechnen ---
+      // Steuer OHNE zusätzlichen Freibetrag
+      var steuerOhne = Steuer2026.lohnsteuer({
+        bruttoJahr: bruttoJahr,
+        steuerklasse: steuerklasse,
+        kirchensteuer: kirchensteuer,
+        bundesland: bundesland,
+        kinderfreibetrag: 0,
+        steuerfreibetrag: 0,
+        geldwerterVorteil: 0
+      });
+
+      // Steuer MIT Freibetrag (nur der Überschuss bringt Ersparnis)
+      var steuerMit = Steuer2026.lohnsteuer({
+        bruttoJahr: bruttoJahr,
+        steuerklasse: steuerklasse,
+        kirchensteuer: kirchensteuer,
+        bundesland: bundesland,
+        kinderfreibetrag: 0,
+        steuerfreibetrag: ueberschuss,
+        geldwerterVorteil: 0
+      });
+
+      var ersparnisJahr = round2(steuerOhne.steuerGesamt - steuerMit.steuerGesamt);
+      if (ersparnisJahr < 0) ersparnisJahr = 0;
+      var ersparnisMonat = round2(ersparnisJahr / 12);
+
+      // Tageskosten (informativ)
+      var proTag = arbeitstage > 0 ? round2(pauschaleGesamt / arbeitstage) : 0;
+
+      // --- DOM Update ---
+      document.getElementById('res-pauschale').textContent = Steuer2026.formatEuro(pauschaleGesamt);
+      document.getElementById('res-pro-tag').textContent = Steuer2026.formatEuro(proTag) + ' pro Arbeitstag';
+
+      // Desglose bis 20 km
+      document.getElementById('res-label-bis20').textContent =
+        (kmBis20 < 20 ? kmBis20 : 'Erste 20') + ' km × ' + arbeitstage + ' Tage × 0,30 €';
+      document.getElementById('res-bis20').textContent = Steuer2026.formatEuro(betragBis20);
+
+      // Ab 21 km (mostrar solo si aplica)
+      var rowAb21 = document.getElementById('row-ab21');
+      if (kmAb21 > 0) {
+        rowAb21.style.display = '';
+        document.getElementById('res-label-ab21').textContent =
+          kmAb21 + ' km × ' + arbeitstage + ' Tage × 0,38 €';
+        document.getElementById('res-ab21').textContent = Steuer2026.formatEuro(betragAb21);
+      } else {
+        rowAb21.style.display = 'none';
+      }
+
+      document.getElementById('res-gesamt').textContent = Steuer2026.formatEuro(pauschaleGesamt);
+      document.getElementById('res-ueberschuss').textContent = Steuer2026.formatEuro(ueberschuss);
+      document.getElementById('res-ersparnis-jahr').textContent = Steuer2026.formatEuro(ersparnisJahr);
+      document.getElementById('res-ersparnis-monat').textContent = Steuer2026.formatEuro(ersparnisMonat);
+
+      // ÖPNV-Vergleich
+      var oepnvVergleich = document.getElementById('oepnv-vergleich');
+      if (verkehrsmittel === 'oepnv') {
+        oepnvVergleich.style.display = '';
+        document.getElementById('res-ticket').textContent = Steuer2026.formatEuro(ticketkosten);
+        document.getElementById('res-vergleich-pauschale').textContent = Steuer2026.formatEuro(pauschaleGesamt);
+        if (ticketkosten > pauschaleGesamt) {
+          document.getElementById('res-vergleich-label').textContent = 'Ticketkosten höher — als Werbungskosten absetzbar';
+          document.getElementById('res-vergleich-wert').textContent = Steuer2026.formatEuro(ticketkosten);
+        } else {
+          document.getElementById('res-vergleich-label').textContent = 'Pauschale günstiger — wird angesetzt';
+          document.getElementById('res-vergleich-wert').textContent = Steuer2026.formatEuro(pauschaleGesamt);
+        }
+      } else {
+        oepnvVergleich.style.display = 'none';
+      }
+
+      // Donut chart
+      var segments = [
+        { label: 'Erste 20 km', value: betragBis20, color: '#1a3a5c' }
+      ];
+      if (kmAb21 > 0) {
+        segments.push({ label: 'Ab 21. km (erhöht)', value: betragAb21, color: '#e8870e' });
+      }
+      RechnerUI.drawDonut('donut-chart', segments,
+        Steuer2026.formatEuro(pauschaleGesamt), 'Pendlerpauschale / Jahr');
+    }
+
+    RechnerUI.bindCalculation('calc-form', berechnePendlerpauschale);
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-question').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var expanded = this.getAttribute('aria-expanded') === 'true';
+        this.setAttribute('aria-expanded', String(!expanded));
+      });
+    });
+  })();
+  </script>
+
+</main>

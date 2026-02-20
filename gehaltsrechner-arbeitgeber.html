@@ -1,0 +1,607 @@
+---
+title: Arbeitgeber-Brutto-Rechner 2026 — Personalkosten berechnen | Rechner-Online.info
+description: Berechnen Sie die tatsächlichen Arbeitgeberkosten 2026: Bruttolohn + Lohnnebenkosten (KV, PV, RV, AV, Umlagen). Alle Beitragssätze aktuell.
+slug: gehaltsrechner-arbeitgeber
+layout: calculator
+---
+
+<main id="main-content">
+  <div class="container">
+
+    <!-- ── Hero ── -->
+    <header style="margin:var(--space-10) 0 var(--space-6)">
+      <h1>Arbeitgeber-Brutto-Rechner 2026</h1>
+      <p style="font-size:var(--text-lg);color:var(--color-text-secondary);max-width:680px">
+        Was kostet ein Mitarbeiter wirklich? Berechnen Sie die gesamten Personalkosten inklusive aller
+        Lohnnebenkosten, Arbeitgeberanteile und Umlagen für 2026.
+      </p>
+    </header>
+
+    <!-- ══════════════════════════════════════════════════ -->
+    <!-- CALCULATOR LAYOUT -->
+    <!-- ══════════════════════════════════════════════════ -->
+    <div class="calc-layout" id="calc-form">
+
+      <!-- ── LEFT: Form ── -->
+      <div class="calc-form-wrap">
+
+        <!-- Section 1: Grunddaten -->
+        <div class="form-section">
+          <h2 class="form-section__title">
+            <span class="form-section__icon">💰</span>Grunddaten
+          </h2>
+          <div class="form-grid">
+            <div class="form-group form-group--full">
+              <label class="form-label" for="brutto">
+                Monatliches Bruttoeinkommen
+                <span class="form-label__help" title="Das vereinbarte Bruttogehalt des Arbeitnehmers pro Monat">?</span>
+              </label>
+              <div class="input-wrapper">
+                <input type="text" id="brutto" class="form-input form-input--euro"
+                       data-field="brutto" data-type="euro"
+                       value="3.500,00" inputmode="decimal">
+                <span class="input-suffix">€</span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="bundesland">Bundesland</label>
+              <select id="bundesland" class="form-select" data-field="bundesland">
+                <option value="Baden-Württemberg">Baden-Württemberg</option>
+                <option value="Bayern">Bayern</option>
+                <option value="Berlin">Berlin</option>
+                <option value="Brandenburg">Brandenburg</option>
+                <option value="Bremen">Bremen</option>
+                <option value="Hamburg">Hamburg</option>
+                <option value="Hessen">Hessen</option>
+                <option value="Mecklenburg-Vorpommern">Mecklenburg-Vorpommern</option>
+                <option value="Niedersachsen">Niedersachsen</option>
+                <option value="Nordrhein-Westfalen" selected>Nordrhein-Westfalen</option>
+                <option value="Rheinland-Pfalz">Rheinland-Pfalz</option>
+                <option value="Saarland">Saarland</option>
+                <option value="Sachsen">Sachsen</option>
+                <option value="Sachsen-Anhalt">Sachsen-Anhalt</option>
+                <option value="Schleswig-Holstein">Schleswig-Holstein</option>
+                <option value="Thüringen">Thüringen</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Abrechnungszeitraum</label>
+              <div class="radio-group">
+                <input type="radio" name="zeitraum" id="zeitraum-monat" value="monat"
+                       data-field="zeitraum" checked>
+                <label for="zeitraum-monat">Monat</label>
+                <input type="radio" name="zeitraum" id="zeitraum-jahr" value="jahr"
+                       data-field="zeitraum">
+                <label for="zeitraum-jahr">Jahr</label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 2: Krankenversicherung -->
+        <div class="form-section">
+          <h2 class="form-section__title">
+            <span class="form-section__icon">🏥</span>Krankenversicherung
+          </h2>
+          <div class="form-grid">
+            <div class="form-group form-group--full">
+              <label class="form-label">Art der Krankenversicherung</label>
+              <div class="radio-group">
+                <input type="radio" name="kvArt" id="kv-gesetzlich" value="gesetzlich"
+                       data-field="kvArt" checked>
+                <label for="kv-gesetzlich">Gesetzlich</label>
+                <input type="radio" name="kvArt" id="kv-privat" value="privat"
+                       data-field="kvArt">
+                <label for="kv-privat">Privat</label>
+              </div>
+            </div>
+
+            <div class="form-group" id="zusatzbeitrag-wrap">
+              <label class="form-label" for="kvZusatz">
+                KV-Zusatzbeitrag
+                <span class="form-label__help" title="Kassenindividueller Zusatzbeitrag. Durchschnitt 2026: 2,9%">?</span>
+              </label>
+              <div class="input-wrapper">
+                <input type="text" id="kvZusatz" class="form-input form-input--percent"
+                       data-field="kvZusatz" data-type="number"
+                       value="2,9" inputmode="decimal">
+                <span class="input-suffix">%</span>
+              </div>
+            </div>
+
+            <div class="form-group" id="pkv-wrap" style="display:none">
+              <label class="form-label" for="pkvBeitrag">
+                PKV-Beitrag (AG-Zuschuss)
+                <span class="form-label__help" title="Der Arbeitgeber zahlt max. die Hälfte des GKV-Höchstbeitrags">?</span>
+              </label>
+              <div class="input-wrapper">
+                <input type="text" id="pkvBeitrag" class="form-input form-input--euro"
+                       data-field="pkvBeitrag" data-type="euro"
+                       value="400,00" inputmode="decimal">
+                <span class="input-suffix">€</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 3: Pflegeversicherung & Personal -->
+        <div class="form-section">
+          <h2 class="form-section__title">
+            <span class="form-section__icon">👤</span>Mitarbeiterdaten
+          </h2>
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label">Kinder vorhanden?</label>
+              <div class="radio-group">
+                <input type="radio" name="hatKinder" id="kinder-nein" value="nein"
+                       data-field="hatKinder" checked>
+                <label for="kinder-nein">Nein</label>
+                <input type="radio" name="hatKinder" id="kinder-ja" value="ja"
+                       data-field="hatKinder">
+                <label for="kinder-ja">Ja</label>
+              </div>
+            </div>
+
+            <div class="form-group" id="kinder-anzahl-wrap" style="display:none">
+              <label class="form-label" for="kinderAnzahl">Kinder unter 25</label>
+              <select id="kinderAnzahl" class="form-select" data-field="kinderAnzahl" data-type="number">
+                <option value="1">1 Kind</option>
+                <option value="2" selected>2 Kinder</option>
+                <option value="3">3 Kinder</option>
+                <option value="4">4 Kinder</option>
+                <option value="5">5+ Kinder</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="alter">Alter des Mitarbeiters</label>
+              <select id="alter" class="form-select" data-field="alter" data-type="number">
+                <option value="20">Unter 23</option>
+                <option value="30" selected>23 oder älter</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 4: Umlagen -->
+        <div class="form-section">
+          <h2 class="form-section__title">
+            <span class="form-section__icon">📋</span>Umlagen
+            <span style="font-size:var(--text-sm);font-weight:var(--weight-normal);color:var(--color-text-muted);margin-left:auto">nur Arbeitgeber</span>
+          </h2>
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label" for="u1Satz">
+                U1 — Entgeltfortzahlung
+                <span class="form-label__help" title="Variiert je nach Krankenkasse. Üblicher Bereich: 1,0–3,3%">?</span>
+              </label>
+              <div class="input-wrapper">
+                <input type="text" id="u1Satz" class="form-input form-input--percent"
+                       data-field="u1Satz" data-type="number"
+                       value="1,70" inputmode="decimal">
+                <span class="input-suffix">%</span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="u2Satz">
+                U2 — Mutterschaftsaufwendungen
+                <span class="form-label__help" title="Variiert je nach Krankenkasse. Üblicher Bereich: 0,2–0,6%">?</span>
+              </label>
+              <div class="input-wrapper">
+                <input type="text" id="u2Satz" class="form-input form-input--percent"
+                       data-field="u2Satz" data-type="number"
+                       value="0,44" inputmode="decimal">
+                <span class="input-suffix">%</span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="insolvSatz">
+                Insolvenzgeldumlage
+                <span class="form-label__help" title="Bundeseinheitlich festgelegt für 2026">?</span>
+              </label>
+              <div class="input-wrapper">
+                <input type="text" id="insolvSatz" class="form-input form-input--percent"
+                       data-field="insolvSatz" data-type="number"
+                       value="0,06" inputmode="decimal">
+                <span class="input-suffix">%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ── RIGHT: Results ── -->
+      <div class="calc-results-wrap">
+        <div class="results-panel">
+          <div class="results-panel__header">
+            <h3>Arbeitgeberkosten</h3>
+          </div>
+          <div class="results-panel__body">
+
+            <!-- Total highlight -->
+            <div class="result-netto">
+              <div class="result-netto__label">Gesamte Personalkosten</div>
+              <div class="result-netto__value" id="res-total" style="color:var(--color-primary)">—</div>
+              <div class="result-netto__period" id="res-period">pro Monat</div>
+            </div>
+
+            <!-- Donut Chart -->
+            <div id="chart-container"></div>
+            <div class="chart-legend"></div>
+
+            <!-- Breakdown -->
+            <div class="result-rows">
+              <div class="result-row result-row--header">
+                <span>Bruttolohn</span>
+                <span class="result-row__value" id="res-brutto">—</span>
+              </div>
+
+              <div class="result-row result-row--header">
+                <span>Arbeitgeberanteil Sozialversicherung</span>
+                <span></span>
+              </div>
+              <div class="result-row">
+                <span class="result-row__label">Krankenversicherung</span>
+                <span class="result-row__value" id="res-ag-kv">—</span>
+              </div>
+              <div class="result-row">
+                <span class="result-row__label">Pflegeversicherung</span>
+                <span class="result-row__value" id="res-ag-pv">—</span>
+              </div>
+              <div class="result-row">
+                <span class="result-row__label">Rentenversicherung</span>
+                <span class="result-row__value" id="res-ag-rv">—</span>
+              </div>
+              <div class="result-row">
+                <span class="result-row__label">Arbeitslosenversicherung</span>
+                <span class="result-row__value" id="res-ag-av">—</span>
+              </div>
+
+              <div class="result-row result-row--header">
+                <span>Umlagen</span>
+                <span></span>
+              </div>
+              <div class="result-row">
+                <span class="result-row__label">U1 — Entgeltfortzahlung</span>
+                <span class="result-row__value" id="res-u1">—</span>
+              </div>
+              <div class="result-row">
+                <span class="result-row__label">U2 — Mutterschaft</span>
+                <span class="result-row__value" id="res-u2">—</span>
+              </div>
+              <div class="result-row">
+                <span class="result-row__label">Insolvenzgeldumlage</span>
+                <span class="result-row__value" id="res-insolv">—</span>
+              </div>
+
+              <div class="result-row result-row--total">
+                <span>Gesamte Lohnnebenkosten</span>
+                <span class="result-row__value" id="res-nebenkosten">—</span>
+              </div>
+              <div class="result-row">
+                <span class="result-row__label">Aufschlag auf Brutto</span>
+                <span class="result-row__value" id="res-aufschlag" style="color:var(--color-accent-dark)">—</span>
+              </div>
+            </div>
+
+            <!-- Yearly summary -->
+            <div style="margin-top:var(--space-6);padding-top:var(--space-4);border-top:1px solid var(--color-border-light)">
+              <div class="result-row">
+                <span class="result-row__label">Jahreskosten gesamt</span>
+                <span class="result-row__value" id="res-total-jahr" style="font-size:var(--text-base);color:var(--color-primary)">—</span>
+              </div>
+              <div class="result-row">
+                <span class="result-row__label">Jahres-Bruttolohn</span>
+                <span class="result-row__value" id="res-brutto-jahr">—</span>
+              </div>
+              <div class="result-row">
+                <span class="result-row__label">Jahres-Lohnnebenkosten</span>
+                <span class="result-row__value" id="res-nebenkosten-jahr">—</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════ -->
+    <!-- SEO CONTENT -->
+    <!-- ══════════════════════════════════════════════════ -->
+    <section class="content-section">
+
+      <h2>Was kostet ein Mitarbeiter den Arbeitgeber wirklich?</h2>
+      <p>
+        Das Bruttogehalt ist nur ein Teil der tatsächlichen Personalkosten. Arbeitgeber zahlen zusätzlich
+        Sozialversicherungsbeiträge, Umlagen und ggf. weitere Lohnnebenkosten. Dieser Rechner zeigt Ihnen
+        transparent die <strong>gesamten Arbeitgeberkosten</strong> für einen Mitarbeiter in Deutschland im
+        Jahr 2026.
+      </p>
+
+      <h2>Lohnnebenkosten 2026 im Überblick</h2>
+      <p>
+        Die Lohnnebenkosten setzen sich aus dem Arbeitgeberanteil zur Sozialversicherung und den Umlagen
+        zusammen. Die wichtigsten Beitragssätze für 2026:
+      </p>
+      <ul>
+        <li><strong>Krankenversicherung:</strong> 7,3% (zzgl. halber Zusatzbeitrag, Ø 1,45%) = ca. 8,75% AG-Anteil</li>
+        <li><strong>Pflegeversicherung:</strong> Abhängig vom Bundesland und Kinderstatus des Arbeitnehmers (AG-Anteil ca. 1,3–1,7%)</li>
+        <li><strong>Rentenversicherung:</strong> 9,3% AG-Anteil</li>
+        <li><strong>Arbeitslosenversicherung:</strong> 1,3% AG-Anteil</li>
+        <li><strong>Umlagen (U1, U2, Insolvenzgeld):</strong> Variieren je nach Krankenkasse und Unternehmensgröße</li>
+      </ul>
+      <p>
+        Insgesamt betragen die Lohnnebenkosten in der Regel <strong>ca. 20–22%</strong> des Bruttogehalts —
+        abhängig von der individuellen Situation des Arbeitnehmers.
+      </p>
+
+      <h3>Beitragsbemessungsgrenzen 2026</h3>
+      <p>
+        Die Sozialversicherungsbeiträge werden nur bis zu bestimmten Einkommensgrenzen berechnet. Für 2026
+        gelten folgende Beitragsbemessungsgrenzen:
+      </p>
+      <ul>
+        <li><strong>KV und PV:</strong> 5.812,50 € monatlich (69.750 € jährlich)</li>
+        <li><strong>RV und AV:</strong> 8.450,00 € monatlich (101.400 € jährlich)</li>
+      </ul>
+      <p>
+        Bei Gehältern oberhalb dieser Grenzen steigen die Arbeitgeberkosten nicht weiter proportional an —
+        der prozentuale Aufschlag sinkt.
+      </p>
+
+      <h3>Umlagen: U1, U2 und Insolvenzgeldumlage</h3>
+      <p>
+        Neben den Sozialversicherungsbeiträgen zahlen Arbeitgeber drei Umlagen, die ausschließlich vom
+        Arbeitgeber getragen werden:
+      </p>
+      <ul>
+        <li><strong>U1 (Entgeltfortzahlung):</strong> Finanziert die Lohnfortzahlung im Krankheitsfall.
+            Der Satz variiert je nach Krankenkasse und gewähltem Erstattungssatz (typisch: 1,0–3,3%).</li>
+        <li><strong>U2 (Mutterschaftsaufwendungen):</strong> Finanziert Mutterschutzleistungen. Wird von
+            allen Arbeitgebern gezahlt, unabhängig von der Belegschaft (typisch: 0,2–0,6%).</li>
+        <li><strong>Insolvenzgeldumlage:</strong> Sichert Arbeitnehmer bei Insolvenz des Arbeitgebers ab.
+            Bundeseinheitlich 0,06% für 2026.</li>
+      </ul>
+
+      <h2>Berechnung der Arbeitgeberkosten — Beispiel</h2>
+      <p>
+        Ein Mitarbeiter mit 3.500 € Bruttogehalt in Nordrhein-Westfalen, gesetzlich versichert, kinderlos,
+        Ø-Zusatzbeitrag von 2,9% und Standard-Umlagen:
+      </p>
+      <ul>
+        <li>Bruttolohn: 3.500,00 €</li>
+        <li>AG-Anteil Sozialversicherung: ca. 735 €</li>
+        <li>Umlagen (U1 + U2 + Insolvenz): ca. 77 €</li>
+        <li><strong>Gesamte Personalkosten: ca. 4.312 €</strong></li>
+      </ul>
+      <p>
+        Das entspricht einem Aufschlag von ca. <strong>23,2%</strong> auf das Bruttogehalt.
+      </p>
+
+      <h2>Häufige Fragen zum Arbeitgeber-Brutto-Rechner</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Welche Kosten kommen zusätzlich zum Bruttolohn auf den Arbeitgeber zu?
+          </button>
+          <div class="faq-answer"><div class="faq-answer__inner">
+            Der Arbeitgeber trägt neben dem Bruttolohn den Arbeitgeberanteil zur Kranken-, Pflege-,
+            Renten- und Arbeitslosenversicherung sowie die Umlagen U1, U2 und die Insolvenzgeldumlage.
+            Je nach Unternehmen können weitere Kosten hinzukommen, z.&nbsp;B. betriebliche Altersvorsorge,
+            Berufsgenossenschaftsbeiträge oder vermögenswirksame Leistungen.
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Was ist der Unterschied zwischen U1 und U2?
+          </button>
+          <div class="faq-answer"><div class="faq-answer__inner">
+            Die U1 finanziert die Erstattung von Lohnfortzahlungskosten im Krankheitsfall. Die U2 deckt
+            Aufwendungen bei Mutterschaft (Zuschuss zum Mutterschaftsgeld, Mutterschutzlohn). Beide werden
+            ausschließlich vom Arbeitgeber getragen, die Sätze variieren je nach Krankenkasse.
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Wie hoch sind die Lohnnebenkosten in Prozent?
+          </button>
+          <div class="faq-answer"><div class="faq-answer__inner">
+            Die gesetzlichen Lohnnebenkosten betragen für Arbeitgeber typischerweise zwischen 20% und 22%
+            des Bruttogehalts. Der genaue Prozentsatz hängt von der Krankenkasse (Zusatzbeitrag),
+            dem Bundesland (PV-Satz in Sachsen weicht ab), dem Kinderstatus des Mitarbeiters und den
+            individuellen Umlagesätzen ab.
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Zahlt der Arbeitgeber auch bei einem Minijob Sozialversicherung?
+          </button>
+          <div class="faq-answer"><div class="faq-answer__inner">
+            Ja. Bei einem Minijob (bis 556 € monatlich in 2026) zahlt der Arbeitgeber pauschale Beiträge:
+            13% KV, 15% RV und 2% pauschale Lohnsteuer sowie Umlagen. Die Minijob-Zentrale bei der
+            Deutschen Rentenversicherung Knappschaft-Bahn-See ist der zentrale Ansprechpartner.
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Gelten die Beitragssätze in Ost und West gleich?
+          </button>
+          <div class="faq-answer"><div class="faq-answer__inner">
+            Seit 2025 gibt es einheitliche Beitragsbemessungsgrenzen für die Renten- und
+            Arbeitslosenversicherung in Ost und West. Der einzige verbliebene Unterschied betrifft
+            die Pflegeversicherung in Sachsen, wo der Arbeitnehmer 0,5% mehr und der Arbeitgeber
+            entsprechend weniger zahlt.
+          </div></div>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+</main>
+
+<!-- ══════════════════════════════════════════════════ -->
+<!-- Schema.org Markup -->
+<!-- ══════════════════════════════════════════════════ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Arbeitgeber-Brutto-Rechner 2026",
+  "description": "Berechnen Sie die gesamten Personalkosten für Arbeitgeber in Deutschland: Bruttolohn plus Lohnnebenkosten (Sozialversicherung und Umlagen).",
+  "url": "https://www.rechner-online.info/gehaltsrechner-arbeitgeber",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+  "inLanguage": "de"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Welche Kosten kommen zusätzlich zum Bruttolohn auf den Arbeitgeber zu?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Der Arbeitgeber trägt neben dem Bruttolohn den Arbeitgeberanteil zur Kranken-, Pflege-, Renten- und Arbeitslosenversicherung sowie die Umlagen U1, U2 und die Insolvenzgeldumlage."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wie hoch sind die Lohnnebenkosten in Prozent?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Die gesetzlichen Lohnnebenkosten betragen für Arbeitgeber typischerweise zwischen 20% und 22% des Bruttogehalts, abhängig von Krankenkasse, Bundesland und Kinderstatus."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Zahlt der Arbeitgeber auch bei einem Minijob Sozialversicherung?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja. Bei einem Minijob bis 556 € monatlich zahlt der Arbeitgeber pauschale Beiträge: 13% KV, 15% RV und 2% pauschale Lohnsteuer sowie Umlagen."
+      }
+    }
+  ]
+}
+</script>
+
+<!-- ══════════════════════════════════════════════════ -->
+<!-- PAGE-SPECIFIC CALCULATION SCRIPT -->
+<!-- ══════════════════════════════════════════════════ -->
+<script>
+(function() {
+  'use strict';
+
+  const fmt = Steuer2026.formatEuro;
+  const C = Steuer2026.CONST;
+
+  // ── UI toggles ──
+  function setupToggles() {
+    const kvRadios = document.querySelectorAll('input[name="kvArt"]');
+    const kinderRadios = document.querySelectorAll('input[name="hatKinder"]');
+
+    kvRadios.forEach(r => r.addEventListener('change', () => {
+      document.getElementById('zusatzbeitrag-wrap').style.display = r.value === 'gesetzlich' && r.checked ? '' : 'none';
+      document.getElementById('pkv-wrap').style.display = r.value === 'privat' && r.checked ? '' : 'none';
+    }));
+
+    kinderRadios.forEach(r => r.addEventListener('change', () => {
+      document.getElementById('kinder-anzahl-wrap').style.display =
+        document.getElementById('kinder-ja').checked ? '' : 'none';
+    }));
+  }
+
+  // ── Main calculation ──
+  function berechne(v) {
+    const isJahr = v.zeitraum === 'jahr';
+    const bruttoMonat = isJahr ? v.brutto / 12 : v.brutto;
+    const bruttoJahr = isJahr ? v.brutto : v.brutto * 12;
+
+    if (bruttoMonat <= 0 || isNaN(bruttoMonat)) return;
+
+    // KV
+    const kvZusatz = (v.kvZusatz || 2.9) / 100;
+    const kvArt = v.kvArt || 'gesetzlich';
+    const isSachsen = v.bundesland === 'Sachsen';
+
+    // Sozialversicherung via engine
+    const sv = Steuer2026.sozialversicherung({
+      bruttoMonat: bruttoMonat,
+      bundesland: v.bundesland || 'Nordrhein-Westfalen',
+      krankenversicherung: kvArt,
+      kvZusatzbeitrag: kvZusatz,
+      pkvBeitrag: v.pkvBeitrag || 0,
+      arbeitgeberzuschussPKV: true,
+      rentenversichert: true,
+      arbeitslosenversichert: true,
+      kinderAnzahl: v.hatKinder === 'ja' ? (v.kinderAnzahl || 1) : 0,
+      hatKinder: v.hatKinder === 'ja',
+      alter: v.alter || 30,
+    });
+
+    // Umlagen (employer-only, applied to full brutto — no BBG)
+    const u1 = round2(bruttoMonat * ((v.u1Satz || 1.7) / 100));
+    const u2 = round2(bruttoMonat * ((v.u2Satz || 0.44) / 100));
+    const insolv = round2(bruttoMonat * ((v.insolvSatz || 0.06) / 100));
+    const umlagenGesamt = round2(u1 + u2 + insolv);
+
+    const nebenkosten = round2(sv.summeAG + umlagenGesamt);
+    const gesamtMonat = round2(bruttoMonat + nebenkosten);
+    const gesamtJahr = round2(gesamtMonat * 12);
+    const aufschlag = bruttoMonat > 0 ? round2(nebenkosten / bruttoMonat * 100) : 0;
+
+    // ── Render results ──
+    const displayMonat = isJahr ? gesamtJahr : gesamtMonat;
+
+    document.getElementById('res-total').textContent = fmt(isJahr ? gesamtJahr : gesamtMonat);
+    document.getElementById('res-period').textContent = isJahr ? 'pro Jahr' : 'pro Monat';
+
+    const mult = isJahr ? 12 : 1;
+    document.getElementById('res-brutto').textContent = fmt(bruttoMonat * mult);
+    document.getElementById('res-ag-kv').textContent = fmt(sv.kv.ag * mult);
+    document.getElementById('res-ag-pv').textContent = fmt(sv.pv.ag * mult);
+    document.getElementById('res-ag-rv').textContent = fmt(sv.rv.ag * mult);
+    document.getElementById('res-ag-av').textContent = fmt(sv.av.ag * mult);
+    document.getElementById('res-u1').textContent = fmt(u1 * mult);
+    document.getElementById('res-u2').textContent = fmt(u2 * mult);
+    document.getElementById('res-insolv').textContent = fmt(insolv * mult);
+    document.getElementById('res-nebenkosten').textContent = fmt(nebenkosten * mult);
+    document.getElementById('res-aufschlag').textContent = aufschlag.toLocaleString('de-DE', {maximumFractionDigits:1}) + ' %';
+
+    document.getElementById('res-total-jahr').textContent = fmt(gesamtJahr);
+    document.getElementById('res-brutto-jahr').textContent = fmt(bruttoJahr);
+    document.getElementById('res-nebenkosten-jahr').textContent = fmt(round2(nebenkosten * 12));
+
+    // ── Donut chart (employer perspective) ──
+    RechnerUI.drawDonut('chart-container', [
+      { label: 'Bruttolohn', value: bruttoMonat, color: '#1a3a5c' },
+      { label: 'AG Krankenversicherung', value: sv.kv.ag, color: '#2a5a8c' },
+      { label: 'AG Pflegeversicherung', value: sv.pv.ag, color: '#4a90c4' },
+      { label: 'AG Rentenversicherung', value: sv.rv.ag, color: '#e8870e' },
+      { label: 'AG Arbeitslosenvers.', value: sv.av.ag, color: '#f5a623' },
+      { label: 'Umlagen', value: umlagenGesamt, color: '#6b46c1' },
+    ], fmt(gesamtMonat), 'AG-Kosten/Monat');
+  }
+
+  function round2(n) { return Math.round(n * 100) / 100; }
+
+  // ── Init ──
+  document.addEventListener('DOMContentLoaded', () => {
+    setupToggles();
+    RechnerUI.bindCalculation('calc-form', berechne);
+  });
+})();
+</script>

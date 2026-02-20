@@ -1,0 +1,577 @@
+---
+title: Firmenwagenrechner 2026 — Geldwerten Vorteil berechnen | Rechner-Online.info
+description: Berechnen Sie den geldwerten Vorteil Ihres Firmenwagens 2026: 1%-Regelung, Fahrtkostenberechnung und Nettobelastung. Alle Werte aktuell.
+slug: geldwerter-vorteil
+layout: calculator
+---
+
+<main id="main-content">
+  <div class="container">
+
+    <!-- ── Hero ── -->
+    <header style="margin:var(--space-10) 0 var(--space-6)">
+      <h1>Firmenwagenrechner 2026</h1>
+      <p style="font-size:var(--text-lg);color:var(--color-text-secondary);max-width:680px">
+        Was kostet Sie Ihr Firmenwagen netto? Berechnen Sie den geldwerten Vorteil nach der
+        1%-Regelung und sehen Sie, wie sich der Dienstwagen auf Ihr Nettogehalt auswirkt.
+      </p>
+    </header>
+
+    <!-- ══════════════════════════════════════════════════ -->
+    <!-- CALCULATOR LAYOUT -->
+    <!-- ══════════════════════════════════════════════════ -->
+    <div class="calc-layout" id="calc-form">
+
+      <!-- ── LEFT: Form ── -->
+      <div class="calc-form-wrap">
+
+        <!-- Section 1: Gehalt -->
+        <div class="form-section">
+          <h2 class="form-section__title">
+            <span class="form-section__icon">💰</span>Ihr Gehalt
+          </h2>
+          <div class="form-grid">
+            <div class="form-group form-group--full">
+              <label class="form-label" for="brutto">
+                Monatliches Bruttogehalt (ohne Firmenwagen)
+                <span class="form-label__help" title="Ihr reguläres Bruttogehalt ohne den geldwerten Vorteil">?</span>
+              </label>
+              <div class="input-wrapper">
+                <input type="text" id="brutto" class="form-input form-input--euro"
+                       data-field="brutto" data-type="euro"
+                       value="4.000,00" inputmode="decimal">
+                <span class="input-suffix">€</span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="steuerklasse">Steuerklasse</label>
+              <select id="steuerklasse" class="form-select" data-field="steuerklasse" data-type="number">
+                <option value="1" selected>I</option>
+                <option value="2">II</option>
+                <option value="3">III</option>
+                <option value="4">IV</option>
+                <option value="5">V</option>
+                <option value="6">VI</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="bundesland">Bundesland</label>
+              <select id="bundesland" class="form-select" data-field="bundesland">
+                <option value="Baden-Württemberg">Baden-Württemberg</option>
+                <option value="Bayern">Bayern</option>
+                <option value="Berlin">Berlin</option>
+                <option value="Brandenburg">Brandenburg</option>
+                <option value="Bremen">Bremen</option>
+                <option value="Hamburg">Hamburg</option>
+                <option value="Hessen">Hessen</option>
+                <option value="Mecklenburg-Vorpommern">Mecklenburg-Vorpommern</option>
+                <option value="Niedersachsen">Niedersachsen</option>
+                <option value="Nordrhein-Westfalen" selected>Nordrhein-Westfalen</option>
+                <option value="Rheinland-Pfalz">Rheinland-Pfalz</option>
+                <option value="Saarland">Saarland</option>
+                <option value="Sachsen">Sachsen</option>
+                <option value="Sachsen-Anhalt">Sachsen-Anhalt</option>
+                <option value="Schleswig-Holstein">Schleswig-Holstein</option>
+                <option value="Thüringen">Thüringen</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Kirchensteuer</label>
+              <div class="radio-group">
+                <input type="radio" name="kirchensteuer" id="kist-nein" value="nein"
+                       data-field="kirchensteuer" checked>
+                <label for="kist-nein">Nein</label>
+                <input type="radio" name="kirchensteuer" id="kist-ja" value="ja"
+                       data-field="kirchensteuer">
+                <label for="kist-ja">Ja</label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="kvZusatz">
+                KV-Zusatzbeitrag
+              </label>
+              <div class="input-wrapper">
+                <input type="text" id="kvZusatz" class="form-input form-input--percent"
+                       data-field="kvZusatz" data-type="number"
+                       value="2,9" inputmode="decimal">
+                <span class="input-suffix">%</span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Kinder vorhanden?</label>
+              <div class="radio-group">
+                <input type="radio" name="hatKinder" id="kinder-nein" value="nein"
+                       data-field="hatKinder" checked>
+                <label for="kinder-nein">Nein</label>
+                <input type="radio" name="hatKinder" id="kinder-ja" value="ja"
+                       data-field="hatKinder">
+                <label for="kinder-ja">Ja</label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 2: Firmenwagen -->
+        <div class="form-section">
+          <h2 class="form-section__title">
+            <span class="form-section__icon">🚗</span>Firmenwagen
+          </h2>
+          <div class="form-grid">
+            <div class="form-group form-group--full">
+              <label class="form-label" for="listenpreis">
+                Bruttolistenpreis (inkl. Sonderausstattung)
+                <span class="form-label__help" title="Unverbindliche Preisempfehlung des Herstellers bei Erstzulassung inkl. MwSt. und Sonderausstattung — nicht der Kaufpreis!">?</span>
+              </label>
+              <div class="input-wrapper">
+                <input type="text" id="listenpreis" class="form-input form-input--euro"
+                       data-field="listenpreis" data-type="euro"
+                       value="45.000,00" inputmode="decimal">
+                <span class="input-suffix">€</span>
+              </div>
+            </div>
+
+            <div class="form-group form-group--full">
+              <label class="form-label">Antriebsart</label>
+              <div class="radio-group">
+                <input type="radio" name="antrieb" id="antrieb-verbrenner" value="verbrenner"
+                       data-field="antrieb" checked>
+                <label for="antrieb-verbrenner">Verbrenner</label>
+                <input type="radio" name="antrieb" id="antrieb-hybrid" value="hybrid"
+                       data-field="antrieb">
+                <label for="antrieb-hybrid">Plug-in-Hybrid</label>
+                <input type="radio" name="antrieb" id="antrieb-elektro" value="elektro"
+                       data-field="antrieb">
+                <label for="antrieb-elektro">Elektro</label>
+              </div>
+            </div>
+
+            <div class="form-group form-group--full">
+              <label class="form-label" for="entfernung">
+                Einfache Entfernung Wohnung – Arbeitsstätte
+                <span class="form-label__help" title="Kürzeste Straßenverbindung, einfache Strecke in km">?</span>
+              </label>
+              <div class="input-wrapper">
+                <input type="text" id="entfernung" class="form-input"
+                       data-field="entfernung" data-type="number"
+                       value="25" inputmode="numeric">
+                <span class="input-suffix">km</span>
+              </div>
+            </div>
+
+            <div class="form-group form-group--full">
+              <label class="form-label" for="eigenanteil">
+                Monatlicher Eigenanteil / Zuzahlung
+                <span class="form-label__help" title="Betrag, den Sie selbst für den Firmenwagen zahlen (mindert den geldwerten Vorteil)">?</span>
+              </label>
+              <div class="input-wrapper">
+                <input type="text" id="eigenanteil" class="form-input form-input--euro"
+                       data-field="eigenanteil" data-type="euro"
+                       value="0,00" inputmode="decimal">
+                <span class="input-suffix">€</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ── RIGHT: Results ── -->
+      <div class="calc-results-wrap">
+        <div class="results-panel">
+          <div class="results-panel__header">
+            <h3>Auswirkung auf Ihr Netto</h3>
+          </div>
+          <div class="results-panel__body">
+
+            <!-- Netto difference highlight -->
+            <div class="result-netto">
+              <div class="result-netto__label">Nettobelastung durch Firmenwagen</div>
+              <div class="result-netto__value" id="res-netto-diff" style="color:var(--color-error)">—</div>
+              <div class="result-netto__period">weniger Netto pro Monat</div>
+            </div>
+
+            <!-- Donut Chart -->
+            <div id="chart-container"></div>
+            <div class="chart-legend"></div>
+
+            <!-- Geldwerter Vorteil breakdown -->
+            <div class="result-rows">
+              <div class="result-row result-row--header">
+                <span>Geldwerter Vorteil</span>
+                <span></span>
+              </div>
+              <div class="result-row">
+                <span class="result-row__label">1%-Regelung (Privatnutzung)</span>
+                <span class="result-row__value" id="res-1pct">—</span>
+              </div>
+              <div class="result-row">
+                <span class="result-row__label">0,03%-Fahrtkostenzuschlag</span>
+                <span class="result-row__value" id="res-fahrt">—</span>
+              </div>
+              <div class="result-row">
+                <span class="result-row__label">Abzgl. Eigenanteil</span>
+                <span class="result-row__value" id="res-eigenanteil" style="color:var(--color-success)">—</span>
+              </div>
+              <div class="result-row result-row--total">
+                <span>Geldwerter Vorteil gesamt</span>
+                <span class="result-row__value" id="res-gv-total">—</span>
+              </div>
+
+              <div class="result-row result-row--header" style="margin-top:var(--space-6)">
+                <span>Gehaltsvergleich</span>
+                <span></span>
+              </div>
+              <div class="result-row">
+                <span class="result-row__label">Netto ohne Firmenwagen</span>
+                <span class="result-row__value" id="res-netto-ohne">—</span>
+              </div>
+              <div class="result-row">
+                <span class="result-row__label">Netto mit Firmenwagen</span>
+                <span class="result-row__value" id="res-netto-mit">—</span>
+              </div>
+              <div class="result-row result-row--total">
+                <span>Monatliche Nettobelastung</span>
+                <span class="result-row__value" id="res-diff-row" style="color:var(--color-error)">—</span>
+              </div>
+
+              <!-- Yearly -->
+              <div style="margin-top:var(--space-6);padding-top:var(--space-4);border-top:1px solid var(--color-border-light)">
+                <div class="result-row">
+                  <span class="result-row__label">Nettobelastung pro Jahr</span>
+                  <span class="result-row__value" id="res-diff-jahr" style="color:var(--color-error)">—</span>
+                </div>
+                <div class="result-row">
+                  <span class="result-row__label">Geldwerter Vorteil pro Jahr</span>
+                  <span class="result-row__value" id="res-gv-jahr">—</span>
+                </div>
+                <div class="result-row">
+                  <span class="result-row__label">Effektiver Steuersatz auf GwV</span>
+                  <span class="result-row__value" id="res-effektiv-satz">—</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════ -->
+    <!-- SEO CONTENT -->
+    <!-- ══════════════════════════════════════════════════ -->
+    <section class="content-section">
+
+      <h2>Firmenwagen versteuern: So funktioniert die 1%-Regelung</h2>
+      <p>
+        Wer einen Firmenwagen auch privat nutzen darf, muss diesen Vorteil als <strong>geldwerten
+        Vorteil</strong> versteuern. Die gängigste Methode ist die sogenannte 1%-Regelung: Jeden Monat
+        wird 1% des Bruttolistenpreises zum Bruttolohn addiert und entsprechend versteuert und
+        verbeitragt.
+      </p>
+      <p>
+        Dazu kommt der <strong>Fahrtkostenzuschlag</strong> für den Arbeitsweg: 0,03% des
+        Bruttolistenpreises pro Entfernungskilometer (einfache Strecke) pro Monat. Dieser Rechner
+        zeigt Ihnen transparent, was der Firmenwagen Sie netto tatsächlich kostet.
+      </p>
+
+      <h2>Sonderregeln für Elektro- und Hybridfahrzeuge 2026</h2>
+      <p>
+        Für Elektroautos und Plug-in-Hybride gelten reduzierte Bemessungsgrundlagen:
+      </p>
+      <ul>
+        <li><strong>Reine Elektrofahrzeuge</strong> (Bruttolistenpreis bis 70.000 €): Nur <strong>0,25%</strong>
+            des Listenpreises pro Monat — ein erheblicher Steuervorteil gegenüber Verbrennern.</li>
+        <li><strong>Reine Elektrofahrzeuge</strong> (über 70.000 €): <strong>0,5%</strong> des Listenpreises.</li>
+        <li><strong>Plug-in-Hybride</strong> (mind. 80 km elektrische Reichweite oder max. 50 g CO₂/km):
+            <strong>0,5%</strong> des Listenpreises.</li>
+      </ul>
+      <p>
+        Dieser Rechner berücksichtigt diese Sonderregeln automatisch und zeigt den reduzierten
+        geldwerten Vorteil für E-Fahrzeuge.
+      </p>
+
+      <h3>Bruttolistenpreis: Was zählt dazu?</h3>
+      <p>
+        Entscheidend ist die <strong>unverbindliche Preisempfehlung (UPE)</strong> des Herstellers zum
+        Zeitpunkt der Erstzulassung — inklusive Umsatzsteuer und aller Sonderausstattungen. Rabatte,
+        Gebrauchtwagenpreise oder tatsächliche Anschaffungskosten spielen keine Rolle. Auch bei
+        Leasingfahrzeugen gilt der volle Bruttolistenpreis.
+      </p>
+
+      <h3>Eigenanteil mindert den geldwerten Vorteil</h3>
+      <p>
+        Zahlen Sie einen monatlichen Eigenanteil für den Firmenwagen (z.&nbsp;B. Leasingrate, Tankkosten
+        oder eine pauschale Zuzahlung), wird dieser vom geldwerten Vorteil abgezogen. Dadurch sinkt
+        die Steuer- und Beitragsbelastung. Auch einmalige Zuzahlungen können über die Nutzungsdauer
+        verteilt werden.
+      </p>
+
+      <h2>1%-Regelung vs. Fahrtenbuch</h2>
+      <p>
+        Neben der 1%-Regelung gibt es die Fahrtenbuchmethode. Dabei werden nur die tatsächlichen
+        Privatfahrten besteuert. Das Fahrtenbuch lohnt sich vor allem bei geringer Privatnutzung
+        (unter ca. 30%) oder bei Fahrzeugen mit hohem Listenpreis aber niedrigen Betriebskosten.
+        Der Nachteil: Das Fahrtenbuch muss lückenlos und zeitnah geführt werden — das Finanzamt
+        prüft streng.
+      </p>
+
+      <h2>Häufige Fragen zum Firmenwagenrechner</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Wie wird der geldwerte Vorteil eines Firmenwagens berechnet?
+          </button>
+          <div class="faq-answer"><div class="faq-answer__inner">
+            Bei der 1%-Regelung wird monatlich 1% des Bruttolistenpreises (inkl. MwSt. und
+            Sonderausstattung) als geldwerter Vorteil zum Bruttogehalt addiert. Zusätzlich werden 0,03%
+            des Listenpreises pro Entfernungskilometer zum Arbeitsort als Fahrtkostenzuschlag berechnet.
+            Für Elektroautos gelten reduzierte Sätze (0,25% bzw. 0,5%).
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Was ist günstiger — 1%-Regelung oder Fahrtenbuch?
+          </button>
+          <div class="faq-answer"><div class="faq-answer__inner">
+            Das hängt vom Privatanteil ab. Fahren Sie weniger als ca. 30% privat, kann das Fahrtenbuch
+            günstiger sein. Bei hohem Privatanteil oder einem preiswerten Fahrzeug ist die 1%-Regelung
+            meist vorteilhafter. Unser Rechner zeigt die Belastung nach der 1%-Regelung — vergleichen
+            Sie das mit einer Fahrtenbuch-Schätzung.
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Welche Vorteile hat ein Elektro-Firmenwagen steuerlich?
+          </button>
+          <div class="faq-answer"><div class="faq-answer__inner">
+            Reine Elektroautos bis 70.000 € Listenpreis werden nur mit 0,25% monatlich versteuert statt
+            1%. Das bedeutet eine Steuerersparnis von 75% gegenüber einem vergleichbaren Verbrenner.
+            Über 70.000 € gilt 0,5%. Plug-in-Hybride werden mit 0,5% besteuert, wenn sie mindestens
+            80 km rein elektrisch fahren können.
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Muss der geldwerte Vorteil auch sozialversichert werden?
+          </button>
+          <div class="faq-answer"><div class="faq-answer__inner">
+            Ja. Der geldwerte Vorteil aus der privaten Firmenwagennutzung ist nicht nur lohnsteuer-
+            sondern auch sozialversicherungspflichtig. Das bedeutet höhere Beiträge zur Kranken-,
+            Pflege-, Renten- und Arbeitslosenversicherung — für Arbeitnehmer und Arbeitgeber.
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Was passiert bei einem Firmenwagenwechsel während des Jahres?
+          </button>
+          <div class="faq-answer"><div class="faq-answer__inner">
+            Bei einem Fahrzeugwechsel ändert sich der geldwerte Vorteil ab dem Monat der Überlassung
+            des neuen Fahrzeugs. Es wird kein Jahresausgleich vorgenommen — jeder Monat wird einzeln
+            betrachtet. Der Bruttolistenpreis des jeweils genutzten Fahrzeugs ist maßgeblich.
+          </div></div>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+</main>
+
+<!-- ══════════════════════════════════════════════════ -->
+<!-- Schema.org Markup -->
+<!-- ══════════════════════════════════════════════════ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Firmenwagenrechner 2026 — Geldwerten Vorteil berechnen",
+  "description": "Berechnen Sie den geldwerten Vorteil Ihres Firmenwagens nach der 1%-Regelung: Nettobelastung, Fahrtkostenberechnung und Vergleich mit/ohne Dienstwagen.",
+  "url": "https://www.rechner-online.info/geldwerter-vorteil",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+  "inLanguage": "de"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Wie wird der geldwerte Vorteil eines Firmenwagens berechnet?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Bei der 1%-Regelung wird monatlich 1% des Bruttolistenpreises als geldwerter Vorteil zum Bruttogehalt addiert. Zusätzlich werden 0,03% des Listenpreises pro Entfernungskilometer als Fahrtkostenzuschlag berechnet. Für Elektroautos gelten reduzierte Sätze."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Welche Vorteile hat ein Elektro-Firmenwagen steuerlich?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Reine Elektroautos bis 70.000 € Listenpreis werden nur mit 0,25% monatlich versteuert statt 1% — eine Steuerersparnis von 75%. Über 70.000 € gilt 0,5%. Plug-in-Hybride werden mit 0,5% besteuert."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Muss der geldwerte Vorteil auch sozialversichert werden?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja. Der geldwerte Vorteil ist lohnsteuer- und sozialversicherungspflichtig, was höhere Beiträge zur Kranken-, Pflege-, Renten- und Arbeitslosenversicherung bedeutet."
+      }
+    }
+  ]
+}
+</script>
+
+<!-- ══════════════════════════════════════════════════ -->
+<!-- PAGE-SPECIFIC CALCULATION SCRIPT -->
+<!-- ══════════════════════════════════════════════════ -->
+<script>
+(function() {
+  'use strict';
+
+  const fmt = Steuer2026.formatEuro;
+  const C = Steuer2026.CONST;
+
+  /**
+   * Determine the monthly percentage rate based on vehicle type and price.
+   * - Verbrenner: 1%
+   * - Elektro ≤70k: 0.25%
+   * - Elektro >70k: 0.5%
+   * - Plug-in-Hybrid (≥80km range): 0.5%
+   */
+  function getMonatsSatz(antrieb, listenpreis) {
+    if (antrieb === 'elektro') {
+      return listenpreis <= 70000 ? 0.0025 : 0.005;
+    }
+    if (antrieb === 'hybrid') {
+      return 0.005;
+    }
+    return 0.01; // Verbrenner
+  }
+
+  /**
+   * Fahrtkosten rate: for E-cars the reduced Listenpreis applies,
+   * but the 0.03% is always on the (potentially reduced) basis.
+   * Simplified: 0.03% of actual Listenpreis × km for Verbrenner.
+   * For E/Hybrid the basis is the reduced amount.
+   */
+  function getFahrtkostenSatz(antrieb, listenpreis) {
+    // Fahrtkosten = 0.03% of the same (reduced) basis as the %-Regelung per km
+    // Verbrenner: 0.03% of LP = 0.0003 × LP × km
+    // Elektro ≤70k: 0.03% of (LP×0.25) = 0.000075 × LP × km
+    // Elektro >70k: 0.03% of (LP×0.50) = 0.00015 × LP × km
+    // Hybrid: 0.03% of (LP×0.50) = 0.00015 × LP × km
+    if (antrieb === 'elektro') {
+      return listenpreis <= 70000 ? 0.000075 : 0.00015;
+    }
+    if (antrieb === 'hybrid') {
+      return 0.00015;
+    }
+    return 0.0003;
+  }
+
+  function berechne(v) {
+    const bruttoMonat = v.brutto || 0;
+    if (bruttoMonat <= 0) return;
+
+    const listenpreis = v.listenpreis || 0;
+    const entfernung = v.entfernung || 0;
+    const eigenanteil = v.eigenanteil || 0;
+    const antrieb = v.antrieb || 'verbrenner';
+
+    // Round Listenpreis to nearest 100 (as required by law)
+    const lpGerundet = Math.ceil(listenpreis / 100) * 100;
+
+    // 1%-Regelung (or reduced rate)
+    const monatsSatz = getMonatsSatz(antrieb, lpGerundet);
+    const privatnutzung = round2(lpGerundet * monatsSatz);
+
+    // Fahrtkostenzuschlag
+    const fahrtSatz = getFahrtkostenSatz(antrieb, lpGerundet);
+    const fahrtkosten = round2(lpGerundet * fahrtSatz * entfernung);
+
+    // Geldwerter Vorteil nach Eigenanteil
+    const gvBrutto = round2(privatnutzung + fahrtkosten);
+    const gvNetto = round2(Math.max(0, gvBrutto - eigenanteil));
+
+    // ── Berechnung OHNE Firmenwagen ──
+    const ohneResult = Steuer2026.bruttoNetto({
+      brutto: bruttoMonat,
+      zeitraum: 'monat',
+      steuerklasse: v.steuerklasse || 1,
+      bundesland: v.bundesland || 'Nordrhein-Westfalen',
+      kirchensteuer: v.kirchensteuer === 'ja',
+      krankenversicherung: 'gesetzlich',
+      kvZusatzbeitrag: (v.kvZusatz || 2.9) / 100,
+      hatKinder: v.hatKinder === 'ja',
+      kinderUnter25: v.hatKinder === 'ja' ? 1 : 0,
+      alter: 30,
+      geldwerterVorteil: 0,
+    });
+
+    // ── Berechnung MIT Firmenwagen ──
+    const mitResult = Steuer2026.bruttoNetto({
+      brutto: bruttoMonat,
+      zeitraum: 'monat',
+      steuerklasse: v.steuerklasse || 1,
+      bundesland: v.bundesland || 'Nordrhein-Westfalen',
+      kirchensteuer: v.kirchensteuer === 'ja',
+      krankenversicherung: 'gesetzlich',
+      kvZusatzbeitrag: (v.kvZusatz || 2.9) / 100,
+      hatKinder: v.hatKinder === 'ja',
+      kinderUnter25: v.hatKinder === 'ja' ? 1 : 0,
+      alter: 30,
+      geldwerterVorteil: gvNetto,
+    });
+
+    const nettoOhne = ohneResult.ergebnis.nettoMonat;
+    const nettoMit = mitResult.ergebnis.nettoMonat;
+    const nettoDiff = round2(nettoOhne - nettoMit);
+
+    // Effektiver Steuersatz auf den geldwerten Vorteil
+    const effektivSatz = gvNetto > 0 ? round2(nettoDiff / gvNetto * 100) : 0;
+
+    // ── Render ──
+    document.getElementById('res-netto-diff').textContent = fmt(nettoDiff);
+    document.getElementById('res-1pct').textContent = fmt(privatnutzung);
+    document.getElementById('res-fahrt').textContent = fmt(fahrtkosten);
+    document.getElementById('res-eigenanteil').textContent = eigenanteil > 0 ? '− ' + fmt(eigenanteil) : '—';
+    document.getElementById('res-gv-total').textContent = fmt(gvNetto);
+
+    document.getElementById('res-netto-ohne').textContent = fmt(nettoOhne);
+    document.getElementById('res-netto-mit').textContent = fmt(nettoMit);
+    document.getElementById('res-diff-row').textContent = '− ' + fmt(nettoDiff);
+
+    document.getElementById('res-diff-jahr').textContent = '− ' + fmt(round2(nettoDiff * 12));
+    document.getElementById('res-gv-jahr').textContent = fmt(round2(gvNetto * 12));
+    document.getElementById('res-effektiv-satz').textContent = effektivSatz.toLocaleString('de-DE', {maximumFractionDigits:1}) + ' %';
+
+    // ── Donut: Netto composition with car ──
+    RechnerUI.drawDonut('chart-container', [
+      { label: 'Nettolohn', value: nettoMit, color: '#1a8754' },
+      { label: 'Steuern', value: mitResult.steuern.gesamt, color: '#c53030' },
+      { label: 'Sozialversicherung', value: mitResult.sozialversicherung.gesamt, color: '#e8870e' },
+      { label: 'Firmenwagen-Nettolast', value: nettoDiff, color: '#2a5a8c' },
+    ], fmt(nettoMit), 'Netto mit Firmenwagen');
+  }
+
+  function round2(n) { return Math.round(n * 100) / 100; }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    RechnerUI.bindCalculation('calc-form', berechne);
+  });
+})();
+</script>

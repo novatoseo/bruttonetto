@@ -1,0 +1,96 @@
+/* ══════════════════════════════════════════════════════════
+   RESPONSIVE — Breakpoints & Mobile Overrides
+   ══════════════════════════════════════════════════════════ */
+
+/* ── Tablet (≤1024px) ── */
+@media (max-width: 1024px) {
+  .calc-layout {
+    grid-template-columns: 1fr;
+  }
+  .calc-results-wrap {
+    position: static;
+    order: -1; /* Results above form on tablet */
+  }
+  .site-footer__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-8);
+  }
+}
+
+/* ── Mobile (≤768px) ── */
+@media (max-width: 768px) {
+  :root {
+    --header-height: 56px;
+  }
+  
+  h1 { font-size: var(--text-2xl); }
+  h2 { font-size: var(--text-xl); }
+  
+  .container { padding: 0 var(--space-4); }
+  
+  /* Header */
+  .nav-toggle { display: block; }
+  .main-nav {
+    display: none;
+    position: absolute;
+    top: var(--header-height);
+    left: 0;
+    right: 0;
+    background: var(--color-primary-dark);
+    flex-direction: column;
+    padding: var(--space-4);
+    border-top: 1px solid rgba(255,255,255,0.1);
+    box-shadow: var(--shadow-lg);
+  }
+  .main-nav.open { display: flex; }
+  .main-nav__link {
+    width: 100%;
+    padding: var(--space-3) var(--space-4);
+    border-radius: var(--radius-md);
+  }
+  
+  /* Hero */
+  .page-hero { padding: var(--space-8) 0 var(--space-10); }
+  .page-hero__subtitle { font-size: var(--text-base); }
+  
+  /* Form */
+  .form-grid { grid-template-columns: 1fr; }
+  .form-section { padding: var(--space-4); }
+  
+  /* Results */
+  .result-netto__value { font-size: var(--text-3xl); }
+  .results-panel__body { padding: var(--space-4); }
+  
+  /* Footer */
+  .site-footer__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+  .site-footer__bottom {
+    flex-direction: column;
+    gap: var(--space-4);
+    text-align: center;
+  }
+  
+  /* Calculator Grid (Index) */
+  .calc-grid { grid-template-columns: 1fr; }
+}
+
+/* ── Small Mobile (≤480px) ── */
+@media (max-width: 480px) {
+  .radio-group { flex-direction: column; }
+  .radio-group label { border-right: none; border-bottom: 1px solid var(--color-border-light); }
+  .radio-group label:last-child { border-bottom: none; }
+  
+  .chart-container { padding: var(--space-2) 0; }
+  .donut-chart { width: 160px; height: 160px; }
+}
+
+/* ── Print ── */
+@media print {
+  .site-header, .site-footer, .nav-toggle, .form-section,
+  .page-hero, .breadcrumb { display: none !important; }
+  .calc-layout { display: block; }
+  .results-panel { border: 2px solid #000; box-shadow: none; }
+  body { background: #fff; }
+}

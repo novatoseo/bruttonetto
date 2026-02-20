@@ -1,0 +1,629 @@
+---
+title: Elterngeldrechner 2026 — Elterngeld berechnen | Rechner-Online.info
+description: Berechnen Sie Ihr Elterngeld 2026: Basiselterngeld, ElterngeldPlus und Partnerschaftsbonus. Mit aktuellem Elterngeldgesetz.
+slug: elterngeldrechner
+layout: calculator
+---
+
+<main id="main-content">
+  <div class="container">
+
+    <!-- ── Hero ── -->
+    <header style="margin:var(--space-10) 0 var(--space-6)">
+      <h1>Elterngeldrechner 2026</h1>
+      <p style="font-size:var(--text-lg);color:var(--color-text-secondary);max-width:680px">
+        Wie hoch wird Ihr Elterngeld? Berechnen Sie Basiselterngeld und ElterngeldPlus auf Basis
+        Ihres Nettoeinkommens — mit allen aktuellen Regelungen für 2026.
+      </p>
+    </header>
+
+    <!-- ══════════════════════════════════════════════════ -->
+    <!-- CALCULATOR LAYOUT -->
+    <!-- ══════════════════════════════════════════════════ -->
+    <div class="calc-layout" id="calc-form">
+
+      <!-- ── LEFT: Form ── -->
+      <div class="calc-form-wrap">
+
+        <!-- Section 1: Einkommen vor Geburt -->
+        <div class="form-section">
+          <h2 class="form-section__title">
+            <span class="form-section__icon">💰</span>Einkommen vor der Geburt
+          </h2>
+          <div class="form-grid">
+            <div class="form-group form-group--full">
+              <label class="form-label" for="brutto">
+                Monatliches Bruttogehalt
+                <span class="form-label__help" title="Durchschnittliches Bruttogehalt der 12 Monate vor dem Mutterschutz bzw. der Geburt">?</span>
+              </label>
+              <div class="input-wrapper">
+                <input type="text" id="brutto" class="form-input form-input--euro"
+                       data-field="brutto" data-type="euro"
+                       value="3.500,00" inputmode="decimal">
+                <span class="input-suffix">€</span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="steuerklasse">Steuerklasse</label>
+              <select id="steuerklasse" class="form-select" data-field="steuerklasse" data-type="number">
+                <option value="1" selected>I</option>
+                <option value="2">II</option>
+                <option value="3">III</option>
+                <option value="4">IV</option>
+                <option value="5">V</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="bundesland">Bundesland</label>
+              <select id="bundesland" class="form-select" data-field="bundesland">
+                <option value="Baden-Württemberg">Baden-Württemberg</option>
+                <option value="Bayern">Bayern</option>
+                <option value="Berlin">Berlin</option>
+                <option value="Brandenburg">Brandenburg</option>
+                <option value="Bremen">Bremen</option>
+                <option value="Hamburg">Hamburg</option>
+                <option value="Hessen">Hessen</option>
+                <option value="Mecklenburg-Vorpommern">Mecklenburg-Vorpommern</option>
+                <option value="Niedersachsen">Niedersachsen</option>
+                <option value="Nordrhein-Westfalen" selected>Nordrhein-Westfalen</option>
+                <option value="Rheinland-Pfalz">Rheinland-Pfalz</option>
+                <option value="Saarland">Saarland</option>
+                <option value="Sachsen">Sachsen</option>
+                <option value="Sachsen-Anhalt">Sachsen-Anhalt</option>
+                <option value="Schleswig-Holstein">Schleswig-Holstein</option>
+                <option value="Thüringen">Thüringen</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Kirchensteuer</label>
+              <div class="radio-group">
+                <input type="radio" name="kirchensteuer" id="kist-nein" value="nein"
+                       data-field="kirchensteuer" checked>
+                <label for="kist-nein">Nein</label>
+                <input type="radio" name="kirchensteuer" id="kist-ja" value="ja"
+                       data-field="kirchensteuer">
+                <label for="kist-ja">Ja</label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="kvZusatz">KV-Zusatzbeitrag</label>
+              <div class="input-wrapper">
+                <input type="text" id="kvZusatz" class="form-input form-input--percent"
+                       data-field="kvZusatz" data-type="number"
+                       value="2,9" inputmode="decimal">
+                <span class="input-suffix">%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 2: Elterngeld-Optionen -->
+        <div class="form-section">
+          <h2 class="form-section__title">
+            <span class="form-section__icon">👶</span>Elterngeld-Optionen
+          </h2>
+          <div class="form-grid">
+            <div class="form-group form-group--full">
+              <label class="form-label">Vorhandene Kinder im Haushalt</label>
+              <div class="radio-group">
+                <input type="radio" name="geschwister" id="geschwister-0" value="0"
+                       data-field="geschwister" data-type="number" checked>
+                <label for="geschwister-0">Keine</label>
+                <input type="radio" name="geschwister" id="geschwister-1" value="1"
+                       data-field="geschwister" data-type="number">
+                <label for="geschwister-1">1 unter 3 J.</label>
+                <input type="radio" name="geschwister" id="geschwister-2" value="2"
+                       data-field="geschwister" data-type="number">
+                <label for="geschwister-2">2+ unter 6 J.</label>
+              </div>
+            </div>
+
+            <div class="form-group form-group--full">
+              <label class="form-label">Mehrlinge?</label>
+              <div class="radio-group">
+                <input type="radio" name="mehrlinge" id="mehrlinge-0" value="0"
+                       data-field="mehrlinge" data-type="number" checked>
+                <label for="mehrlinge-0">Nein</label>
+                <input type="radio" name="mehrlinge" id="mehrlinge-1" value="1"
+                       data-field="mehrlinge" data-type="number">
+                <label for="mehrlinge-1">Zwillinge</label>
+                <input type="radio" name="mehrlinge" id="mehrlinge-2" value="2"
+                       data-field="mehrlinge" data-type="number">
+                <label for="mehrlinge-2">Drillinge</label>
+              </div>
+            </div>
+
+            <div class="form-group form-group--full">
+              <label class="form-label" for="einkommen-waehrend">
+                Einkommen während Elternzeit (monatlich)
+                <span class="form-label__help" title="Falls Sie Teilzeit arbeiten: Ihr voraussichtliches Bruttogehalt während des Elterngeldbezugs. 0 € = kein Einkommen.">?</span>
+              </label>
+              <div class="input-wrapper">
+                <input type="text" id="einkommen-waehrend" class="form-input form-input--euro"
+                       data-field="einkommenWaehrend" data-type="euro"
+                       value="0,00" inputmode="decimal">
+                <span class="input-suffix">€</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Info -->
+        <div style="background:var(--color-info-subtle);border:1px solid var(--color-info);border-radius:var(--radius-md);padding:var(--space-4) var(--space-5);margin-bottom:var(--space-6)">
+          <p style="font-size:var(--text-sm);color:var(--color-info);margin:0">
+            <strong>Hinweis:</strong> Das Elterngeld wird anhand des pauschalierten Nettoeinkommens
+            berechnet, nicht anhand Ihres tatsächlichen Nettogehalts. Die Berechnung kann daher
+            geringfügig vom tatsächlichen Bescheid der Elterngeldstelle abweichen.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- ── RIGHT: Results ── -->
+      <div class="calc-results-wrap">
+        <div class="results-panel">
+          <div class="results-panel__header">
+            <h3>Ihr Elterngeld</h3>
+          </div>
+          <div class="results-panel__body">
+
+            <!-- Highlight -->
+            <div class="result-netto">
+              <div class="result-netto__label">Basiselterngeld pro Monat</div>
+              <div class="result-netto__value" id="res-elterngeld">—</div>
+              <div class="result-netto__period" id="res-satz-info">—</div>
+            </div>
+
+            <!-- Donut Chart -->
+            <div id="chart-container"></div>
+            <div class="chart-legend"></div>
+
+            <!-- Breakdown -->
+            <div class="result-rows">
+              <div class="result-row result-row--header">
+                <span>Berechnungsweg</span>
+                <span></span>
+              </div>
+              <div class="result-row">
+                <span class="result-row__label">Brutto (Ø letzte 12 Mon.)</span>
+                <span class="result-row__value" id="res-brutto">—</span>
+              </div>
+              <div class="result-row">
+                <span class="result-row__label">Pauschal. Nettoeinkommen</span>
+                <span class="result-row__value" id="res-netto-pausch">—</span>
+              </div>
+              <div class="result-row" id="row-netto-waehrend" style="display:none">
+                <span class="result-row__label">./. Netto während Elternzeit</span>
+                <span class="result-row__value" id="res-netto-waehrend" style="color:var(--color-error)">—</span>
+              </div>
+              <div class="result-row">
+                <span class="result-row__label">Einkommensdifferenz</span>
+                <span class="result-row__value" id="res-differenz">—</span>
+              </div>
+              <div class="result-row">
+                <span class="result-row__label">Ersatzrate</span>
+                <span class="result-row__value" id="res-ersatzrate">—</span>
+              </div>
+              <div class="result-row" id="row-geschwister" style="display:none">
+                <span class="result-row__label">Geschwisterbonus</span>
+                <span class="result-row__value" id="res-geschwister" style="color:var(--color-success)">—</span>
+              </div>
+              <div class="result-row" id="row-mehrlinge" style="display:none">
+                <span class="result-row__label">Mehrlingszuschlag</span>
+                <span class="result-row__value" id="res-mehrlinge" style="color:var(--color-success)">—</span>
+              </div>
+
+              <div class="result-row result-row--total">
+                <span>Basiselterngeld</span>
+                <span class="result-row__value" id="res-basis-total">—</span>
+              </div>
+
+              <!-- ElterngeldPlus -->
+              <div class="result-row result-row--header" style="margin-top:var(--space-6)">
+                <span>ElterngeldPlus</span>
+                <span></span>
+              </div>
+              <div class="result-row">
+                <span class="result-row__label">ElterngeldPlus / Monat</span>
+                <span class="result-row__value" id="res-plus">—</span>
+              </div>
+              <div class="result-row">
+                <span class="result-row__label">Bezugsdauer ElterngeldPlus</span>
+                <span class="result-row__value" id="res-plus-dauer">bis zu 28 Monate</span>
+              </div>
+
+              <!-- Totals -->
+              <div style="margin-top:var(--space-6);padding-top:var(--space-4);border-top:1px solid var(--color-border-light)">
+                <div class="result-row">
+                  <span class="result-row__label">Basiselterngeld × 12 Mon.</span>
+                  <span class="result-row__value" id="res-total-basis">—</span>
+                </div>
+                <div class="result-row">
+                  <span class="result-row__label">ElterngeldPlus × 24 Mon.</span>
+                  <span class="result-row__value" id="res-total-plus">—</span>
+                </div>
+                <div class="result-row">
+                  <span class="result-row__label">Min/Max Basiselterngeld</span>
+                  <span class="result-row__value" id="res-minmax" style="font-size:var(--text-xs)">—</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════ -->
+    <!-- SEO CONTENT -->
+    <!-- ══════════════════════════════════════════════════ -->
+    <section class="content-section">
+
+      <h2>So wird das Elterngeld berechnet</h2>
+      <p>
+        Das Elterngeld ersetzt einen Teil des wegfallenden Einkommens nach der Geburt eines Kindes.
+        Die Berechnung erfolgt in mehreren Schritten:
+      </p>
+      <ul>
+        <li><strong>Bemessungszeitraum:</strong> In der Regel die 12 Monate vor dem Mutterschutz
+            (bei Angestellten) bzw. vor der Geburt (bei Selbstständigen). Monate mit Mutterschaftsgeld,
+            Elterngeld oder Krankengeld werden ausgeklammert.</li>
+        <li><strong>Pauschaliertes Netto:</strong> Vom Brutto werden pauschal Steuern (nach
+            Steuerklasse) und Sozialversicherungsbeiträge (21% Pauschale) abgezogen. Dieses
+            pauschalierte Netto kann vom tatsächlichen Nettolohn abweichen.</li>
+        <li><strong>Ersatzrate:</strong> Grundsätzlich 67% der Einkommensdifferenz. Bei niedrigem
+            Einkommen (unter 1.000 €) steigt die Rate auf bis zu 100%. Bei hohem Einkommen
+            (über 1.200 €) sinkt sie auf 65%.</li>
+      </ul>
+
+      <h2>Basiselterngeld vs. ElterngeldPlus</h2>
+      <p>
+        Eltern können zwischen zwei Varianten wählen — oder sie kombinieren:
+      </p>
+      <ul>
+        <li><strong>Basiselterngeld:</strong> Höherer Betrag, maximal 12 Monate (14 mit Partnermonaten).
+            Mindestens 300 €, maximal 1.800 € pro Monat.</li>
+        <li><strong>ElterngeldPlus:</strong> Halber Betrag, dafür doppelte Bezugsdauer.
+            Mindestens 150 €, maximal 900 € pro Monat. Besonders attraktiv bei Teilzeitarbeit
+            während der Elternzeit.</li>
+      </ul>
+      <p>
+        Jeder Basiselterngeld-Monat kann in zwei ElterngeldPlus-Monate umgewandelt werden.
+        Zusätzlich gibt es den <strong>Partnerschaftsbonus</strong>: Arbeiten beide Elternteile
+        gleichzeitig 24–32 Stunden pro Woche, erhalten sie jeweils bis zu vier zusätzliche
+        ElterngeldPlus-Monate.
+      </p>
+
+      <h3>Geschwisterbonus und Mehrlingszuschlag</h3>
+      <p>
+        Der <strong>Geschwisterbonus</strong> beträgt 10% des Elterngelds (mindestens 75 € beim
+        Basiselterngeld, 37,50 € beim ElterngeldPlus). Er wird gezahlt, wenn ein älteres
+        Geschwisterkind unter 3 Jahren oder zwei Geschwister unter 6 Jahren im Haushalt leben.
+      </p>
+      <p>
+        Bei Mehrlingsgeburten gibt es einen <strong>Mehrlingszuschlag</strong> von 300 € pro
+        weiterem Kind beim Basiselterngeld (150 € beim ElterngeldPlus).
+      </p>
+
+      <h3>Einkommensgrenze seit April 2024</h3>
+      <p>
+        Seit April 2024 gelten gesenkte Einkommensgrenzen für den Elterngeldanspruch: Paare mit
+        einem gemeinsamen zu versteuernden Einkommen über 175.000 € (Alleinerziehende: 150.000 €)
+        haben keinen Anspruch mehr auf Elterngeld. Zuvor lag die Grenze bei 300.000 € für Paare.
+      </p>
+
+      <h2>Häufige Fragen zum Elterngeld</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Wie lange wird Elterngeld gezahlt?
+          </button>
+          <div class="faq-answer"><div class="faq-answer__inner">
+            Basiselterngeld wird für maximal 12 Monate gezahlt (14 Monate, wenn auch der Partner
+            mindestens 2 Monate nimmt). ElterngeldPlus kann bis zu 24 Monate bezogen werden
+            (28 mit Partnerschaftsbonus). Die Monate können frei zwischen den Elternteilen
+            aufgeteilt werden.
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Kann ich während des Elterngeldbezugs arbeiten?
+          </button>
+          <div class="faq-answer"><div class="faq-answer__inner">
+            Ja, Teilzeitarbeit bis maximal 32 Stunden pro Woche ist erlaubt. Beim Basiselterngeld
+            wird das Teilzeiteinkommen vollständig angerechnet — das Elterngeld sinkt
+            entsprechend. Beim ElterngeldPlus kann sich Teilzeit besonders lohnen, da die
+            Bezugsdauer doppelt so lang ist und die Anrechnung günstiger ausfallen kann.
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Beeinflusst die Steuerklasse das Elterngeld?
+          </button>
+          <div class="faq-answer"><div class="faq-answer__inner">
+            Ja, erheblich. Das Elterngeld berechnet sich nach dem pauschalierten Nettoeinkommen,
+            das von der Steuerklasse abhängt. Ein Wechsel in Steuerklasse III vor der Geburt kann
+            das Elterngeld deutlich erhöhen. Der Wechsel muss mindestens 7 Monate vor dem
+            Mutterschutzbeginn erfolgen, um berücksichtigt zu werden.
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Was ist der Mindestbetrag des Elterngelds?
+          </button>
+          <div class="faq-answer"><div class="faq-answer__inner">
+            Der Mindestbetrag beträgt 300 € monatlich beim Basiselterngeld (150 € beim
+            ElterngeldPlus). Diesen Mindestbetrag erhalten auch Eltern ohne vorheriges
+            Einkommen, z.&nbsp;B. Studierende oder Hausfrauen/-männer. Der Mindestbetrag wird
+            nicht auf Sozialleistungen wie Bürgergeld angerechnet.
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Wird Mutterschaftsgeld auf das Elterngeld angerechnet?
+          </button>
+          <div class="faq-answer"><div class="faq-answer__inner">
+            Ja. Das Mutterschaftsgeld der Krankenkasse sowie der Arbeitgeberzuschuss werden
+            vollständig auf das Basiselterngeld angerechnet. In der Praxis bedeutet das, dass
+            die ersten beiden Monate nach der Geburt (Mutterschutzfrist) meist bereits durch
+            Mutterschaftsgeld abgedeckt sind und als Elterngeldmonate zählen.
+          </div></div>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+</main>
+
+<!-- ══════════════════════════════════════════════════ -->
+<!-- Schema.org Markup -->
+<!-- ══════════════════════════════════════════════════ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Elterngeldrechner 2026 — Elterngeld berechnen",
+  "description": "Berechnen Sie Ihr Elterngeld 2026: Basiselterngeld, ElterngeldPlus, Geschwisterbonus und Mehrlingszuschlag basierend auf Ihrem Nettoeinkommen.",
+  "url": "https://www.rechner-online.info/elterngeldrechner",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+  "inLanguage": "de"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Wie lange wird Elterngeld gezahlt?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Basiselterngeld wird für maximal 12 Monate gezahlt (14 mit Partnermonaten). ElterngeldPlus kann bis zu 24 Monate bezogen werden (28 mit Partnerschaftsbonus)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Beeinflusst die Steuerklasse das Elterngeld?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja, erheblich. Ein Wechsel in Steuerklasse III vor der Geburt kann das Elterngeld deutlich erhöhen. Der Wechsel muss mindestens 7 Monate vor Mutterschutzbeginn erfolgen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Was ist der Mindestbetrag des Elterngelds?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Der Mindestbetrag beträgt 300 € monatlich beim Basiselterngeld und 150 € beim ElterngeldPlus. Diesen erhalten auch Eltern ohne vorheriges Einkommen."
+      }
+    }
+  ]
+}
+</script>
+
+<!-- ══════════════════════════════════════════════════ -->
+<!-- PAGE-SPECIFIC CALCULATION SCRIPT -->
+<!-- ══════════════════════════════════════════════════ -->
+<script>
+(function() {
+  'use strict';
+
+  const fmt = Steuer2026.formatEuro;
+  const C = Steuer2026.CONST;
+
+  // ── Elterngeld Constants ──
+  const EG = {
+    MIN_BASIS: 300,
+    MAX_BASIS: 1800,
+    MIN_PLUS: 150,
+    MAX_PLUS: 900,
+    STANDARD_RATE: 0.67,      // 67% standard
+    LOW_INCOME_THRESHOLD: 1000,  // below → rate increases
+    HIGH_INCOME_THRESHOLD: 1200, // above → rate 65%
+    HIGH_INCOME_RATE: 0.65,
+    GESCHWISTER_RATE: 0.10,     // 10% Bonus
+    GESCHWISTER_MIN_BASIS: 75,
+    GESCHWISTER_MIN_PLUS: 37.50,
+    MEHRLING_ZUSCHLAG: 300,     // per additional child
+    SV_PAUSCHALE: 0.21,        // same as ALG I
+  };
+
+  /**
+   * Calculate Ersatzrate based on net income.
+   * Below 1000€: rate increases by 0.1% for each 2€ below 1000.
+   * Above 1200€: rate drops to 65%.
+   * Between 1000–1200€: rate is 67%.
+   */
+  function ersatzrate(nettoEinkommen) {
+    if (nettoEinkommen <= 0) return EG.STANDARD_RATE;
+    if (nettoEinkommen < EG.LOW_INCOME_THRESHOLD) {
+      // Every 2€ below 1000€ → +0.1% rate (from 67% up to 100%)
+      const diff = EG.LOW_INCOME_THRESHOLD - nettoEinkommen;
+      const zusatz = Math.floor(diff / 2) * 0.001;
+      return Math.min(1.0, EG.STANDARD_RATE + zusatz);
+    }
+    if (nettoEinkommen > EG.HIGH_INCOME_THRESHOLD) {
+      return EG.HIGH_INCOME_RATE; // 65%
+    }
+    return EG.STANDARD_RATE; // 67%
+  }
+
+  /**
+   * Calculate pauschaliertes Nettoeinkommen for Elterngeld
+   * Uses SV-Pauschale (21%) + Lohnsteuer
+   */
+  function pauschalNetto(bruttoMonat, steuerklasse, bundesland, kirchensteuer, kvZusatz) {
+    const bruttoJahr = bruttoMonat * 12;
+
+    // SV-Pauschale: 21% of brutto (capped at BBG)
+    // For Elterngeld the SV deduction is simplified
+    const svAbzug = round2(bruttoMonat * EG.SV_PAUSCHALE);
+
+    // Lohnsteuer (yearly → monthly)
+    const steuerResult = Steuer2026.lohnsteuer({
+      bruttoJahr: bruttoJahr,
+      steuerklasse: steuerklasse,
+      kirchensteuer: kirchensteuer,
+      bundesland: bundesland,
+      kinderfreibetrag: 0,
+      steuerfreibetrag: 0,
+      geldwerterVorteil: 0,
+    });
+
+    const steuerMonat = round2(steuerResult.steuerGesamt / 12);
+    return round2(bruttoMonat - svAbzug - steuerMonat);
+  }
+
+  function berechne(v) {
+    const bruttoMonat = v.brutto || 0;
+    if (bruttoMonat <= 0) {
+      renderMin();
+      return;
+    }
+
+    const steuerklasse = v.steuerklasse || 1;
+    const bundesland = v.bundesland || 'Nordrhein-Westfalen';
+    const kirchensteuer = v.kirchensteuer === 'ja';
+    const kvZusatz = (v.kvZusatz || 2.9) / 100;
+    const geschwister = v.geschwister || 0;
+    const mehrlinge = v.mehrlinge || 0;
+    const einkommenWaehrend = v.einkommenWaehrend || 0;
+
+    // ── Step 1: Pauschaliertes Netto VOR Geburt ──
+    const nettoPauschVor = Math.max(0, pauschalNetto(
+      bruttoMonat, steuerklasse, bundesland, kirchensteuer, kvZusatz
+    ));
+
+    // ── Step 2: Pauschaliertes Netto WÄHREND Elternzeit ──
+    let nettoPauschWaehrend = 0;
+    if (einkommenWaehrend > 0) {
+      nettoPauschWaehrend = Math.max(0, pauschalNetto(
+        einkommenWaehrend, steuerklasse, bundesland, kirchensteuer, kvZusatz
+      ));
+    }
+
+    // ── Step 3: Differenz ──
+    const differenz = Math.max(0, round2(nettoPauschVor - nettoPauschWaehrend));
+
+    // ── Step 4: Ersatzrate ──
+    const rate = ersatzrate(differenz);
+
+    // ── Step 5: Basiselterngeld ──
+    let basisEG = round2(differenz * rate);
+
+    // Geschwisterbonus
+    let geschwisterBonus = 0;
+    if (geschwister > 0) {
+      geschwisterBonus = round2(Math.max(EG.GESCHWISTER_MIN_BASIS, basisEG * EG.GESCHWISTER_RATE));
+    }
+
+    // Mehrlingszuschlag
+    const mehrlingsZuschlag = mehrlinge * EG.MEHRLING_ZUSCHLAG;
+
+    basisEG = round2(basisEG + geschwisterBonus + mehrlingsZuschlag);
+
+    // Apply min/max
+    basisEG = Math.max(EG.MIN_BASIS, Math.min(EG.MAX_BASIS, basisEG));
+
+    // If receiving income during: min is still 300€ but capped differently
+    // The total (Elterngeld + Einkommen) can exceed pre-birth net
+
+    // ElterngeldPlus: half, own min/max
+    let egPlus = round2(basisEG / 2);
+    egPlus = Math.max(EG.MIN_PLUS, Math.min(EG.MAX_PLUS, egPlus));
+
+    // ── Render ──
+    document.getElementById('res-elterngeld').textContent = fmt(basisEG);
+    document.getElementById('res-satz-info').textContent =
+      (rate * 100).toLocaleString('de-DE', {maximumFractionDigits:1}) + '% Ersatzrate';
+
+    document.getElementById('res-brutto').textContent = fmt(bruttoMonat);
+    document.getElementById('res-netto-pausch').textContent = fmt(nettoPauschVor);
+
+    const rowWaehrend = document.getElementById('row-netto-waehrend');
+    if (einkommenWaehrend > 0) {
+      rowWaehrend.style.display = '';
+      document.getElementById('res-netto-waehrend').textContent = '− ' + fmt(nettoPauschWaehrend);
+    } else {
+      rowWaehrend.style.display = 'none';
+    }
+
+    document.getElementById('res-differenz').textContent = fmt(differenz);
+    document.getElementById('res-ersatzrate').textContent =
+      (rate * 100).toLocaleString('de-DE', {maximumFractionDigits:1}) + ' %';
+
+    const geschwisterRow = document.getElementById('row-geschwister');
+    if (geschwister > 0) {
+      geschwisterRow.style.display = '';
+      document.getElementById('res-geschwister').textContent = '+ ' + fmt(geschwisterBonus);
+    } else {
+      geschwisterRow.style.display = 'none';
+    }
+
+    const mehrlingeRow = document.getElementById('row-mehrlinge');
+    if (mehrlinge > 0) {
+      mehrlingeRow.style.display = '';
+      document.getElementById('res-mehrlinge').textContent = '+ ' + fmt(mehrlingsZuschlag);
+    } else {
+      mehrlingeRow.style.display = 'none';
+    }
+
+    document.getElementById('res-basis-total').textContent = fmt(basisEG);
+    document.getElementById('res-plus').textContent = fmt(egPlus);
+    document.getElementById('res-total-basis').textContent = fmt(round2(basisEG * 12));
+    document.getElementById('res-total-plus').textContent = fmt(round2(egPlus * 24));
+    document.getElementById('res-minmax').textContent =
+      'Min ' + fmt(EG.MIN_BASIS) + ' / Max ' + fmt(EG.MAX_BASIS);
+
+    // ── Donut ──
+    RechnerUI.drawDonut('chart-container', [
+      { label: 'Elterngeld', value: basisEG, color: '#1a8754' },
+      { label: 'Einkommensverlust', value: Math.max(0, nettoPauschVor - basisEG - nettoPauschWaehrend), color: '#c53030' },
+      { label: 'Einkommen (Teilzeit)', value: nettoPauschWaehrend, color: '#2a5a8c' },
+    ], fmt(basisEG), 'Basiselterngeld');
+  }
+
+  function renderMin() {
+    document.getElementById('res-elterngeld').textContent = fmt(EG.MIN_BASIS);
+    document.getElementById('res-satz-info').textContent = 'Mindestbetrag';
+  }
+
+  function round2(n) { return Math.round(n * 100) / 100; }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    RechnerUI.bindCalculation('calc-form', berechne);
+  });
+})();
+</script>

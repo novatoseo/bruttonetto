@@ -1,0 +1,615 @@
+---
+title: Rentenrechner 2026 — Gesetzliche Rente berechnen | Rechner-Online.info
+description: Berechnen Sie Ihre gesetzliche Rente 2026: Rentenhöhe, Rentenpunkte und Abzüge. Mit aktuellem Rentenwert und Zugangsfaktor.
+slug: rentenrechner
+layout: calculator
+---
+
+<main id="main-content">
+  <div class="container">
+
+    <!-- ── Hero ── -->
+    <header style="margin:var(--space-10) 0 var(--space-6)">
+      <h1>Rentenrechner 2026</h1>
+      <p style="font-size:var(--text-lg);color:var(--color-text-secondary);max-width:680px">
+        Wie hoch wird Ihre gesetzliche Rente? Berechnen Sie Ihre voraussichtliche Monatsrente,
+        Rentenpunkte und die Abzüge für Kranken- und Pflegeversicherung.
+      </p>
+    </header>
+
+    <!-- ══════════════════════════════════════════════════ -->
+    <!-- CALCULATOR LAYOUT -->
+    <!-- ══════════════════════════════════════════════════ -->
+    <div class="calc-layout" id="calc-form">
+
+      <!-- ── LEFT: Form ── -->
+      <div class="calc-form-wrap">
+
+        <!-- Section 1: Einkommen -->
+        <div class="form-section">
+          <h2 class="form-section__title">
+            <span class="form-section__icon">💰</span>Ihr Einkommen
+          </h2>
+          <div class="form-grid">
+            <div class="form-group form-group--full">
+              <label class="form-label" for="brutto">
+                Aktuelles monatliches Bruttogehalt
+                <span class="form-label__help" title="Ihr derzeitiges Bruttogehalt. Wir rechnen vereinfacht mit diesem Gehalt für die gesamte Versicherungszeit.">?</span>
+              </label>
+              <div class="input-wrapper">
+                <input type="text" id="brutto" class="form-input form-input--euro"
+                       data-field="brutto" data-type="euro"
+                       value="3.500,00" inputmode="decimal">
+                <span class="input-suffix">€</span>
+              </div>
+            </div>
+
+            <div class="form-group form-group--full">
+              <label class="form-label">Eingabemodus</label>
+              <div class="radio-group">
+                <input type="radio" name="modus" id="modus-gehalt" value="gehalt"
+                       data-field="modus" checked>
+                <label for="modus-gehalt">Gehalt → Punkte schätzen</label>
+                <input type="radio" name="modus" id="modus-punkte" value="punkte"
+                       data-field="modus">
+                <label for="modus-punkte">Rentenpunkte direkt</label>
+              </div>
+            </div>
+
+            <div class="form-group form-group--full" id="punkte-direkt-wrap" style="display:none">
+              <label class="form-label" for="punkteDirekt">
+                Gesammelte Rentenpunkte (Entgeltpunkte)
+                <span class="form-label__help" title="Steht in Ihrer Renteninformation, die Sie jährlich von der DRV erhalten">?</span>
+              </label>
+              <div class="input-wrapper">
+                <input type="text" id="punkteDirekt" class="form-input"
+                       data-field="punkteDirekt" data-type="number"
+                       value="35,00" inputmode="decimal">
+                <span class="input-suffix">EP</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 2: Versicherungszeit -->
+        <div class="form-section" id="zeit-section">
+          <h2 class="form-section__title">
+            <span class="form-section__icon">📅</span>Versicherungszeit
+          </h2>
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label" for="beitragsjahre">
+                Beitragsjahre gesamt
+                <span class="form-label__help" title="Jahre, in denen Rentenversicherungsbeiträge gezahlt wurden (inkl. Ausbildung, Kindererziehung, etc.)">?</span>
+              </label>
+              <div class="input-wrapper">
+                <input type="text" id="beitragsjahre" class="form-input"
+                       data-field="beitragsjahre" data-type="number"
+                       value="40" inputmode="numeric">
+                <span class="input-suffix">Jahre</span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="restjahre">
+                Verbleibende Jahre bis Rente
+                <span class="form-label__help" title="Geschätzte Jahre bis zum Renteneintritt — wird zu den Beitragsjahren addiert">?</span>
+              </label>
+              <div class="input-wrapper">
+                <input type="text" id="restjahre" class="form-input"
+                       data-field="restjahre" data-type="number"
+                       value="5" inputmode="numeric">
+                <span class="input-suffix">Jahre</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 3: Renteneintritt -->
+        <div class="form-section">
+          <h2 class="form-section__title">
+            <span class="form-section__icon">🎂</span>Renteneintritt
+          </h2>
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label" for="geburtsjahr">Geburtsjahr</label>
+              <select id="geburtsjahr" class="form-select" data-field="geburtsjahr" data-type="number">
+                <option value="1958">1958</option>
+                <option value="1959">1959</option>
+                <option value="1960">1960</option>
+                <option value="1961">1961</option>
+                <option value="1962">1962</option>
+                <option value="1963">1963</option>
+                <option value="1964" selected>1964 oder später</option>
+                <option value="1970">1970</option>
+                <option value="1975">1975</option>
+                <option value="1980">1980</option>
+                <option value="1985">1985</option>
+                <option value="1990">1990</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="eintrittsalter">
+                Geplantes Eintrittsalter
+                <span class="form-label__help" title="Regelaltersgrenze für Jahrgang 1964+: 67 Jahre. Frühzeitiger Eintritt mit Abschlägen möglich ab 63.">?</span>
+              </label>
+              <select id="eintrittsalter" class="form-select" data-field="eintrittsalter" data-type="number">
+                <option value="63">63 (mit Abschlägen)</option>
+                <option value="64">64</option>
+                <option value="65">65</option>
+                <option value="66">66</option>
+                <option value="67" selected>67 (Regelaltersgrenze)</option>
+                <option value="68">68 (mit Zuschlägen)</option>
+                <option value="69">69</option>
+                <option value="70">70</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 4: Abzüge -->
+        <div class="form-section">
+          <h2 class="form-section__title">
+            <span class="form-section__icon">🏥</span>Abzüge in der Rente
+          </h2>
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label" for="kvZusatz">KV-Zusatzbeitrag</label>
+              <div class="input-wrapper">
+                <input type="text" id="kvZusatz" class="form-input form-input--percent"
+                       data-field="kvZusatz" data-type="number"
+                       value="2,9" inputmode="decimal">
+                <span class="input-suffix">%</span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Kinder vorhanden?</label>
+              <div class="radio-group">
+                <input type="radio" name="hatKinder" id="kinder-nein" value="nein"
+                       data-field="hatKinder" checked>
+                <label for="kinder-nein">Nein</label>
+                <input type="radio" name="hatKinder" id="kinder-ja" value="ja"
+                       data-field="hatKinder">
+                <label for="kinder-ja">Ja</label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Info box -->
+        <div style="background:var(--color-accent-subtle);border:1px solid var(--color-accent);border-radius:var(--radius-md);padding:var(--space-4) var(--space-5);margin-bottom:var(--space-6)">
+          <p style="font-size:var(--text-sm);color:var(--color-accent-dark);margin:0">
+            <strong>Vereinfachte Berechnung:</strong> Dieser Rechner schätzt Ihre Rente auf Basis des
+            aktuellen Rentenwerts und Durchschnittsentgelts. Die tatsächliche Rente hängt vom gesamten
+            Erwerbsverlauf ab. Für eine exakte Berechnung nutzen Sie die
+            <a href="https://www.deutsche-rentenversicherung.de" target="_blank" rel="noopener" style="color:var(--color-accent-dark);text-decoration:underline">Deutsche Rentenversicherung</a>.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- ── RIGHT: Results ── -->
+      <div class="calc-results-wrap">
+        <div class="results-panel">
+          <div class="results-panel__header">
+            <h3>Ihre geschätzte Rente</h3>
+          </div>
+          <div class="results-panel__body">
+
+            <!-- Rente highlight -->
+            <div class="result-netto">
+              <div class="result-netto__label">Monatsrente (brutto)</div>
+              <div class="result-netto__value" id="res-rente-brutto">—</div>
+              <div class="result-netto__period" id="res-punkte-info">—</div>
+            </div>
+
+            <!-- Donut Chart -->
+            <div id="chart-container"></div>
+            <div class="chart-legend"></div>
+
+            <!-- Breakdown -->
+            <div class="result-rows">
+              <div class="result-row result-row--header">
+                <span>Rentenformel</span>
+                <span></span>
+              </div>
+              <div class="result-row">
+                <span class="result-row__label">Entgeltpunkte (EP)</span>
+                <span class="result-row__value" id="res-ep">—</span>
+              </div>
+              <div class="result-row">
+                <span class="result-row__label">Zugangsfaktor</span>
+                <span class="result-row__value" id="res-zugangsfaktor">—</span>
+              </div>
+              <div class="result-row">
+                <span class="result-row__label">Rentenartfaktor</span>
+                <span class="result-row__value" id="res-rentenart">—</span>
+              </div>
+              <div class="result-row">
+                <span class="result-row__label">Akt. Rentenwert</span>
+                <span class="result-row__value" id="res-rentenwert">—</span>
+              </div>
+
+              <div class="result-row result-row--header" style="margin-top:var(--space-6)">
+                <span>Abzüge von der Bruttorente</span>
+                <span></span>
+              </div>
+              <div class="result-row">
+                <span class="result-row__label">KV (halber Beitrag)</span>
+                <span class="result-row__value" id="res-abzug-kv" style="color:var(--color-error)">—</span>
+              </div>
+              <div class="result-row">
+                <span class="result-row__label">PV (voller Beitrag)</span>
+                <span class="result-row__value" id="res-abzug-pv" style="color:var(--color-error)">—</span>
+              </div>
+              <div class="result-row result-row--total">
+                <span>Nettorente (ca.)</span>
+                <span class="result-row__value" id="res-rente-netto" style="color:var(--color-success)">—</span>
+              </div>
+
+              <!-- Yearly & Extras -->
+              <div style="margin-top:var(--space-6);padding-top:var(--space-4);border-top:1px solid var(--color-border-light)">
+                <div class="result-row">
+                  <span class="result-row__label">Jahresrente brutto</span>
+                  <span class="result-row__value" id="res-rente-jahr">—</span>
+                </div>
+                <div class="result-row">
+                  <span class="result-row__label">Jahresrente netto (ca.)</span>
+                  <span class="result-row__value" id="res-netto-jahr">—</span>
+                </div>
+                <div class="result-row">
+                  <span class="result-row__label">Rentenniveau (% vom Brutto)</span>
+                  <span class="result-row__value" id="res-niveau">—</span>
+                </div>
+                <div class="result-row" id="row-abschlag" style="display:none">
+                  <span class="result-row__label">Abschlag / Zuschlag</span>
+                  <span class="result-row__value" id="res-abschlag">—</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════ -->
+    <!-- SEO CONTENT -->
+    <!-- ══════════════════════════════════════════════════ -->
+    <section class="content-section">
+
+      <h2>So wird Ihre gesetzliche Rente berechnet</h2>
+      <p>
+        Die Höhe der gesetzlichen Rente ergibt sich aus einer einfachen Formel:
+      </p>
+      <p style="text-align:center;font-size:var(--text-lg);font-weight:var(--weight-semibold);padding:var(--space-4) 0;color:var(--color-primary-dark)">
+        Monatsrente = Entgeltpunkte × Zugangsfaktor × Rentenartfaktor × aktueller Rentenwert
+      </p>
+      <p>
+        Jeder dieser Faktoren hat eine spezifische Bedeutung:
+      </p>
+      <ul>
+        <li><strong>Entgeltpunkte (EP):</strong> Jedes Jahr erwerben Sie Punkte im Verhältnis Ihres
+            Einkommens zum Durchschnittsentgelt. Wer genau durchschnittlich verdient, erhält 1,0 EP pro
+            Jahr. Das vorläufige Durchschnittsentgelt 2026 beträgt 48.024 € brutto pro Jahr.</li>
+        <li><strong>Zugangsfaktor:</strong> Bei Renteneintritt zum Regelalter beträgt er 1,0. Pro Monat
+            vorzeitigem Eintritt wird 0,003 (0,3%) abgezogen, pro Monat späterem Eintritt 0,005 (0,5%)
+            zugeschlagen.</li>
+        <li><strong>Rentenartfaktor:</strong> Für die Altersrente beträgt er 1,0.</li>
+        <li><strong>Aktueller Rentenwert:</strong> Der Wert eines Entgeltpunkts in Euro. Seit Juli 2025
+            beträgt er <strong>39,32 €</strong> (einheitlich Ost/West).</li>
+      </ul>
+
+      <h2>Regelaltersgrenze und vorzeitiger Renteneintritt</h2>
+      <p>
+        Für alle Jahrgänge ab 1964 liegt die Regelaltersgrenze bei <strong>67 Jahren</strong>.
+        Ein vorzeitiger Renteneintritt ist ab 63 möglich, wenn Sie mindestens 35 Versicherungsjahre
+        vorweisen können — allerdings mit Abschlägen von 0,3% pro Monat (maximal 14,4% bei
+        Eintritt mit 63 statt 67).
+      </p>
+      <p>
+        Wer mindestens 45 Beitragsjahre hat, kann als besonders langjährig Versicherter mit 65 Jahren
+        abschlagsfrei in Rente gehen (für Jahrgänge ab 1964).
+      </p>
+
+      <h3>Abzüge von der Bruttorente</h3>
+      <p>
+        Von Ihrer Bruttorente werden Beiträge zur Kranken- und Pflegeversicherung abgezogen. Die
+        Rentenversicherung übernimmt die Hälfte des allgemeinen KV-Beitrags (7,3%) — Sie zahlen
+        die andere Hälfte plus den vollen Zusatzbeitrag. Den Pflegeversicherungsbeitrag tragen
+        Rentner vollständig selbst. Seit 2040 ist die Rente zudem voll steuerpflichtig.
+      </p>
+
+      <h3>Durchschnittsentgelt und Rentenpunkte</h3>
+      <p>
+        Das vorläufige Durchschnittsentgelt für 2026 beträgt 48.024 € brutto jährlich (4.002 €
+        monatlich). Wenn Sie genau diesen Betrag verdienen, erhalten Sie exakt 1,0 Entgeltpunkte
+        pro Jahr. Bei einem Gehalt von 6.000 € monatlich (72.036 €/Jahr) wären es ca. 1,5 Punkte.
+        Die Beitragsbemessungsgrenze der RV (101.400 €/Jahr) deckelt die maximal erreichbaren
+        Punkte auf ca. 2,11 pro Jahr.
+      </p>
+
+      <h2>Häufige Fragen zur Rentenberechnung</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Wie viele Rentenpunkte brauche ich für eine gute Rente?
+          </button>
+          <div class="faq-answer"><div class="faq-answer__inner">
+            Ein „Standardrentner" mit 45 Beitragsjahren und stets durchschnittlichem Verdienst
+            kommt auf 45,0 Entgeltpunkte, was einer Bruttorente von ca. 1.769 € monatlich
+            entspricht (bei aktuellem Rentenwert von 39,32 €). Für eine komfortable Rente
+            empfehlen Experten mindestens 40–50 Entgeltpunkte, ergänzt durch private oder
+            betriebliche Vorsorge.
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Was ist der aktuelle Rentenwert?
+          </button>
+          <div class="faq-answer"><div class="faq-answer__inner">
+            Der aktuelle Rentenwert beträgt seit dem 1. Juli 2025 einheitlich 39,32 € pro
+            Entgeltpunkt — in Ost und West identisch. Er wird jährlich zum 1. Juli angepasst
+            und richtet sich nach der Lohnentwicklung, dem Nachhaltigkeitsfaktor und der
+            Beitragssatzentwicklung.
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Wie wirkt sich Teilzeit auf die Rente aus?
+          </button>
+          <div class="faq-answer"><div class="faq-answer__inner">
+            Teilzeitarbeit führt zu weniger Rentenpunkten pro Jahr, da das Einkommen im Verhältnis
+            zum Durchschnittsentgelt niedriger ist. Wer z.&nbsp;B. halbtags arbeitet und die
+            Hälfte des Durchschnittsgehalts verdient, erhält 0,5 Entgeltpunkte statt 1,0 pro Jahr.
+            Über ein ganzes Berufsleben summiert sich das erheblich.
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Werden Kindererziehungszeiten angerechnet?
+          </button>
+          <div class="faq-answer"><div class="faq-answer__inner">
+            Ja. Für die Erziehung eines Kindes erhalten Sie bis zu 3 Entgeltpunkte (für ab 1992
+            geborene Kinder) bzw. 2,5 Punkte (für vor 1992 Geborene). Diese „Mütterrente"
+            entspricht ungefähr dem Wert von 3 Jahren Durchschnittsverdienst und wird auch ohne
+            eigene Beitragszahlung angerechnet.
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Muss ich meine Rente versteuern?
+          </button>
+          <div class="faq-answer"><div class="faq-answer__inner">
+            Wer ab 2040 in Rente geht, muss die Rente zu 100% versteuern. Für frühere Jahrgänge
+            gilt ein Besteuerungsanteil (z.&nbsp;B. 83% bei Rentenbeginn 2026). Der steuerfreie
+            Anteil wird als fester Betrag im ersten vollen Rentenjahr festgeschrieben und bleibt
+            danach unverändert. Ob tatsächlich Steuern anfallen, hängt vom Grundfreibetrag
+            und weiteren Einkünften ab.
+          </div></div>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+</main>
+
+<!-- ══════════════════════════════════════════════════ -->
+<!-- Schema.org Markup -->
+<!-- ══════════════════════════════════════════════════ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Rentenrechner 2026 — Gesetzliche Rente berechnen",
+  "description": "Berechnen Sie Ihre voraussichtliche gesetzliche Rente: Rentenhöhe, Entgeltpunkte, Zugangsfaktor und Abzüge für Kranken- und Pflegeversicherung.",
+  "url": "https://www.rechner-online.info/rentenrechner",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+  "inLanguage": "de"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Wie viele Rentenpunkte brauche ich für eine gute Rente?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ein Standardrentner mit 45 Beitragsjahren und Durchschnittsverdienst kommt auf 45 Entgeltpunkte, ca. 1.769 € brutto monatlich. Für eine komfortable Rente werden 40–50 Punkte plus private Vorsorge empfohlen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Was ist der aktuelle Rentenwert?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Seit dem 1. Juli 2025 beträgt der aktuelle Rentenwert 39,32 € pro Entgeltpunkt, einheitlich in Ost und West. Er wird jährlich zum 1. Juli angepasst."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Muss ich meine Rente versteuern?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ab Rentenbeginn 2040 wird die Rente zu 100% besteuert. Bei Rentenbeginn 2026 beträgt der steuerpflichtige Anteil 83%. Ob tatsächlich Steuern anfallen, hängt vom Grundfreibetrag ab."
+      }
+    }
+  ]
+}
+</script>
+
+<!-- ══════════════════════════════════════════════════ -->
+<!-- PAGE-SPECIFIC CALCULATION SCRIPT -->
+<!-- ══════════════════════════════════════════════════ -->
+<script>
+(function() {
+  'use strict';
+
+  const fmt = Steuer2026.formatEuro;
+  const C = Steuer2026.CONST;
+
+  // ── Renten-Konstanten 2026 ──
+  const RENTE = {
+    AKTUELLER_RENTENWERT: 39.32,     // € per EP, since 01.07.2025
+    DURCHSCHNITTSENTGELT: 48024,     // vorläufig 2026, yearly
+    RENTENARTFAKTOR_ALTER: 1.0,      // Altersrente
+    ABSCHLAG_PRO_MONAT: 0.003,      // 0.3% per month early
+    ZUSCHLAG_PRO_MONAT: 0.005,      // 0.5% per month late
+    MAX_ABSCHLAG: 0.144,            // max 14.4%
+  };
+
+  // Regelaltersgrenze by birth year
+  function regelaltersgrenze(geburtsjahr) {
+    if (geburtsjahr >= 1964) return 67;
+    if (geburtsjahr === 1963) return 66 + 10/12;
+    if (geburtsjahr === 1962) return 66 + 8/12;
+    if (geburtsjahr === 1961) return 66 + 6/12;
+    if (geburtsjahr === 1960) return 66 + 4/12;
+    if (geburtsjahr === 1959) return 66 + 2/12;
+    if (geburtsjahr === 1958) return 66;
+    return 67; // fallback
+  }
+
+  // UI toggles
+  function setupToggles() {
+    const modusRadios = document.querySelectorAll('input[name="modus"]');
+    modusRadios.forEach(r => r.addEventListener('change', () => {
+      const isPunkte = document.getElementById('modus-punkte').checked;
+      document.getElementById('punkte-direkt-wrap').style.display = isPunkte ? '' : 'none';
+      document.getElementById('zeit-section').style.display = isPunkte ? 'none' : '';
+    }));
+  }
+
+  function berechne(v) {
+    const bruttoMonat = v.brutto || 0;
+    const modus = v.modus || 'gehalt';
+    const geburtsjahr = v.geburtsjahr || 1964;
+    const eintrittsalter = v.eintrittsalter || 67;
+    const kvZusatz = (v.kvZusatz || 2.9) / 100;
+    const hatKinder = v.hatKinder === 'ja';
+
+    // ── Entgeltpunkte ──
+    let ep;
+    if (modus === 'punkte') {
+      ep = v.punkteDirekt || 0;
+    } else {
+      // Calculate from salary
+      const bruttoJahr = bruttoMonat * 12;
+      const bbgJahr = C.BBG_RV_MONAT * 12;
+      const cappedJahr = Math.min(bruttoJahr, bbgJahr);
+      const epProJahr = cappedJahr / RENTE.DURCHSCHNITTSENTGELT;
+      const totalJahre = (v.beitragsjahre || 40) + (v.restjahre || 0);
+      ep = round2(epProJahr * totalJahre);
+    }
+
+    if (ep <= 0) return;
+
+    // ── Zugangsfaktor ──
+    const regelAlter = regelaltersgrenze(geburtsjahr);
+    const diffMonate = Math.round((eintrittsalter - regelAlter) * 12);
+    let zugangsfaktor;
+    if (diffMonate < 0) {
+      // Früher → Abschlag
+      const abschlag = Math.min(Math.abs(diffMonate) * RENTE.ABSCHLAG_PRO_MONAT, RENTE.MAX_ABSCHLAG);
+      zugangsfaktor = round4(1 - abschlag);
+    } else if (diffMonate > 0) {
+      // Später → Zuschlag
+      zugangsfaktor = round4(1 + diffMonate * RENTE.ZUSCHLAG_PRO_MONAT);
+    } else {
+      zugangsfaktor = 1.0;
+    }
+
+    // ── Monatsrente brutto ──
+    const renteBrutto = round2(ep * zugangsfaktor * RENTE.RENTENARTFAKTOR_ALTER * RENTE.AKTUELLER_RENTENWERT);
+
+    // ── Abzüge (KV + PV from pension) ──
+    // Rentner zahlen: halben allgem. KV-Beitrag + vollen Zusatzbeitrag + vollen PV
+    // DRV übernimmt: halben allgem. KV-Beitrag
+    const kvAbzug = round2(renteBrutto * (C.KV_SATZ / 2 + kvZusatz));
+
+    // PV: Rentner zahlen vollen Satz
+    let pvRate;
+    if (!hatKinder) {
+      pvRate = C.PV_AN_RATE.kinderlos + (C.PV_SATZ - C.PV_AN_RATE.kinderlos);
+      // Actually: Rentner pay the full PV rate (both halves)
+      pvRate = C.PV_SATZ;
+      // Plus Kinderlosenzuschlag if applicable
+      if (!hatKinder) pvRate += 0.006; // 0.6% Zuschlag
+    } else {
+      pvRate = C.PV_SATZ;
+    }
+    const pvAbzug = round2(renteBrutto * pvRate);
+
+    const abzuegeGesamt = round2(kvAbzug + pvAbzug);
+    const renteNetto = round2(renteBrutto - abzuegeGesamt);
+
+    // Rentenniveau
+    const niveau = bruttoMonat > 0 ? round2(renteBrutto / bruttoMonat * 100) : 0;
+
+    // ── Render ──
+    document.getElementById('res-rente-brutto').textContent = fmt(renteBrutto);
+    document.getElementById('res-punkte-info').textContent =
+      ep.toLocaleString('de-DE', {maximumFractionDigits:2}) + ' Entgeltpunkte × ' +
+      fmt(RENTE.AKTUELLER_RENTENWERT);
+
+    document.getElementById('res-ep').textContent =
+      ep.toLocaleString('de-DE', {minimumFractionDigits:2, maximumFractionDigits:2});
+    document.getElementById('res-zugangsfaktor').textContent =
+      zugangsfaktor.toLocaleString('de-DE', {minimumFractionDigits:3, maximumFractionDigits:3});
+    document.getElementById('res-rentenart').textContent = '1,000 (Altersrente)';
+    document.getElementById('res-rentenwert').textContent = fmt(RENTE.AKTUELLER_RENTENWERT);
+
+    document.getElementById('res-abzug-kv').textContent = '− ' + fmt(kvAbzug);
+    document.getElementById('res-abzug-pv').textContent = '− ' + fmt(pvAbzug);
+    document.getElementById('res-rente-netto').textContent = fmt(renteNetto);
+
+    document.getElementById('res-rente-jahr').textContent = fmt(round2(renteBrutto * 12));
+    document.getElementById('res-netto-jahr').textContent = fmt(round2(renteNetto * 12));
+    document.getElementById('res-niveau').textContent =
+      niveau.toLocaleString('de-DE', {maximumFractionDigits:1}) + ' %';
+
+    // Abschlag/Zuschlag row
+    const abschlagRow = document.getElementById('row-abschlag');
+    if (diffMonate !== 0) {
+      abschlagRow.style.display = '';
+      const pct = round2(Math.abs(zugangsfaktor - 1) * 100);
+      if (diffMonate < 0) {
+        document.getElementById('res-abschlag').textContent = '− ' + pct.toLocaleString('de-DE', {maximumFractionDigits:1}) + ' % Abschlag';
+        document.getElementById('res-abschlag').style.color = 'var(--color-error)';
+      } else {
+        document.getElementById('res-abschlag').textContent = '+ ' + pct.toLocaleString('de-DE', {maximumFractionDigits:1}) + ' % Zuschlag';
+        document.getElementById('res-abschlag').style.color = 'var(--color-success)';
+      }
+    } else {
+      abschlagRow.style.display = 'none';
+    }
+
+    // ── Donut ──
+    RechnerUI.drawDonut('chart-container', [
+      { label: 'Nettorente', value: renteNetto, color: '#1a8754' },
+      { label: 'Krankenversicherung', value: kvAbzug, color: '#2a5a8c' },
+      { label: 'Pflegeversicherung', value: pvAbzug, color: '#e8870e' },
+    ], fmt(renteNetto), 'Nettorente/Monat');
+  }
+
+  function round2(n) { return Math.round(n * 100) / 100; }
+  function round4(n) { return Math.round(n * 10000) / 10000; }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    setupToggles();
+    RechnerUI.bindCalculation('calc-form', berechne);
+  });
+})();
+</script>

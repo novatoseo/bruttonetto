@@ -1,0 +1,590 @@
+---
+title: Arbeitslosengeld-Rechner 2026 — ALG I berechnen | Rechner-Online.info
+description: Berechnen Sie Ihr Arbeitslosengeld I für 2026: Höhe, Dauer und Auszahlung. Mit allen aktuellen Werten und Steuerklassen.
+slug: arbeitslosengeld-rechner
+layout: calculator
+---
+
+<main id="main-content">
+  <div class="container">
+
+    <!-- ── Hero ── -->
+    <header style="margin:var(--space-10) 0 var(--space-6)">
+      <h1>Arbeitslosengeld-Rechner 2026</h1>
+      <p style="font-size:var(--text-lg);color:var(--color-text-secondary);max-width:680px">
+        Wie hoch ist Ihr Anspruch auf Arbeitslosengeld I? Berechnen Sie die monatliche Auszahlung
+        und Bezugsdauer anhand Ihres letzten Bruttogehalts.
+      </p>
+    </header>
+
+    <!-- ══════════════════════════════════════════════════ -->
+    <!-- CALCULATOR LAYOUT -->
+    <!-- ══════════════════════════════════════════════════ -->
+    <div class="calc-layout" id="calc-form">
+
+      <!-- ── LEFT: Form ── -->
+      <div class="calc-form-wrap">
+
+        <!-- Section 1: Letztes Gehalt -->
+        <div class="form-section">
+          <h2 class="form-section__title">
+            <span class="form-section__icon">💰</span>Letztes Bruttogehalt
+          </h2>
+          <div class="form-grid">
+            <div class="form-group form-group--full">
+              <label class="form-label" for="brutto">
+                Monatliches Bruttogehalt
+                <span class="form-label__help" title="Durchschnittliches Bruttogehalt der letzten 12 Monate vor der Arbeitslosigkeit">?</span>
+              </label>
+              <div class="input-wrapper">
+                <input type="text" id="brutto" class="form-input form-input--euro"
+                       data-field="brutto" data-type="euro"
+                       value="3.500,00" inputmode="decimal">
+                <span class="input-suffix">€</span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="steuerklasse">Steuerklasse</label>
+              <select id="steuerklasse" class="form-select" data-field="steuerklasse" data-type="number">
+                <option value="1" selected>I</option>
+                <option value="2">II</option>
+                <option value="3">III</option>
+                <option value="4">IV</option>
+                <option value="5">V</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="bundesland">Bundesland</label>
+              <select id="bundesland" class="form-select" data-field="bundesland">
+                <option value="Baden-Württemberg">Baden-Württemberg</option>
+                <option value="Bayern">Bayern</option>
+                <option value="Berlin">Berlin</option>
+                <option value="Brandenburg">Brandenburg</option>
+                <option value="Bremen">Bremen</option>
+                <option value="Hamburg">Hamburg</option>
+                <option value="Hessen">Hessen</option>
+                <option value="Mecklenburg-Vorpommern">Mecklenburg-Vorpommern</option>
+                <option value="Niedersachsen">Niedersachsen</option>
+                <option value="Nordrhein-Westfalen" selected>Nordrhein-Westfalen</option>
+                <option value="Rheinland-Pfalz">Rheinland-Pfalz</option>
+                <option value="Saarland">Saarland</option>
+                <option value="Sachsen">Sachsen</option>
+                <option value="Sachsen-Anhalt">Sachsen-Anhalt</option>
+                <option value="Schleswig-Holstein">Schleswig-Holstein</option>
+                <option value="Thüringen">Thüringen</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Kirchensteuer</label>
+              <div class="radio-group">
+                <input type="radio" name="kirchensteuer" id="kist-nein" value="nein"
+                       data-field="kirchensteuer" checked>
+                <label for="kist-nein">Nein</label>
+                <input type="radio" name="kirchensteuer" id="kist-ja" value="ja"
+                       data-field="kirchensteuer">
+                <label for="kist-ja">Ja</label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 2: Persönliche Daten -->
+        <div class="form-section">
+          <h2 class="form-section__title">
+            <span class="form-section__icon">👤</span>Persönliche Angaben
+          </h2>
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label">Kind(er) im Haushalt?</label>
+              <div class="radio-group">
+                <input type="radio" name="kinder" id="kinder-nein" value="nein"
+                       data-field="kinder" checked>
+                <label for="kinder-nein">Nein</label>
+                <input type="radio" name="kinder" id="kinder-ja" value="ja"
+                       data-field="kinder">
+                <label for="kinder-ja">Ja</label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="alter">
+                Alter bei Beginn der Arbeitslosigkeit
+              </label>
+              <select id="alter" class="form-select" data-field="alter" data-type="number">
+                <option value="25">Unter 50</option>
+                <option value="50">50 – 54</option>
+                <option value="55">55 – 57</option>
+                <option value="58" selected>58 und älter</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 3: Versicherungspflicht -->
+        <div class="form-section">
+          <h2 class="form-section__title">
+            <span class="form-section__icon">📋</span>Beschäftigungsdauer
+          </h2>
+          <div class="form-grid">
+            <div class="form-group form-group--full">
+              <label class="form-label" for="monate">
+                Versicherungspflichtige Monate in den letzten 5 Jahren
+                <span class="form-label__help" title="Monate mit sozialversicherungspflichtiger Beschäftigung innerhalb der Rahmenfrist von 30 Monaten (bzw. 5 Jahre bei älteren Arbeitnehmern)">?</span>
+              </label>
+              <select id="monate" class="form-select" data-field="monate" data-type="number">
+                <option value="12">12 Monate</option>
+                <option value="16">16 Monate</option>
+                <option value="20">20 Monate</option>
+                <option value="24" selected>24 Monate</option>
+                <option value="30">30 Monate</option>
+                <option value="36">36 Monate</option>
+                <option value="48">48 Monate</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Info box -->
+        <div style="background:var(--color-info-subtle);border:1px solid var(--color-info);border-radius:var(--radius-md);padding:var(--space-4) var(--space-5);margin-bottom:var(--space-6)">
+          <p style="font-size:var(--text-sm);color:var(--color-info);margin:0">
+            <strong>Hinweis:</strong> Der Rechner ermittelt einen Näherungswert. Die tatsächliche Berechnung
+            der Agentur für Arbeit basiert auf einer täglichen Berechnung anhand der offiziellen
+            Lohnsteuertabellen. Geringe Abweichungen sind möglich.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- ── RIGHT: Results ── -->
+      <div class="calc-results-wrap">
+        <div class="results-panel">
+          <div class="results-panel__header">
+            <h3>Ihr Arbeitslosengeld I</h3>
+          </div>
+          <div class="results-panel__body">
+
+            <!-- ALG I highlight -->
+            <div class="result-netto">
+              <div class="result-netto__label">Monatliches ALG I (ca.)</div>
+              <div class="result-netto__value" id="res-alg-monat">—</div>
+              <div class="result-netto__period" id="res-leistungssatz">—</div>
+            </div>
+
+            <!-- Donut Chart -->
+            <div id="chart-container"></div>
+            <div class="chart-legend"></div>
+
+            <!-- Breakdown -->
+            <div class="result-rows">
+              <div class="result-row result-row--header">
+                <span>Berechnungsweg</span>
+                <span></span>
+              </div>
+              <div class="result-row">
+                <span class="result-row__label">Bemessungsentgelt (tägl.)</span>
+                <span class="result-row__value" id="res-bemessung-tag">—</span>
+              </div>
+              <div class="result-row">
+                <span class="result-row__label">./. SV-Pauschale (21%)</span>
+                <span class="result-row__value" id="res-sv-pauschale" style="color:var(--color-error)">—</span>
+              </div>
+              <div class="result-row">
+                <span class="result-row__label">./. Lohnsteuer (tägl.)</span>
+                <span class="result-row__value" id="res-lst-tag" style="color:var(--color-error)">—</span>
+              </div>
+              <div class="result-row">
+                <span class="result-row__label">./. Solidaritätszuschlag</span>
+                <span class="result-row__value" id="res-soli-tag" style="color:var(--color-error)">—</span>
+              </div>
+              <div class="result-row" id="row-kist" style="display:none">
+                <span class="result-row__label">./. Kirchensteuer</span>
+                <span class="result-row__value" id="res-kist-tag" style="color:var(--color-error)">—</span>
+              </div>
+              <div class="result-row result-row--total">
+                <span>Leistungsentgelt (tägl.)</span>
+                <span class="result-row__value" id="res-leistung-tag">—</span>
+              </div>
+
+              <div class="result-row" style="margin-top:var(--space-4)">
+                <span class="result-row__label">Leistungssatz</span>
+                <span class="result-row__value" id="res-satz">—</span>
+              </div>
+              <div class="result-row">
+                <span class="result-row__label">ALG I täglich</span>
+                <span class="result-row__value" id="res-alg-tag">—</span>
+              </div>
+              <div class="result-row result-row--total">
+                <span>ALG I monatlich (×30)</span>
+                <span class="result-row__value" id="res-alg-monat-row">—</span>
+              </div>
+
+              <!-- Duration & Total -->
+              <div style="margin-top:var(--space-6);padding-top:var(--space-4);border-top:1px solid var(--color-border-light)">
+                <div class="result-row">
+                  <span class="result-row__label">Bezugsdauer</span>
+                  <span class="result-row__value" id="res-dauer" style="color:var(--color-primary);font-size:var(--text-base)">—</span>
+                </div>
+                <div class="result-row">
+                  <span class="result-row__label">Gesamtanspruch (ca.)</span>
+                  <span class="result-row__value" id="res-gesamt" style="font-size:var(--text-base)">—</span>
+                </div>
+                <div class="result-row">
+                  <span class="result-row__label">Ersatzrate (% vom Netto)</span>
+                  <span class="result-row__value" id="res-ersatzrate">—</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════ -->
+    <!-- SEO CONTENT -->
+    <!-- ══════════════════════════════════════════════════ -->
+    <section class="content-section">
+
+      <h2>Wie wird das Arbeitslosengeld I berechnet?</h2>
+      <p>
+        Das Arbeitslosengeld I (ALG I) ist eine Versicherungsleistung der Bundesagentur für Arbeit.
+        Die Höhe richtet sich nach dem letzten Bruttogehalt und wird in mehreren Schritten ermittelt:
+      </p>
+      <ul>
+        <li><strong>Bemessungsentgelt:</strong> Durchschnittliches tägliches Bruttoentgelt der letzten
+            12 Monate vor der Arbeitslosigkeit, gedeckelt an der Beitragsbemessungsgrenze der
+            Arbeitslosenversicherung (2026: 8.450 €/Monat).</li>
+        <li><strong>Leistungsentgelt:</strong> Vom Bemessungsentgelt werden pauschal 21%
+            Sozialversicherungsbeiträge sowie die Lohnsteuer (inkl. Soli und ggf. Kirchensteuer)
+            abgezogen.</li>
+        <li><strong>Leistungssatz:</strong> Vom Leistungsentgelt erhalten Sie <strong>60%</strong>
+            (ohne Kind) bzw. <strong>67%</strong> (mit mindestens einem Kind).</li>
+      </ul>
+      <p>
+        Das ALG I ist steuerfrei, unterliegt aber dem <strong>Progressionsvorbehalt</strong> — es
+        erhöht den Steuersatz für Ihr übriges Einkommen in der Steuererklärung.
+      </p>
+
+      <h2>Bezugsdauer: Wie lange erhalten Sie ALG I?</h2>
+      <p>
+        Die Bezugsdauer hängt von Ihrem Alter und der Dauer Ihrer vorherigen
+        versicherungspflichtigen Beschäftigung ab:
+      </p>
+      <ul>
+        <li>12 Monate Beschäftigung → <strong>6 Monate</strong> ALG I</li>
+        <li>16 Monate → <strong>8 Monate</strong></li>
+        <li>20 Monate → <strong>10 Monate</strong></li>
+        <li>24 Monate → <strong>12 Monate</strong></li>
+        <li>30 Monate (ab 50 Jahren) → <strong>15 Monate</strong></li>
+        <li>36 Monate (ab 55 Jahren) → <strong>18 Monate</strong></li>
+        <li>48 Monate (ab 58 Jahren) → <strong>24 Monate</strong></li>
+      </ul>
+      <p>
+        Die Beschäftigungszeiten müssen innerhalb der sogenannten Rahmenfrist liegen — in der Regel
+        die letzten 30 Monate vor der Arbeitslosmeldung (erweiterte Rahmenfrist von 5 Jahren bei
+        älteren Arbeitnehmern).
+      </p>
+
+      <h3>Voraussetzungen für den ALG-I-Anspruch</h3>
+      <p>
+        Um Arbeitslosengeld I zu erhalten, müssen Sie drei Voraussetzungen erfüllen: Sie müssen
+        arbeitslos sein (weniger als 15 Stunden pro Woche), sich persönlich arbeitslos gemeldet
+        haben und die Anwartschaftszeit von mindestens 12 Monaten versicherungspflichtiger
+        Beschäftigung in den letzten 30 Monaten erfüllen.
+      </p>
+
+      <h3>Steuerklassenwahl vor der Arbeitslosigkeit</h3>
+      <p>
+        Die Steuerklasse beeinflusst die Höhe des ALG I erheblich. Besonders bei Ehepaaren kann
+        ein rechtzeitiger Wechsel der Steuerklasse (z.&nbsp;B. von V auf III) das ALG I deutlich
+        erhöhen. Wichtig: Der Wechsel muss spätestens zum 1. Januar des Jahres erfolgen, in dem
+        die Arbeitslosigkeit beginnt — die Agentur für Arbeit prüft, ob der Wechsel ausschließlich
+        zur ALG-Optimierung erfolgte.
+      </p>
+
+      <h2>Häufige Fragen zum Arbeitslosengeld I</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Wie hoch ist das ALG I in Prozent vom Nettogehalt?
+          </button>
+          <div class="faq-answer"><div class="faq-answer__inner">
+            Das ALG I beträgt 60% des pauschalierten Nettoentgelts (Leistungsentgelt) ohne Kind,
+            bzw. 67% mit mindestens einem Kind. Wichtig: Das pauschalierte Nettoentgelt ist nicht
+            identisch mit dem tatsächlichen Nettogehalt — die Agentur für Arbeit berechnet mit
+            einer 21%-SV-Pauschale und der Lohnsteuertabelle, was zu Abweichungen vom realen Netto führt.
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Wie melde ich mich arbeitslos?
+          </button>
+          <div class="faq-answer"><div class="faq-answer__inner">
+            Melden Sie sich spätestens drei Monate vor dem Ende Ihres Arbeitsverhältnisses
+            arbeitssuchend — online über die Jobbörse der Agentur für Arbeit oder telefonisch.
+            Am ersten Tag der Arbeitslosigkeit müssen Sie sich zusätzlich persönlich arbeitslos
+            melden. Eine verspätete Meldung kann zu einer Sperrzeit von einer Woche führen.
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Wird ALG I auf die Rente angerechnet?
+          </button>
+          <div class="faq-answer"><div class="faq-answer__inner">
+            Ja, der Bezug von ALG I zählt als Pflichtbeitragszeit in der gesetzlichen
+            Rentenversicherung. Die Agentur für Arbeit zahlt Rentenversicherungsbeiträge auf
+            80% des Bemessungsentgelts. Dadurch erwerben Sie weiterhin Rentenpunkte — allerdings
+            weniger als bei voller Beschäftigung.
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Was passiert nach dem Ende des ALG I?
+          </button>
+          <div class="faq-answer"><div class="faq-answer__inner">
+            Nach Ablauf des ALG-I-Anspruchs können Sie Bürgergeld (ehemals ALG II / Hartz IV)
+            beantragen. Bürgergeld ist eine bedarfsabhängige Grundsicherung und wird unabhängig
+            von Ihrem früheren Gehalt berechnet. Es setzt eine Bedürftigkeitsprüfung voraus, bei
+            der Vermögen und Einkommen des gesamten Haushalts berücksichtigt werden.
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Kann ich neben dem ALG I dazuverdienen?
+          </button>
+          <div class="faq-answer"><div class="faq-answer__inner">
+            Ja, Sie dürfen bis zu 165 € monatlich anrechnungsfrei hinzuverdienen. Darüber
+            hinausgehende Einkünfte werden auf das ALG I angerechnet. Die Nebenbeschäftigung
+            darf maximal 15 Stunden pro Woche umfassen — bei mehr gelten Sie nicht mehr als
+            arbeitslos und verlieren den Anspruch.
+          </div></div>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+</main>
+
+<!-- ══════════════════════════════════════════════════ -->
+<!-- Schema.org Markup -->
+<!-- ══════════════════════════════════════════════════ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Arbeitslosengeld-Rechner 2026 — ALG I berechnen",
+  "description": "Berechnen Sie Ihr Arbeitslosengeld I für 2026: Höhe, Bezugsdauer und Gesamtanspruch basierend auf Ihrem letzten Bruttogehalt.",
+  "url": "https://www.rechner-online.info/arbeitslosengeld-rechner",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+  "inLanguage": "de"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Wie hoch ist das ALG I in Prozent vom Nettogehalt?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Das ALG I beträgt 60% des pauschalierten Nettoentgelts ohne Kind bzw. 67% mit Kind. Das pauschalierte Netto wird mit einer 21%-SV-Pauschale berechnet und kann vom realen Nettogehalt abweichen."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wird ALG I auf die Rente angerechnet?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja, der Bezug von ALG I zählt als Pflichtbeitragszeit. Die Agentur für Arbeit zahlt Rentenversicherungsbeiträge auf 80% des Bemessungsentgelts."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kann ich neben dem ALG I dazuverdienen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja, bis zu 165 € monatlich sind anrechnungsfrei. Die Nebenbeschäftigung darf maximal 15 Stunden pro Woche umfassen."
+      }
+    }
+  ]
+}
+</script>
+
+<!-- ══════════════════════════════════════════════════ -->
+<!-- PAGE-SPECIFIC CALCULATION SCRIPT -->
+<!-- ══════════════════════════════════════════════════ -->
+<script>
+(function() {
+  'use strict';
+
+  const fmt = Steuer2026.formatEuro;
+  const C = Steuer2026.CONST;
+
+  // ── ALG I Constants ──
+  const SV_PAUSCHALE = 0.21; // 21% pauschal for ALG I calculation
+  const SATZ_OHNE_KIND = 0.60;
+  const SATZ_MIT_KIND = 0.67;
+
+  /**
+   * ALG I Bezugsdauer (months) based on age and contribution months.
+   * §148 SGB III
+   */
+  function bezugsdauer(alter, beitragsMonate) {
+    // Under 50: max 12 months
+    if (alter < 50) {
+      if (beitragsMonate >= 24) return 12;
+      if (beitragsMonate >= 20) return 10;
+      if (beitragsMonate >= 16) return 8;
+      if (beitragsMonate >= 12) return 6;
+      return 0;
+    }
+    // 50-54
+    if (alter < 55) {
+      if (beitragsMonate >= 30) return 15;
+      if (beitragsMonate >= 24) return 12;
+      if (beitragsMonate >= 20) return 10;
+      if (beitragsMonate >= 16) return 8;
+      if (beitragsMonate >= 12) return 6;
+      return 0;
+    }
+    // 55-57
+    if (alter < 58) {
+      if (beitragsMonate >= 36) return 18;
+      if (beitragsMonate >= 30) return 15;
+      if (beitragsMonate >= 24) return 12;
+      if (beitragsMonate >= 20) return 10;
+      if (beitragsMonate >= 16) return 8;
+      if (beitragsMonate >= 12) return 6;
+      return 0;
+    }
+    // 58+
+    if (beitragsMonate >= 48) return 24;
+    if (beitragsMonate >= 36) return 18;
+    if (beitragsMonate >= 30) return 15;
+    if (beitragsMonate >= 24) return 12;
+    if (beitragsMonate >= 20) return 10;
+    if (beitragsMonate >= 16) return 8;
+    if (beitragsMonate >= 12) return 6;
+    return 0;
+  }
+
+  function berechne(v) {
+    const bruttoMonat = v.brutto || 0;
+    if (bruttoMonat <= 0) return;
+
+    const steuerklasse = v.steuerklasse || 1;
+    const bundesland = v.bundesland || 'Nordrhein-Westfalen';
+    const mitKind = v.kinder === 'ja';
+    const kirchensteuer = v.kirchensteuer === 'ja';
+    const alter = v.alter || 25;
+    const beitragsMonate = v.monate || 24;
+
+    // ── Step 1: Bemessungsentgelt (daily, capped at BBG AV) ──
+    const bbgMonat = C.BBG_RV_MONAT; // AV uses same BBG as RV
+    const cappedMonat = Math.min(bruttoMonat, bbgMonat);
+    const bemessungTag = round2(cappedMonat * 12 / 365);
+
+    // ── Step 2: SV-Pauschale ──
+    const svPauschaleTag = round2(bemessungTag * SV_PAUSCHALE);
+    const nachSV = round2(bemessungTag - svPauschaleTag);
+
+    // ── Step 3: Lohnsteuer on reduced amount (yearly → daily) ──
+    // The Agentur uses the Lohnsteuertabelle on the yearly Bemessungsentgelt minus SV
+    const jahresEinkommen = round2(nachSV * 365);
+    const steuerResult = Steuer2026.lohnsteuer({
+      bruttoJahr: jahresEinkommen,
+      steuerklasse: steuerklasse,
+      kirchensteuer: kirchensteuer,
+      bundesland: bundesland,
+      kinderfreibetrag: 0,
+      steuerfreibetrag: 0,
+      geldwerterVorteil: 0,
+    });
+
+    const lstTag = round2(steuerResult.lohnsteuer / 365);
+    const soliTag = round2(steuerResult.soli / 365);
+    const kistTag = round2(steuerResult.kirchensteuer / 365);
+    const steuerTag = round2(lstTag + soliTag + kistTag);
+
+    // ── Step 4: Leistungsentgelt ──
+    const leistungsentgeltTag = round2(bemessungTag - svPauschaleTag - steuerTag);
+
+    // ── Step 5: ALG I ──
+    const satz = mitKind ? SATZ_MIT_KIND : SATZ_OHNE_KIND;
+    const algTag = round2(leistungsentgeltTag * satz);
+    const algMonat = round2(algTag * 30);
+
+    // ── Step 6: Duration ──
+    const dauerMonate = bezugsdauer(alter, beitragsMonate);
+    const gesamtAnspruch = round2(algMonat * dauerMonate);
+
+    // ── Replacement rate vs. real net ──
+    const nettoResult = Steuer2026.bruttoNetto({
+      brutto: bruttoMonat,
+      zeitraum: 'monat',
+      steuerklasse: steuerklasse,
+      bundesland: bundesland,
+      kirchensteuer: kirchensteuer,
+      krankenversicherung: 'gesetzlich',
+      kvZusatzbeitrag: C.KV_ZUSATZ_DEFAULT,
+      hatKinder: mitKind,
+      alter: 30,
+    });
+    const nettoReal = nettoResult.ergebnis.nettoMonat;
+    const ersatzrate = nettoReal > 0 ? round2(algMonat / nettoReal * 100) : 0;
+
+    // ── Render ──
+    document.getElementById('res-alg-monat').textContent = fmt(algMonat);
+    document.getElementById('res-leistungssatz').textContent =
+      (mitKind ? '67%' : '60%') + ' Leistungssatz' + (mitKind ? ' (mit Kind)' : ' (ohne Kind)');
+
+    document.getElementById('res-bemessung-tag').textContent = fmt(bemessungTag);
+    document.getElementById('res-sv-pauschale').textContent = '− ' + fmt(svPauschaleTag);
+    document.getElementById('res-lst-tag').textContent = '− ' + fmt(lstTag);
+    document.getElementById('res-soli-tag').textContent = '− ' + fmt(soliTag);
+
+    const kistRow = document.getElementById('row-kist');
+    if (kirchensteuer) {
+      kistRow.style.display = '';
+      document.getElementById('res-kist-tag').textContent = '− ' + fmt(kistTag);
+    } else {
+      kistRow.style.display = 'none';
+    }
+
+    document.getElementById('res-leistung-tag').textContent = fmt(leistungsentgeltTag);
+    document.getElementById('res-satz').textContent = (satz * 100) + ' %';
+    document.getElementById('res-alg-tag').textContent = fmt(algTag);
+    document.getElementById('res-alg-monat-row').textContent = fmt(algMonat);
+
+    document.getElementById('res-dauer').textContent = dauerMonate + ' Monate';
+    document.getElementById('res-gesamt').textContent = fmt(gesamtAnspruch);
+    document.getElementById('res-ersatzrate').textContent =
+      ersatzrate.toLocaleString('de-DE', {maximumFractionDigits:1}) + ' % vom Netto';
+
+    // ── Donut: ALG vs. lost income ──
+    const verlust = round2(nettoReal - algMonat);
+    RechnerUI.drawDonut('chart-container', [
+      { label: 'ALG I', value: algMonat, color: '#1a8754' },
+      { label: 'Einkommensverlust', value: Math.max(0, verlust), color: '#c53030' },
+    ], fmt(algMonat), 'ALG I / Monat');
+  }
+
+  function round2(n) { return Math.round(n * 100) / 100; }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    RechnerUI.bindCalculation('calc-form', berechne);
+  });
+})();
+</script>

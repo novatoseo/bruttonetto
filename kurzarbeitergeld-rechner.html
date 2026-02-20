@@ -1,0 +1,460 @@
+---
+title: "Kurzarbeitergeld-Rechner 2026 – KuG berechnen"
+description: "Kurzarbeitergeld 2026 berechnen: Wie viel KuG erhalten Sie bei Kurzarbeit? Jetzt Netto-Entgelt, Leistungssatz (60%/67%) und Gesamtauszahlung sofort berechnen."
+slug: kurzarbeitergeld-rechner
+layout: calculator
+---
+
+<main id="main-content">
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <h1>Kurzarbeitergeld-Rechner 2026</h1>
+      <p>Berechnen Sie schnell und genau Ihr Kurzarbeitergeld (KuG). Ermitteln Sie, wie viel Netto-Entgelt Sie bei reduzierter Arbeitszeit erhalten — inklusive Leistungssatz, KuG-Betrag und Gesamtauszahlung.</p>
+    </div>
+  </section>
+
+  <!-- Calculator -->
+  <div class="container">
+    <div class="calc-layout" id="calc-form">
+
+      <!-- Form -->
+      <div class="calc-form-wrap">
+
+        <div class="form-section">
+          <h2 class="form-section__title">
+            <span class="form-section__icon">💰</span> Gehalt &amp; Kurzarbeit
+          </h2>
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label" for="brutto">
+                Monatliches Bruttogehalt
+                <span class="form-label__help" title="Ihr reguläres Brutto-Monatsgehalt (Soll-Entgelt) vor Kurzarbeit">?</span>
+              </label>
+              <div class="input-wrapper">
+                <input class="form-input form-input--euro" type="text" id="brutto"
+                       data-field="brutto" data-type="euro" value="3.500" inputmode="decimal">
+                <span class="input-suffix">€</span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="ausfallquote">
+                Arbeitsausfall
+                <span class="form-label__help" title="Prozentsatz, um den Ihre Arbeitszeit reduziert wird. Bei 50% arbeiten Sie die Hälfte der regulären Zeit.">?</span>
+              </label>
+              <select class="form-select" id="ausfallquote" data-field="ausfallquote">
+                <option value="10">10 %</option>
+                <option value="20">20 %</option>
+                <option value="30">30 %</option>
+                <option value="40">40 %</option>
+                <option value="50" selected>50 %</option>
+                <option value="60">60 %</option>
+                <option value="70">70 %</option>
+                <option value="80">80 %</option>
+                <option value="90">90 %</option>
+                <option value="100">100 %</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <h2 class="form-section__title">
+            <span class="form-section__icon">📋</span> Steuer &amp; Sozialversicherung
+          </h2>
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label" for="steuerklasse">Steuerklasse</label>
+              <select class="form-select" id="steuerklasse" data-field="steuerklasse">
+                <option value="1" selected>I</option>
+                <option value="2">II</option>
+                <option value="3">III</option>
+                <option value="4">IV</option>
+                <option value="5">V</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="bundesland">Bundesland</label>
+              <select class="form-select" id="bundesland" data-field="bundesland">
+                <option value="baden-wuerttemberg">Baden-Württemberg</option>
+                <option value="bayern">Bayern</option>
+                <option value="berlin">Berlin</option>
+                <option value="brandenburg">Brandenburg</option>
+                <option value="bremen">Bremen</option>
+                <option value="hamburg">Hamburg</option>
+                <option value="hessen">Hessen</option>
+                <option value="mecklenburg-vorpommern">Mecklenburg-Vorpommern</option>
+                <option value="niedersachsen">Niedersachsen</option>
+                <option value="nordrhein-westfalen" selected>Nordrhein-Westfalen</option>
+                <option value="rheinland-pfalz">Rheinland-Pfalz</option>
+                <option value="saarland">Saarland</option>
+                <option value="sachsen">Sachsen</option>
+                <option value="sachsen-anhalt">Sachsen-Anhalt</option>
+                <option value="schleswig-holstein">Schleswig-Holstein</option>
+                <option value="thueringen">Thüringen</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="kirchensteuer">Kirchensteuer</label>
+              <select class="form-select" id="kirchensteuer" data-field="kirchensteuer">
+                <option value="ja">Ja</option>
+                <option value="nein" selected>Nein</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="kvZusatzbeitrag">
+                KV-Zusatzbeitrag
+                <span class="form-label__help" title="Individueller Zusatzbeitrag Ihrer Krankenkasse (Durchschnitt 2026: 2,9%)">?</span>
+              </label>
+              <div class="input-wrapper">
+                <input class="form-input form-input--percent" type="text" id="kvZusatzbeitrag"
+                       data-field="kvZusatzbeitrag" data-type="number" value="2,9" inputmode="decimal">
+                <span class="input-suffix">%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <h2 class="form-section__title">
+            <span class="form-section__icon">👨‍👩‍👧</span> Kinder
+          </h2>
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label" for="kinder">Kinder im Haushalt</label>
+              <select class="form-select" id="kinder" data-field="kinder">
+                <option value="nein" selected>Nein</option>
+                <option value="ja">Ja</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Results -->
+      <div class="calc-results-wrap">
+
+        <div class="results-panel">
+          <div class="results-panel__header">
+            <span>Ihr Kurzarbeitergeld</span>
+          </div>
+          <div class="results-panel__body">
+
+            <div class="result-netto">
+              <span class="result-netto__label">Kurzarbeitergeld monatlich</span>
+              <span class="result-netto__value" id="res-kug">0,00 €</span>
+              <span class="result-netto__period" id="res-leistungssatz">Leistungssatz: 60 %</span>
+            </div>
+
+            <div class="result-rows">
+              <div class="result-row result-row--header">
+                <span class="result-row__label">Vergleich mit / ohne Kurzarbeit</span>
+                <span class="result-row__value">Monat</span>
+              </div>
+              <div class="result-row">
+                <span class="result-row__label">Netto ohne Kurzarbeit (Soll)</span>
+                <span class="result-row__value" id="res-netto-soll">0,00 €</span>
+              </div>
+              <div class="result-row">
+                <span class="result-row__label">Netto bei Kurzarbeit (Ist)</span>
+                <span class="result-row__value" id="res-netto-ist">0,00 €</span>
+              </div>
+              <div class="result-row">
+                <span class="result-row__label">+ Kurzarbeitergeld</span>
+                <span class="result-row__value" id="res-kug-betrag">0,00 €</span>
+              </div>
+              <div class="result-row result-row--total">
+                <span class="result-row__label">Gesamtauszahlung</span>
+                <span class="result-row__value" id="res-gesamt">0,00 €</span>
+              </div>
+              <div class="result-row">
+                <span class="result-row__label">Differenz zum normalen Netto</span>
+                <span class="result-row__value" id="res-differenz">0,00 €</span>
+              </div>
+            </div>
+
+            <div class="result-rows" style="margin-top:1rem;">
+              <div class="result-row result-row--header">
+                <span class="result-row__label">Jahresvergleich</span>
+                <span class="result-row__value">Jahr</span>
+              </div>
+              <div class="result-row">
+                <span class="result-row__label">Jahresnetto ohne Kurzarbeit</span>
+                <span class="result-row__value" id="res-jahr-soll">0,00 €</span>
+              </div>
+              <div class="result-row">
+                <span class="result-row__label">Jahresnetto mit Kurzarbeit + KuG</span>
+                <span class="result-row__value" id="res-jahr-ist">0,00 €</span>
+              </div>
+              <div class="result-row result-row--total">
+                <span class="result-row__label">Jahresverlust durch Kurzarbeit</span>
+                <span class="result-row__value" id="res-jahr-differenz">0,00 €</span>
+              </div>
+            </div>
+
+            <div id="donut-chart" style="margin-top:1.5rem;"></div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- SEO Content -->
+    <section class="content-section">
+      <h2>Kurzarbeitergeld 2026: Alles was Sie wissen müssen</h2>
+
+      <p>Das Kurzarbeitergeld (KuG) ist eine der wichtigsten Leistungen der deutschen Arbeitslosenversicherung. Es sichert Arbeitnehmerinnen und Arbeitnehmer finanziell ab, wenn ihr Arbeitgeber die Arbeitszeit vorübergehend reduzieren muss. Statt einer Kündigung erhalten Beschäftigte einen teilweisen Lohnersatz von der Agentur für Arbeit — ein Instrument, das sich in Wirtschaftskrisen und während der Corona-Pandemie vielfach bewährt hat.</p>
+
+      <h3>Was ist Kurzarbeit und wann wird sie eingeführt?</h3>
+
+      <p>Kurzarbeit liegt vor, wenn ein Betrieb die reguläre Arbeitszeit seiner Beschäftigten vorübergehend verkürzt. Gründe dafür können wirtschaftliche Schwierigkeiten, Auftragsmangel, Lieferkettenprobleme oder außergewöhnliche Ereignisse sein. Der Arbeitgeber muss den Arbeitsausfall bei der zuständigen Agentur für Arbeit anzeigen und nachweisen, dass der Ausfall unvermeidbar und vorübergehend ist. Erst nach Genehmigung durch die Arbeitsagentur wird Kurzarbeitergeld gezahlt. Ein erheblicher Arbeitsausfall muss mindestens ein Drittel der Belegschaft betreffen und jeweils mehr als 10 % des monatlichen Bruttolohns ausmachen.</p>
+
+      <h3>So wird das Kurzarbeitergeld berechnet</h3>
+
+      <p>Die Berechnung des KuG erfolgt in drei Schritten. Zunächst wird das pauschalisierte Netto-Entgelt aus dem regulären Bruttogehalt (Soll-Entgelt) ermittelt. Anschließend berechnet die Agentur für Arbeit das pauschalisierte Netto-Entgelt aus dem reduzierten Bruttogehalt (Ist-Entgelt). Die Differenz beider Nettobeträge bildet die Berechnungsgrundlage. Beschäftigte ohne Kinder erhalten 60 % dieser Differenz, Beschäftigte mit mindestens einem Kind im Haushalt 67 %. Dieser Leistungssatz wird in offiziellen Tabellen der Bundesagentur für Arbeit festgelegt und gilt einheitlich für das gesamte Bundesgebiet.</p>
+
+      <h3>Dauer und Verlängerungsmöglichkeiten</h3>
+
+      <p>Die reguläre Bezugsdauer von Kurzarbeitergeld beträgt maximal zwölf Monate. In besonderen Krisensituationen kann die Bundesregierung per Verordnung die maximale Bezugsdauer auf bis zu 24 Monate verlängern, wie es beispielsweise während der Corona-Pandemie der Fall war. Für 2026 gilt zunächst die reguläre Frist von zwölf Monaten. Arbeitgeber können die Kurzarbeit innerhalb dieses Zeitraums flexibel anpassen — etwa den Arbeitsausfall von 50 % auf 30 % reduzieren oder umgekehrt erhöhen, je nach wirtschaftlicher Lage.</p>
+
+      <h3>Aufstockung durch den Arbeitgeber</h3>
+
+      <p>Viele Arbeitgeber stocken das gesetzliche Kurzarbeitergeld freiwillig auf — häufig auf 80 % bis 100 % des normalen Netto-Entgelts. Diese Aufstockung kann auf einer freiwilligen Vereinbarung, einem Tarifvertrag oder einer Betriebsvereinbarung basieren. Besonders in tarifgebundenen Branchen wie der Metall- und Elektroindustrie oder der Chemieindustrie gibt es häufig Regelungen zur KuG-Aufstockung. Die Aufstockungsbeträge des Arbeitgebers sind für den Arbeitnehmer steuer- und sozialversicherungsfrei, unterliegen aber ebenso wie das KuG dem Progressionsvorbehalt bei der Einkommensteuererklärung.</p>
+
+      <h3>Steuerliche Behandlung des KuG</h3>
+
+      <p>Das Kurzarbeitergeld ist grundsätzlich steuerfrei nach § 3 Nr. 2 EStG. Allerdings unterliegt es dem sogenannten Progressionsvorbehalt. Das bedeutet: Das KuG wird bei der Ermittlung des persönlichen Steuersatzes für die Einkommensteuer-Jahreserklärung berücksichtigt. In der Praxis führt dies oft zu einer Steuernachzahlung im Folgejahr. Wer im Kalenderjahr mehr als 410 Euro Kurzarbeitergeld bezogen hat, ist verpflichtet, eine Einkommensteuererklärung abzugeben. Mit unserem Rechner können Sie bereits im Voraus abschätzen, wie hoch Ihre monatliche Auszahlung bei Kurzarbeit ausfällt.</p>
+
+      <h3>Sozialversicherung bei Kurzarbeit</h3>
+
+      <p>Während der Kurzarbeit bleiben Beschäftigte in allen Zweigen der Sozialversicherung voll versichert. Der Arbeitgeber zahlt die Sozialversicherungsbeiträge auf das tatsächlich gezahlte (reduzierte) Brutto-Entgelt wie gewohnt. Zusätzlich trägt der Arbeitgeber die Sozialversicherungsbeiträge auf 80 % der Differenz zwischen dem Soll- und dem Ist-Entgelt — diese sogenannten fiktiven Beiträge stellen sicher, dass Arbeitnehmer bei Rente, Kranken- und Pflegeversicherung keine wesentlichen Nachteile erleiden. Die Beiträge zur Arbeitslosenversicherung entfallen auf den Ausfallbetrag.</p>
+
+      <h3>Voraussetzungen für den Anspruch auf Kurzarbeitergeld</h3>
+
+      <p>Um Kurzarbeitergeld zu erhalten, müssen mehrere Bedingungen erfüllt sein. Das Arbeitsverhältnis darf nicht gekündigt sein, der Arbeitnehmer muss sozialversicherungspflichtig beschäftigt sein, und der Arbeitsausfall muss mindestens 10 % des monatlichen Brutto-Entgelts betragen. Minijobber, Auszubildende (mit Einschränkungen) und befristet Beschäftigte können unter bestimmten Umständen ebenfalls Anspruch haben. Selbstständige und Freiberufler sind vom KuG ausgeschlossen — für sie gibt es andere Hilfsangebote.</p>
+
+      <!-- FAQ Section -->
+      <div class="faq-list">
+        <h2>Häufig gestellte Fragen zum Kurzarbeitergeld</h2>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Wie viel Kurzarbeitergeld bekomme ich bei 50 % Kurzarbeit?
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer__inner">
+              <p>Bei 50 % Kurzarbeit erhalten Sie Ihr reduziertes Netto-Entgelt (für die gearbeitete Hälfte) plus 60 % (ohne Kinder) bzw. 67 % (mit Kindern) der Nettodifferenz zwischen Ihrem normalen und dem reduzierten Gehalt. Bei einem Bruttogehalt von 3.500 € und Steuerklasse I ohne Kinder ergibt sich typischerweise eine Gesamtauszahlung von ca. 80-85 % Ihres normalen Nettolohns. Nutzen Sie unseren Rechner oben für Ihre individuelle Berechnung.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Muss ich auf Kurzarbeitergeld Steuern zahlen?
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer__inner">
+              <p>Das KuG selbst ist steuerfrei, unterliegt jedoch dem Progressionsvorbehalt. Das bedeutet, dass das KuG Ihren persönlichen Steuersatz für Ihr übriges Einkommen erhöhen kann. Wer im Kalenderjahr mehr als 410 € KuG bezogen hat, muss eine Einkommensteuererklärung abgeben. In vielen Fällen kommt es dadurch zu einer Steuernachzahlung, da der Arbeitgeber während der Kurzarbeit weniger Lohnsteuer abführt, der Jahressteuersatz aber steigt.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Wie lange kann ich Kurzarbeitergeld beziehen?
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer__inner">
+              <p>Die reguläre maximale Bezugsdauer beträgt zwölf Monate. In besonderen Krisensituationen kann die Bundesregierung die Dauer per Verordnung auf bis zu 24 Monate verlängern. Der Bezugszeitraum muss nicht zusammenhängend sein — er kann innerhalb von 12 Monaten ab dem ersten Kurzarbeitstag auch unterbrochen und wieder aufgenommen werden. Die Kurzarbeit kann außerdem in ihrem Umfang variieren.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Wird meine Rente durch Kurzarbeit beeinträchtigt?
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer__inner">
+              <p>Die Auswirkungen auf die Rente werden abgemildert, da der Arbeitgeber die Rentenversicherungsbeiträge auf 80 % der Bruttodifferenz zwischen Soll- und Ist-Entgelt weiter abführt. Damit werden zwar geringfügig weniger Entgeltpunkte gesammelt als bei voller Beschäftigung, der Unterschied fällt jedoch in den meisten Fällen nur gering aus. Bei einer Kurzarbeit von zwölf Monaten mit 50 % Ausfall reduziert sich die spätere Monatsrente erfahrungsgemäß nur um wenige Euro.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Kann ich während der Kurzarbeit einen Nebenjob annehmen?
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer__inner">
+              <p>Ja, grundsätzlich ist eine Nebenbeschäftigung während der Kurzarbeit möglich. Allerdings wird das Einkommen aus dem Nebenjob auf das Kurzarbeitergeld angerechnet, soweit es zusammen mit dem Ist-Entgelt das Soll-Entgelt übersteigt. Wurde die Nebenbeschäftigung bereits vor der Kurzarbeit ausgeübt, bleibt das Einkommen daraus anrechnungsfrei. Neue Nebenjobs sollten vorab mit dem Arbeitgeber abgesprochen werden, da arbeitsvertragliche Regelungen zu beachten sind.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Kurzarbeitergeld-Rechner 2026",
+        "description": "Berechnen Sie Ihr Kurzarbeitergeld (KuG) für 2026. Ermitteln Sie Leistungssatz, Netto-Entgelt und Gesamtauszahlung bei Kurzarbeit.",
+        "url": "https://rechner-online.info/kurzarbeitergeld-rechner",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "All",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "EUR"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Wie viel Kurzarbeitergeld bekomme ich bei 50 % Kurzarbeit?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Bei 50 % Kurzarbeit erhalten Sie Ihr reduziertes Netto-Entgelt plus 60 % (ohne Kinder) bzw. 67 % (mit Kindern) der Nettodifferenz zwischen normalem und reduziertem Gehalt. Bei 3.500 € brutto und Steuerklasse I ergibt sich typischerweise eine Gesamtauszahlung von ca. 80-85 % Ihres normalen Nettolohns."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Muss ich auf Kurzarbeitergeld Steuern zahlen?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Das KuG ist steuerfrei, unterliegt jedoch dem Progressionsvorbehalt. Es erhöht den Steuersatz auf Ihr übriges Einkommen. Wer mehr als 410 € KuG im Jahr bezogen hat, muss eine Einkommensteuererklärung abgeben."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Wie lange kann ich Kurzarbeitergeld beziehen?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Die reguläre Bezugsdauer beträgt maximal 12 Monate. In Krisensituationen kann die Bundesregierung per Verordnung auf bis zu 24 Monate verlängern."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Wird meine Rente durch Kurzarbeit beeinträchtigt?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Die Auswirkungen auf die Rente werden abgemildert, da der Arbeitgeber Rentenversicherungsbeiträge auf 80 % der Bruttodifferenz weiter abführt. Bei 12 Monaten Kurzarbeit mit 50 % Ausfall reduziert sich die Monatsrente nur um wenige Euro."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Kann ich während der Kurzarbeit einen Nebenjob annehmen?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Ja, ein Nebenjob ist möglich. Das Einkommen wird jedoch angerechnet, soweit es zusammen mit dem Ist-Entgelt das Soll-Entgelt übersteigt. Bereits bestehende Nebenjobs bleiben anrechnungsfrei."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <!-- Inline Script -->
+  <script>
+  (function() {
+    'use strict';
+
+    function round2(n) { return Math.round(n * 100) / 100; }
+
+    function berechneKuG(values) {
+      var bruttoSoll = RechnerUI.parseGermanNumber(values.brutto) || 3500;
+      var ausfallQuote = parseInt(values.ausfallquote, 10) / 100;
+      var steuerklasse = parseInt(values.steuerklasse, 10);
+      var bundesland = values.bundesland;
+      var kirchensteuer = values.kirchensteuer === 'ja';
+      var kvZusatz = RechnerUI.parseGermanNumber(values.kvZusatzbeitrag) / 100 || 0.029;
+      var hatKinder = values.kinder === 'ja';
+      var leistungssatz = hatKinder ? 0.67 : 0.60;
+
+      // Ist-Entgelt (reduziertes Brutto)
+      var bruttoIst = round2(bruttoSoll * (1 - ausfallQuote));
+
+      // Gemeinsame Parameter für bruttoNetto
+      var baseParams = {
+        zeitraum: 'monat',
+        steuerklasse: steuerklasse,
+        bundesland: bundesland,
+        kirchensteuer: kirchensteuer,
+        krankenversicherung: 'gesetzlich',
+        kvZusatzbeitrag: kvZusatz,
+        hatKinder: hatKinder,
+        kinderUnter25: hatKinder ? 1 : 0,
+        alter: 30,
+        geldwerterVorteil: 0
+      };
+
+      // Netto-Soll (normales Gehalt)
+      var paramsSoll = Object.assign({}, baseParams, { brutto: bruttoSoll });
+      var ergebnisSoll = Steuer2026.bruttoNetto(paramsSoll);
+      var nettoSoll = round2(ergebnisSoll.ergebnis.nettoMonat);
+
+      // Netto-Ist (reduziertes Gehalt)
+      var paramsIst = Object.assign({}, baseParams, { brutto: bruttoIst });
+      var ergebnisIst = Steuer2026.bruttoNetto(paramsIst);
+      var nettoIst = round2(ergebnisIst.ergebnis.nettoMonat);
+
+      // KuG-Betrag
+      var nettoDifferenz = round2(nettoSoll - nettoIst);
+      var kugBetrag = round2(nettoDifferenz * leistungssatz);
+
+      // Gesamtauszahlung
+      var gesamt = round2(nettoIst + kugBetrag);
+      var differenz = round2(nettoSoll - gesamt);
+
+      // Jahreswerte
+      var jahrSoll = round2(nettoSoll * 12);
+      var jahrIst = round2(gesamt * 12);
+      var jahrDifferenz = round2(jahrSoll - jahrIst);
+
+      // --- DOM Update ---
+      document.getElementById('res-kug').textContent = Steuer2026.formatEuro(kugBetrag);
+      document.getElementById('res-leistungssatz').textContent =
+        'Leistungssatz: ' + (hatKinder ? '67' : '60') + ' % ' + (hatKinder ? '(mit Kindern)' : '(ohne Kinder)');
+
+      document.getElementById('res-netto-soll').textContent = Steuer2026.formatEuro(nettoSoll);
+      document.getElementById('res-netto-ist').textContent = Steuer2026.formatEuro(nettoIst);
+      document.getElementById('res-kug-betrag').textContent = Steuer2026.formatEuro(kugBetrag);
+      document.getElementById('res-gesamt').textContent = Steuer2026.formatEuro(gesamt);
+      document.getElementById('res-differenz').textContent = '−' + Steuer2026.formatEuro(differenz);
+
+      document.getElementById('res-jahr-soll').textContent = Steuer2026.formatEuro(jahrSoll);
+      document.getElementById('res-jahr-ist').textContent = Steuer2026.formatEuro(jahrIst);
+      document.getElementById('res-jahr-differenz').textContent = '−' + Steuer2026.formatEuro(jahrDifferenz);
+
+      // Donut chart: Netto-Ist + KuG vs Verlust
+      RechnerUI.drawDonut('donut-chart', [
+        { label: 'Netto (Ist)', value: nettoIst, color: '#1a8754' },
+        { label: 'Kurzarbeitergeld', value: kugBetrag, color: '#e8870e' },
+        { label: 'Verlust', value: differenz > 0 ? differenz : 0, color: '#c53030' }
+      ], Steuer2026.formatEuro(gesamt), 'Gesamtauszahlung');
+    }
+
+    RechnerUI.bindCalculation('calc-form', berechneKuG);
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-question').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var expanded = this.getAttribute('aria-expanded') === 'true';
+        this.setAttribute('aria-expanded', String(!expanded));
+      });
+    });
+  })();
+  </script>
+
+</main>

@@ -1,0 +1,520 @@
+---
+title: Teilzeitrechner 2026 — Teilzeitgehalt berechnen | Rechner-Online.info
+description: Berechnen Sie Ihr Gehalt bei Teilzeit 2026: Brutto, Netto und Stundenlohn im Vergleich zu Vollzeit. Mit allen Abzügen.
+slug: teilzeitrechner
+layout: calculator
+---
+
+<main id="main-content">
+  <div class="container">
+
+    <!-- ── Hero ── -->
+    <header style="margin:var(--space-10) 0 var(--space-6)">
+      <h1>Teilzeitrechner 2026</h1>
+      <p style="font-size:var(--text-lg);color:var(--color-text-secondary);max-width:680px">
+        Lohnt sich Teilzeit? Berechnen Sie, wie sich eine Reduzierung Ihrer Arbeitszeit auf
+        Brutto, Netto und Stundenlohn auswirkt — mit direktem Vergleich zu Vollzeit.
+      </p>
+    </header>
+
+    <!-- ══════════════════════════════════════════════════ -->
+    <!-- CALCULATOR LAYOUT -->
+    <!-- ══════════════════════════════════════════════════ -->
+    <div class="calc-layout" id="calc-form">
+
+      <!-- ── LEFT: Form ── -->
+      <div class="calc-form-wrap">
+
+        <!-- Section 1: Vollzeit-Gehalt -->
+        <div class="form-section">
+          <h2 class="form-section__title">
+            <span class="form-section__icon">💰</span>Ihr Vollzeitgehalt
+          </h2>
+          <div class="form-grid">
+            <div class="form-group form-group--full">
+              <label class="form-label" for="bruttoVollzeit">
+                Monatliches Bruttogehalt (Vollzeit)
+              </label>
+              <div class="input-wrapper">
+                <input type="text" id="bruttoVollzeit" class="form-input form-input--euro"
+                       data-field="bruttoVollzeit" data-type="euro"
+                       value="4.000,00" inputmode="decimal">
+                <span class="input-suffix">€</span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="stundenVollzeit">Wochenstunden Vollzeit</label>
+              <div class="input-wrapper">
+                <input type="text" id="stundenVollzeit" class="form-input"
+                       data-field="stundenVollzeit" data-type="number"
+                       value="40" inputmode="decimal">
+                <span class="input-suffix">Std.</span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="stundenTeilzeit">Gewünschte Wochenstunden</label>
+              <div class="input-wrapper">
+                <input type="text" id="stundenTeilzeit" class="form-input"
+                       data-field="stundenTeilzeit" data-type="number"
+                       value="30" inputmode="decimal">
+                <span class="input-suffix">Std.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 2: Steuer & SV -->
+        <div class="form-section">
+          <h2 class="form-section__title">
+            <span class="form-section__icon">📋</span>Steuer & Sozialversicherung
+          </h2>
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label" for="steuerklasse">Steuerklasse</label>
+              <select id="steuerklasse" class="form-select" data-field="steuerklasse" data-type="number">
+                <option value="1" selected>I</option>
+                <option value="2">II</option>
+                <option value="3">III</option>
+                <option value="4">IV</option>
+                <option value="5">V</option>
+                <option value="6">VI</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="bundesland">Bundesland</label>
+              <select id="bundesland" class="form-select" data-field="bundesland">
+                <option value="Baden-Württemberg">Baden-Württemberg</option>
+                <option value="Bayern">Bayern</option>
+                <option value="Berlin">Berlin</option>
+                <option value="Brandenburg">Brandenburg</option>
+                <option value="Bremen">Bremen</option>
+                <option value="Hamburg">Hamburg</option>
+                <option value="Hessen">Hessen</option>
+                <option value="Mecklenburg-Vorpommern">Mecklenburg-Vorpommern</option>
+                <option value="Niedersachsen">Niedersachsen</option>
+                <option value="Nordrhein-Westfalen" selected>Nordrhein-Westfalen</option>
+                <option value="Rheinland-Pfalz">Rheinland-Pfalz</option>
+                <option value="Saarland">Saarland</option>
+                <option value="Sachsen">Sachsen</option>
+                <option value="Sachsen-Anhalt">Sachsen-Anhalt</option>
+                <option value="Schleswig-Holstein">Schleswig-Holstein</option>
+                <option value="Thüringen">Thüringen</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Kirchensteuer</label>
+              <div class="radio-group">
+                <input type="radio" name="kirchensteuer" id="kist-nein" value="nein"
+                       data-field="kirchensteuer" checked>
+                <label for="kist-nein">Nein</label>
+                <input type="radio" name="kirchensteuer" id="kist-ja" value="ja"
+                       data-field="kirchensteuer">
+                <label for="kist-ja">Ja</label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="kvZusatz">KV-Zusatzbeitrag</label>
+              <div class="input-wrapper">
+                <input type="text" id="kvZusatz" class="form-input form-input--percent"
+                       data-field="kvZusatz" data-type="number"
+                       value="2,9" inputmode="decimal">
+                <span class="input-suffix">%</span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Kinder vorhanden?</label>
+              <div class="radio-group">
+                <input type="radio" name="hatKinder" id="kinder-nein" value="nein"
+                       data-field="hatKinder" checked>
+                <label for="kinder-nein">Nein</label>
+                <input type="radio" name="hatKinder" id="kinder-ja" value="ja"
+                       data-field="hatKinder">
+                <label for="kinder-ja">Ja</label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ── RIGHT: Results ── -->
+      <div class="calc-results-wrap">
+        <div class="results-panel">
+          <div class="results-panel__header">
+            <h3>Teilzeit vs. Vollzeit</h3>
+          </div>
+          <div class="results-panel__body">
+
+            <!-- Highlight -->
+            <div class="result-netto">
+              <div class="result-netto__label">Netto bei Teilzeit</div>
+              <div class="result-netto__value" id="res-netto-tz">—</div>
+              <div class="result-netto__period" id="res-stunden-info">—</div>
+            </div>
+
+            <!-- Donut Chart -->
+            <div id="chart-container"></div>
+            <div class="chart-legend"></div>
+
+            <!-- Comparison Table -->
+            <div class="result-rows">
+              <div class="result-row result-row--header">
+                <span></span>
+                <span style="font-size:var(--text-xs);text-align:right;display:inline-flex;gap:var(--space-4)">
+                  <span style="width:90px;text-align:right">Vollzeit</span>
+                  <span style="width:90px;text-align:right">Teilzeit</span>
+                </span>
+              </div>
+
+              <div class="result-row">
+                <span class="result-row__label">Brutto / Monat</span>
+                <span class="result-row__value" style="display:inline-flex;gap:var(--space-4)">
+                  <span id="res-brutto-vz" style="width:90px;text-align:right">—</span>
+                  <span id="res-brutto-tz" style="width:90px;text-align:right">—</span>
+                </span>
+              </div>
+
+              <div class="result-row">
+                <span class="result-row__label">Steuern</span>
+                <span class="result-row__value" style="display:inline-flex;gap:var(--space-4)">
+                  <span id="res-steuer-vz" style="width:90px;text-align:right">—</span>
+                  <span id="res-steuer-tz" style="width:90px;text-align:right">—</span>
+                </span>
+              </div>
+
+              <div class="result-row">
+                <span class="result-row__label">Sozialversicherung</span>
+                <span class="result-row__value" style="display:inline-flex;gap:var(--space-4)">
+                  <span id="res-sv-vz" style="width:90px;text-align:right">—</span>
+                  <span id="res-sv-tz" style="width:90px;text-align:right">—</span>
+                </span>
+              </div>
+
+              <div class="result-row result-row--total">
+                <span>Netto / Monat</span>
+                <span class="result-row__value" style="display:inline-flex;gap:var(--space-4)">
+                  <span id="res-netto-vz" style="width:90px;text-align:right">—</span>
+                  <span id="res-netto-tz-row" style="width:90px;text-align:right">—</span>
+                </span>
+              </div>
+
+              <div class="result-row result-row--header" style="margin-top:var(--space-6)">
+                <span>Stundenlohn & Differenz</span>
+                <span></span>
+              </div>
+              <div class="result-row">
+                <span class="result-row__label">Brutto-Stundenlohn</span>
+                <span class="result-row__value" style="display:inline-flex;gap:var(--space-4)">
+                  <span id="res-std-brutto-vz" style="width:90px;text-align:right">—</span>
+                  <span id="res-std-brutto-tz" style="width:90px;text-align:right">—</span>
+                </span>
+              </div>
+              <div class="result-row">
+                <span class="result-row__label">Netto-Stundenlohn</span>
+                <span class="result-row__value" style="display:inline-flex;gap:var(--space-4)">
+                  <span id="res-std-netto-vz" style="width:90px;text-align:right">—</span>
+                  <span id="res-std-netto-tz" style="width:90px;text-align:right">—</span>
+                </span>
+              </div>
+
+              <div style="margin-top:var(--space-6);padding-top:var(--space-4);border-top:1px solid var(--color-border-light)">
+                <div class="result-row">
+                  <span class="result-row__label">Netto-Differenz / Monat</span>
+                  <span class="result-row__value" id="res-diff-netto" style="color:var(--color-error)">—</span>
+                </div>
+                <div class="result-row">
+                  <span class="result-row__label">Netto-Differenz / Jahr</span>
+                  <span class="result-row__value" id="res-diff-jahr" style="color:var(--color-error)">—</span>
+                </div>
+                <div class="result-row">
+                  <span class="result-row__label">Arbeitszeitquote</span>
+                  <span class="result-row__value" id="res-quote">—</span>
+                </div>
+                <div class="result-row">
+                  <span class="result-row__label">Nettoquote</span>
+                  <span class="result-row__value" id="res-nettoquote" style="color:var(--color-success)">—</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════ -->
+    <!-- SEO CONTENT -->
+    <!-- ══════════════════════════════════════════════════ -->
+    <section class="content-section">
+
+      <h2>Wie wirkt sich Teilzeit auf das Gehalt aus?</h2>
+      <p>
+        Die gute Nachricht: Wer seine Arbeitszeit reduziert, verliert netto weniger, als das
+        Bruttoverhältnis vermuten lässt. Der Grund liegt in der <strong>Steuerprogression</strong>
+        — bei niedrigerem Einkommen sinkt der prozentuale Steueranteil. Diesen Effekt zeigt die
+        „Nettoquote" in unserem Rechner: Sie beschreibt, welchen Anteil Ihres Vollzeit-Nettos
+        Sie bei Teilzeit behalten.
+      </p>
+      <p>
+        <strong>Beispiel:</strong> Wer von 40 auf 30 Stunden reduziert (75% Arbeitszeit), behält
+        oft ca. 80–85% des Nettogehalts. Je höher das Vollzeitgehalt und je progressiver die
+        Steuerbelastung, desto größer dieser Vorteil.
+      </p>
+
+      <h2>Recht auf Teilzeit: Was sagt das Gesetz?</h2>
+      <p>
+        Das <strong>Teilzeit- und Befristungsgesetz (TzBfG)</strong> gibt Arbeitnehmern in
+        Unternehmen mit mehr als 15 Mitarbeitern das Recht, ihre Arbeitszeit zu reduzieren.
+        Voraussetzung: Das Arbeitsverhältnis besteht seit mehr als 6 Monaten. Der Arbeitgeber
+        kann nur aus betrieblichen Gründen ablehnen.
+      </p>
+      <p>
+        Seit 2019 gibt es zudem die <strong>Brückenteilzeit</strong>: In Betrieben mit mehr als
+        45 Mitarbeitern können Sie Ihre Arbeitszeit für 1 bis 5 Jahre reduzieren und danach
+        automatisch zur vorherigen Arbeitszeit zurückkehren.
+      </p>
+
+      <h3>Auswirkungen auf Rente und Sozialversicherung</h3>
+      <p>
+        Teilzeit wirkt sich direkt auf die Rentenanwartschaft aus: Weniger Bruttoeinkommen
+        bedeutet weniger Rentenpunkte pro Jahr. Wer dauerhaft 50% arbeitet, erwirbt nur halb
+        so viele Entgeltpunkte wie bei Vollzeit. Auch die Ansprüche auf Arbeitslosengeld I
+        sind proportional niedriger.
+      </p>
+      <p>
+        Die Kranken- und Pflegeversicherung bleibt unverändert — der prozentuale Beitrag ist
+        gleich, nur die absolute Höhe sinkt mit dem Gehalt.
+      </p>
+
+      <h3>Netto-Stundenlohn: Die entscheidende Kennzahl</h3>
+      <p>
+        Der Netto-Stundenlohn steigt bei Teilzeit in den meisten Fällen. Das bedeutet: Jede
+        gearbeitete Stunde bringt Ihnen netto mehr ein als bei Vollzeit. Dieser Effekt
+        verstärkt sich bei höheren Gehältern und Steuerklasse I oder IV. Bei Steuerklasse III
+        (verheiratet, Alleinverdiener) ist der Progressionseffekt geringer.
+      </p>
+
+      <h2>Häufige Fragen zur Teilzeit</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Wie viel Gehalt verliere ich bei Teilzeit?
+          </button>
+          <div class="faq-answer"><div class="faq-answer__inner">
+            Das Bruttogehalt wird proportional zur Arbeitszeitreduzierung gekürzt. Netto
+            verlieren Sie jedoch weniger, da die Steuerprogression zu Ihren Gunsten wirkt.
+            Bei einer Reduzierung von 40 auf 30 Stunden (−25%) sinkt das Netto typischerweise
+            nur um ca. 15–20%. Der genaue Betrag hängt von Steuerklasse und Gehaltshöhe ab.
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Kann mein Arbeitgeber meinen Teilzeitwunsch ablehnen?
+          </button>
+          <div class="faq-answer"><div class="faq-answer__inner">
+            Nur aus betrieblichen Gründen, z.&nbsp;B. wenn die Arbeit nicht umverteilt werden
+            kann oder unverhältnismäßige Kosten entstehen. Der Arbeitgeber muss die Ablehnung
+            spätestens einen Monat vor dem gewünschten Beginn schriftlich begründen. In Betrieben
+            mit bis zu 15 Mitarbeitern besteht kein gesetzlicher Anspruch.
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Was ist Brückenteilzeit?
+          </button>
+          <div class="faq-answer"><div class="faq-answer__inner">
+            Die Brückenteilzeit (§9a TzBfG) ermöglicht eine befristete Reduzierung der
+            Arbeitszeit für 1 bis 5 Jahre. Danach kehren Sie automatisch zur ursprünglichen
+            Arbeitszeit zurück. Voraussetzung: Das Unternehmen hat mehr als 45 Mitarbeiter
+            und Ihr Arbeitsverhältnis besteht seit mindestens 6 Monaten.
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Wie wirkt sich Teilzeit auf meine Rente aus?
+          </button>
+          <div class="faq-answer"><div class="faq-answer__inner">
+            Weniger Einkommen bedeutet weniger Rentenpunkte pro Jahr. Wer z.&nbsp;B. 30 statt
+            40 Stunden arbeitet und 75% des Durchschnittsentgelts verdient, erhält nur 0,75
+            Entgeltpunkte statt 1,0 pro Jahr. Über 20 Jahre summiert sich das zu ca. 196 €
+            weniger Bruttorente pro Monat.
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Hat Teilzeit Auswirkungen auf den Urlaubsanspruch?
+          </button>
+          <div class="faq-answer"><div class="faq-answer__inner">
+            Der gesetzliche Urlaubsanspruch von 20 Tagen (bei 5-Tage-Woche) bleibt bei Teilzeit
+            anteilig erhalten. Arbeiten Sie an weniger Tagen (z.&nbsp;B. 4-Tage-Woche), wird der
+            Urlaub auf 16 Tage reduziert. Die Urlaubsdauer in Stunden bleibt aber vergleichbar.
+            Bei reduzierter täglicher Stundenzahl bei gleicher Anzahl Arbeitstage bleibt der
+            Urlaubsanspruch in Tagen unverändert.
+          </div></div>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+</main>
+
+<!-- ══════════════════════════════════════════════════ -->
+<!-- Schema.org Markup -->
+<!-- ══════════════════════════════════════════════════ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Teilzeitrechner 2026 — Teilzeitgehalt berechnen",
+  "description": "Vergleichen Sie Ihr Gehalt bei Vollzeit und Teilzeit: Brutto, Netto, Stundenlohn und Steuerprogression auf einen Blick.",
+  "url": "https://www.rechner-online.info/teilzeitrechner",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+  "inLanguage": "de"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Wie viel Gehalt verliere ich bei Teilzeit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Das Brutto wird proportional gekürzt, das Netto sinkt aber weniger dank Steuerprogression. Bei −25% Arbeitszeit sinkt das Netto typischerweise nur um 15–20%."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Was ist Brückenteilzeit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Die Brückenteilzeit ermöglicht eine befristete Arbeitszeitreduzierung für 1 bis 5 Jahre mit automatischer Rückkehr zur Vollzeit. Voraussetzung: über 45 Mitarbeiter im Betrieb."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Wie wirkt sich Teilzeit auf meine Rente aus?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Weniger Einkommen bedeutet weniger Rentenpunkte pro Jahr. Wer 75% des Durchschnittsentgelts verdient, erhält 0,75 statt 1,0 Punkte pro Jahr."
+      }
+    }
+  ]
+}
+</script>
+
+<!-- ══════════════════════════════════════════════════ -->
+<!-- PAGE-SPECIFIC CALCULATION SCRIPT -->
+<!-- ══════════════════════════════════════════════════ -->
+<script>
+(function() {
+  'use strict';
+
+  const fmt = Steuer2026.formatEuro;
+  const WOCHEN_PRO_MONAT = 4.333; // 52/12
+
+  function berechne(v) {
+    const bruttoVZ = v.bruttoVollzeit || 0;
+    const stdVZ = v.stundenVollzeit || 40;
+    const stdTZ = v.stundenTeilzeit || 30;
+
+    if (bruttoVZ <= 0 || stdVZ <= 0 || stdTZ <= 0) return;
+
+    // ── Teilzeit-Brutto (proportional) ──
+    const quote = stdTZ / stdVZ;
+    const bruttoTZ = round2(bruttoVZ * quote);
+
+    const params = {
+      zeitraum: 'monat',
+      steuerklasse: v.steuerklasse || 1,
+      bundesland: v.bundesland || 'Nordrhein-Westfalen',
+      kirchensteuer: v.kirchensteuer === 'ja',
+      krankenversicherung: 'gesetzlich',
+      kvZusatzbeitrag: (v.kvZusatz || 2.9) / 100,
+      hatKinder: v.hatKinder === 'ja',
+      kinderUnter25: v.hatKinder === 'ja' ? 1 : 0,
+      alter: 30,
+    };
+
+    // ── Vollzeit Netto ──
+    const resVZ = Steuer2026.bruttoNetto({ ...params, brutto: bruttoVZ });
+    // ── Teilzeit Netto ──
+    const resTZ = Steuer2026.bruttoNetto({ ...params, brutto: bruttoTZ });
+
+    const nettoVZ = resVZ.ergebnis.nettoMonat;
+    const nettoTZ = resTZ.ergebnis.nettoMonat;
+    const steuerVZ = resVZ.steuern.gesamt;
+    const steuerTZ = resTZ.steuern.gesamt;
+    const svVZ = resVZ.sozialversicherung.gesamt;
+    const svTZ = resTZ.sozialversicherung.gesamt;
+
+    const diffNetto = round2(nettoVZ - nettoTZ);
+
+    // Stundenlöhne
+    const monatsStdVZ = round2(stdVZ * WOCHEN_PRO_MONAT);
+    const monatsStdTZ = round2(stdTZ * WOCHEN_PRO_MONAT);
+
+    const stdBruttoVZ = round2(bruttoVZ / monatsStdVZ);
+    const stdBruttoTZ = round2(bruttoTZ / monatsStdTZ);
+    const stdNettoVZ = round2(nettoVZ / monatsStdVZ);
+    const stdNettoTZ = round2(nettoTZ / monatsStdTZ);
+
+    // Nettoquote: % of fulltime netto retained
+    const nettoquote = nettoVZ > 0 ? round2(nettoTZ / nettoVZ * 100) : 0;
+
+    // ── Render ──
+    document.getElementById('res-netto-tz').textContent = fmt(nettoTZ);
+    document.getElementById('res-stunden-info').textContent =
+      stdTZ + ' Std./Woche · ' + round2(quote * 100).toLocaleString('de-DE', {maximumFractionDigits:0}) + '% Arbeitszeit';
+
+    document.getElementById('res-brutto-vz').textContent = fmt(bruttoVZ);
+    document.getElementById('res-brutto-tz').textContent = fmt(bruttoTZ);
+    document.getElementById('res-steuer-vz').textContent = fmt(steuerVZ);
+    document.getElementById('res-steuer-tz').textContent = fmt(steuerTZ);
+    document.getElementById('res-sv-vz').textContent = fmt(svVZ);
+    document.getElementById('res-sv-tz').textContent = fmt(svTZ);
+    document.getElementById('res-netto-vz').textContent = fmt(nettoVZ);
+    document.getElementById('res-netto-tz-row').textContent = fmt(nettoTZ);
+
+    document.getElementById('res-std-brutto-vz').textContent = fmt(stdBruttoVZ);
+    document.getElementById('res-std-brutto-tz').textContent = fmt(stdBruttoTZ);
+    document.getElementById('res-std-netto-vz').textContent = fmt(stdNettoVZ);
+    document.getElementById('res-std-netto-tz').textContent = fmt(stdNettoTZ);
+
+    document.getElementById('res-diff-netto').textContent = '− ' + fmt(diffNetto);
+    document.getElementById('res-diff-jahr').textContent = '− ' + fmt(round2(diffNetto * 12));
+    document.getElementById('res-quote').textContent =
+      round2(quote * 100).toLocaleString('de-DE', {maximumFractionDigits:1}) + ' %';
+    document.getElementById('res-nettoquote').textContent =
+      nettoquote.toLocaleString('de-DE', {maximumFractionDigits:1}) + ' % vom VZ-Netto';
+
+    // ── Donut: VZ vs TZ comparison ──
+    RechnerUI.drawDonut('chart-container', [
+      { label: 'Netto (Teilzeit)', value: nettoTZ, color: '#1a8754' },
+      { label: 'Nettoverlust', value: diffNetto, color: '#c53030' },
+      { label: 'Steuerersparnis', value: round2(steuerVZ - steuerTZ), color: '#2a5a8c' },
+    ], fmt(nettoTZ), 'Teilzeit-Netto');
+  }
+
+  function round2(n) { return Math.round(n * 100) / 100; }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    RechnerUI.bindCalculation('calc-form', berechne);
+  });
+})();
+</script>
