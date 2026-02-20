@@ -76,14 +76,27 @@
   .calc-grid { grid-template-columns: 1fr; }
 }
 
-/* ── Small Mobile (≤480px) ── */
-@media (max-width: 480px) {
-  .radio-group { flex-direction: column; }
-  .radio-group label { border-right: none; border-bottom: 1px solid var(--color-border-light); }
-  .radio-group label:last-child { border-bottom: none; }
-  
-  .chart-container { padding: var(--space-2) 0; }
-  .donut-chart { width: 160px; height: 160px; }
+/* ── Tablet y Móvil (≤1024px) ── */
+@media (max-width: 1024px) {
+  .calc-layout {
+    display: flex;
+    flex-direction: column; /* Apilamos en vertical */
+  }
+
+  .calc-form-wrap {
+    order: 1; /* El formulario aparece primero */
+  }
+
+  .calc-results-wrap {
+    order: 2; /* Los resultados aparecen debajo del formulario */
+    position: static; /* Quitamos el modo pegajoso (sticky) en móvil */
+    margin-bottom: var(--space-8);
+  }
+
+  .site-footer__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-8);
+  }
 }
 
 /* ── Print ── */
