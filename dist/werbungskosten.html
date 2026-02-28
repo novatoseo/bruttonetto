@@ -1047,6 +1047,290 @@ main { flex: 1; }
   body { background: #fff; }
 }
 
+/* ── article.css ── */
+/* ══════════════════════════════════════════════════════════════
+   article.css — Estilos para páginas de artículos wiki
+   ══════════════════════════════════════════════════════════════ */
+
+/* ── Layout del artículo ── */
+.article-content {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+}
+
+/* ── Cabecera del artículo ── */
+.article-header {
+  margin-bottom: 2.5rem;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid var(--color-border, #e5e7eb);
+}
+
+.article-header h1 {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 800;
+  line-height: 1.25;
+  color: var(--color-heading, #0f2d5e);
+  margin-bottom: 1rem;
+}
+
+.article-intro {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--color-text-muted, #4b5563);
+  max-width: 680px;
+}
+
+/* ── Secciones de contenido ── */
+.article-content section {
+  margin-bottom: 3rem;
+}
+
+.article-content h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-heading, #0f2d5e);
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 3px solid var(--color-accent, #f5a623);
+  display: inline-block;
+}
+
+.article-content h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-heading, #0f2d5e);
+  margin: 1.75rem 0 0.75rem;
+}
+
+.article-content p {
+  line-height: 1.8;
+  margin-bottom: 1rem;
+  color: var(--color-text, #1f2937);
+}
+
+.article-content ul,
+.article-content ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.article-content li {
+  line-height: 1.75;
+  margin-bottom: 0.4rem;
+  color: var(--color-text, #1f2937);
+}
+
+/* ── Tabla de contenidos (TOC) ── */
+.toc {
+  background: #f8fafc;
+  border: 1px solid var(--color-border, #e5e7eb);
+  border-left: 4px solid var(--color-primary, #0f2d5e);
+  border-radius: 8px;
+  padding: 1.5rem 2rem;
+  margin: 2rem 0 2.5rem;
+}
+
+.toc h2 {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted, #6b7280);
+  margin-bottom: 0.75rem;
+  padding-bottom: 0;
+  border-bottom: none;
+  display: block;
+}
+
+.toc ol {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.toc li {
+  margin-bottom: 0.35rem;
+}
+
+.toc a {
+  color: var(--color-primary, #0f2d5e);
+  text-decoration: none;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  transition: color 0.15s;
+}
+
+.toc a:hover {
+  color: var(--color-accent, #f5a623);
+  text-decoration: underline;
+}
+
+/* ── Info boxes ── */
+.info-box {
+  border-radius: 10px;
+  padding: 1.25rem 1.5rem;
+  margin: 1.75rem 0;
+  line-height: 1.7;
+}
+
+.info-box p:last-child {
+  margin-bottom: 0;
+}
+
+.info-box--highlight {
+  background: linear-gradient(135deg, #eff6ff 0%, #e0f2fe 100%);
+  border: 1px solid #93c5fd;
+  border-left: 5px solid var(--color-primary, #0f2d5e);
+}
+
+.info-box--highlight strong:first-child {
+  display: block;
+  color: var(--color-primary, #0f2d5e);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.4rem;
+}
+
+.info-box--cta {
+  background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+  border: 1px solid #fcd34d;
+  border-left: 5px solid var(--color-accent, #f5a623);
+}
+
+.info-box--cta a {
+  color: var(--color-primary, #0f2d5e);
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.info-box--warning {
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+  border-left: 5px solid #f97316;
+}
+
+/* ── Tablas de datos ── */
+.table-responsive {
+  overflow-x: auto;
+  margin: 1.5rem 0;
+  border-radius: 10px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.08);
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+
+.data-table thead th {
+  background: var(--color-primary, #0f2d5e);
+  color: #fff;
+  font-weight: 700;
+  text-align: left;
+  padding: 0.85rem 1.1rem;
+  white-space: nowrap;
+}
+
+.data-table thead th:first-child { border-radius: 10px 0 0 0; }
+.data-table thead th:last-child  { border-radius: 0 10px 0 0; }
+
+.data-table tbody tr {
+  border-bottom: 1px solid var(--color-border, #e5e7eb);
+  transition: background 0.12s;
+}
+
+.data-table tbody tr:hover { background: #f8fafc; }
+.data-table tbody tr:last-child { border-bottom: none; }
+
+.data-table td {
+  padding: 0.8rem 1.1rem;
+  color: var(--color-text, #1f2937);
+  vertical-align: top;
+}
+
+.data-table tbody tr:first-child td {
+  background: #eff6ff;
+  font-weight: 600;
+  color: var(--color-primary, #0f2d5e);
+}
+
+/* ── FAQ ── */
+#faq h2 { margin-bottom: 1.25rem; }
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.faq-item {
+  border: 1px solid var(--color-border, #e5e7eb);
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+  transition: box-shadow 0.15s;
+}
+
+.faq-item:hover {
+  box-shadow: 0 2px 10px rgba(15,45,94,0.08);
+}
+
+.faq-question {
+  width: 100%;
+  background: none;
+  border: none;
+  text-align: left;
+  padding: 1.1rem 1.25rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-heading, #0f2d5e);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  line-height: 1.4;
+  transition: background 0.12s;
+}
+
+.faq-question::after {
+  content: '+';
+  font-size: 1.4rem;
+  font-weight: 300;
+  color: var(--color-accent, #f5a623);
+  flex-shrink: 0;
+  transition: transform 0.25s;
+}
+
+.faq-question[aria-expanded="true"] { background: #f8fafc; }
+.faq-question[aria-expanded="true"]::after { transform: rotate(45deg); }
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.faq-answer--open { max-height: 500px; }
+
+.faq-answer__inner {
+  padding: 0.9rem 1.25rem 1.1rem;
+  font-size: 0.92rem;
+  line-height: 1.75;
+  color: var(--color-text, #374151);
+  border-top: 1px solid var(--color-border, #e5e7eb);
+}
+
+/* ── Mobile ── */
+@media (max-width: 640px) {
+  .article-content { padding: 1.5rem 1rem 3rem; }
+  .article-header h1 { font-size: 1.5rem; }
+  .toc { padding: 1.1rem 1.25rem; }
+  .data-table { font-size: 0.82rem; }
+  .data-table td, .data-table th { padding: 0.65rem 0.75rem; }
+}
 
   </style>
 </head>
