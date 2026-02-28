@@ -78,12 +78,22 @@ function getJS(name) {
 }
 
 function parseFrontmatter(content) {
-  const match = content.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
-  if (!match) return { meta: {}, body: content };
+  // Normalize line endings (handle \r\n from Windows)
+  const normalized = content.replace(/\r\n/g, '\n');
+  const match = normalized.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
+  if (!match) return { meta: {}, body: normalized };
   const meta = {};
+  let lastKey = null;
   match[1].split('\n').forEach(line => {
-    const [key, ...rest] = line.split(':');
-    if (key && rest.length) meta[key.trim()] = rest.join(':').trim();
+    const colonIndex = line.indexOf(':');
+    if (colonIndex > 0 && /^[a-zA-Z_-]+$/.test(line.slice(0, colonIndex).trim())) {
+      // Line has a valid key: value pair
+      lastKey = line.slice(0, colonIndex).trim();
+      meta[lastKey] = line.slice(colonIndex + 1).trim();
+    } else if (lastKey && line.trim()) {
+      // Continuation line — append to previous key
+      meta[lastKey] += ' ' + line.trim();
+    }
   });
   return { meta, body: match[2] };
 }
