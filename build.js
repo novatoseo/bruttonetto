@@ -143,6 +143,7 @@ function buildPage(pageFile) {
   const outName = meta.slug === 'index' ? 'index.html' : `${meta.slug || path.parse(pageFile).name}.html`;
   const outPath = path.join(DIRS.dist, outName);
   
+  fs.mkdirSync(path.dirname(outPath), { recursive: true });
   fs.writeFileSync(outPath, page);
   console.log(`  ✓ ${outName} (${(page.length / 1024).toFixed(1)} KB)`);
 }

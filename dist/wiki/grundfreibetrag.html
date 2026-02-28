@@ -1,0 +1,1887 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grundfreibetrag 2026: Höhe, Entwicklung & Auswirkung | Rechner-Online.info</title>
+  <meta name="description" content="Wie hoch ist der steuerliche Grundfreibetrag 2026? Alles zur Sicherung des Existenzminimums, der historischen Entwicklung und den Auswirkungen auf Ihre Lohnsteuer.">
+  <link rel="canonical" href="https://www.bruttonettoonline.com/wiki/grundfreibetrag">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Grundfreibetrag 2026: Höhe, Entwicklung & Auswirkung | Rechner-Online.info">
+  <meta property="og:description" content="Wie hoch ist der steuerliche Grundfreibetrag 2026? Alles zur Sicherung des Existenzminimums, der historischen Entwicklung und den Auswirkungen auf Ihre Lohnsteuer.">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="de_DE">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700&family=Source+Sans+3:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+/* ── variables.css ── */
+/* ══════════════════════════════════════════════════════════
+   DESIGN TOKENS — Rechner-Online.info
+   Edit these variables to change the entire site's look.
+   ══════════════════════════════════════════════════════════ */
+
+:root {
+  /* ── Brand Colors ── */
+  --color-primary: #1a3a5c;
+  --color-primary-light: #2a5a8c;
+  --color-primary-dark: #0e2540;
+  --color-primary-subtle: #e8f0f8;
+  
+  --color-accent: #e8870e;
+  --color-accent-light: #f5a623;
+  --color-accent-dark: #c06d00;
+  --color-accent-subtle: #fef4e6;
+  
+  --color-success: #1a8754;
+  --color-success-subtle: #e6f5ed;
+  --color-error: #c53030;
+  --color-error-subtle: #fde8e8;
+  --color-info: #2b6cb0;
+  --color-info-subtle: #e8f0fe;
+  
+  /* ── Neutrals ── */
+  --color-white: #ffffff;
+  --color-bg: #f5f7fa;
+  --color-bg-alt: #edf1f7;
+  --color-surface: #ffffff;
+  --color-border: #d2d8e0;
+  --color-border-light: #e8ecf1;
+  --color-text: #1a2332;
+  --color-text-secondary: #4a5568;
+  --color-text-muted: #8393a7;
+  --color-text-inverse: #ffffff;
+  
+  /* ── Typography ── */
+  --font-body: 'Source Sans 3', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --font-heading: 'Plus Jakarta Sans', 'Source Sans 3', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+  
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+  
+  --leading-tight: 1.25;
+  --leading-normal: 1.6;
+  --leading-relaxed: 1.75;
+  
+  --weight-normal: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+  
+  /* ── Spacing ── */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  
+  /* ── Layout ── */
+  --max-width: 1200px;
+  --max-width-narrow: 900px;
+  --sidebar-width: 380px;
+  --header-height: 64px;
+  
+  /* ── Borders & Radius ── */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-full: 9999px;
+  
+  /* ── Shadows ── */
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+  --shadow-lg: 0 8px 30px rgba(0,0,0,0.12);
+  --shadow-xl: 0 20px 60px rgba(0,0,0,0.15);
+  --shadow-inner: inset 0 2px 4px rgba(0,0,0,0.06);
+  
+  /* ── Transitions ── */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+  --transition-slow: 400ms ease;
+  
+  /* ── Z-Index Scale ── */
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-header: 300;
+  --z-overlay: 400;
+  --z-modal: 500;
+}
+
+/* ── base.css ── */
+/* ══════════════════════════════════════════════════════════
+   BASE STYLES — Reset + Typography + Fundamentals
+   ══════════════════════════════════════════════════════════ */
+
+/* ── Reset ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  color: var(--color-text);
+  background: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+img, svg { display: block; max-width: 100%; }
+a { color: var(--color-primary-light); text-decoration: none; transition: color var(--transition-fast); }
+a:hover { color: var(--color-accent); }
+button, input, select, textarea { font: inherit; color: inherit; }
+table { border-collapse: collapse; width: 100%; }
+ul, ol { list-style: none; }
+
+/* ── Typography ── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-tight);
+  color: var(--color-primary-dark);
+}
+h1 { font-size: var(--text-3xl); margin-bottom: var(--space-6); }
+h2 { font-size: var(--text-2xl); margin-bottom: var(--space-4); margin-top: var(--space-10); }
+h3 { font-size: var(--text-xl); margin-bottom: var(--space-3); margin-top: var(--space-8); }
+h4 { font-size: var(--text-lg); margin-bottom: var(--space-2); }
+p { margin-bottom: var(--space-4); }
+strong { font-weight: var(--weight-semibold); }
+small { font-size: var(--text-sm); color: var(--color-text-secondary); }
+
+/* ── Layout Utilities ── */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+}
+.container--narrow { max-width: var(--max-width-narrow); }
+.sr-only {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0,0,0,0); border: 0;
+}
+main { flex: 1; }
+
+/* ── Skip Link ── */
+.skip-link {
+  position: absolute; top: -100%; left: var(--space-4);
+  background: var(--color-primary); color: var(--color-white);
+  padding: var(--space-2) var(--space-4); border-radius: var(--radius-md);
+  z-index: var(--z-modal); font-weight: var(--weight-semibold);
+}
+.skip-link:focus { top: var(--space-4); }
+
+/* ── components.css ── */
+/* ══════════════════════════════════════════════════════════
+   COMPONENTS — Header, Footer, Nav, Buttons, Cards, etc.
+   ══════════════════════════════════════════════════════════ */
+
+/* ── Header ── */
+.site-header {
+  background: var(--color-primary-dark);
+  color: var(--color-text-inverse);
+  position: sticky;
+  top: 0;
+  z-index: var(--z-header);
+  box-shadow: var(--shadow-md);
+}
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--header-height);
+}
+.site-logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-family: var(--font-heading);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-xl);
+  color: var(--color-white);
+  text-decoration: none;
+}
+.site-logo:hover { color: var(--color-accent-light); }
+.site-logo__icon {
+  width: 36px;
+  height: 36px;
+  background: var(--color-accent);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--text-lg);
+  font-weight: var(--weight-bold);
+  color: var(--color-white);
+}
+.site-logo__year {
+  font-size: var(--text-xs);
+  font-weight: var(--weight-medium);
+  background: var(--color-accent);
+  color: var(--color-white);
+  padding: 1px 6px;
+  border-radius: var(--radius-sm);
+  margin-left: var(--space-1);
+  vertical-align: super;
+}
+
+/* ── Navigation ── */
+.main-nav { display: flex; align-items: center; gap: var(--space-1); }
+.main-nav__link {
+  color: rgba(255,255,255,0.8);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+.main-nav__link:hover { color: var(--color-white); background: rgba(255,255,255,0.1); }
+.main-nav__link.active {
+  color: var(--color-white);
+  background: var(--color-primary-light);
+}
+
+/* Mobile menu toggle */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--color-white);
+  cursor: pointer;
+  padding: var(--space-2);
+  font-size: var(--text-xl);
+}
+
+/* ── Breadcrumb ── */
+.breadcrumb {
+  padding: var(--space-3) 0;
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+.breadcrumb a { color: var(--color-text-secondary); }
+.breadcrumb a:hover { color: var(--color-primary); }
+.breadcrumb__sep { margin: 0 var(--space-2); opacity: 0.5; }
+
+/* ── Page Hero ── */
+.page-hero {
+  background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
+  color: var(--color-white);
+  padding: var(--space-10) 0 var(--space-12);
+  margin-bottom: calc(-1 * var(--space-8));
+  position: relative;
+}
+.page-hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background: var(--color-bg);
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+}
+.page-hero h1 { color: var(--color-white); margin-bottom: var(--space-3); }
+.page-hero__subtitle {
+  font-size: var(--text-lg);
+  opacity: 0.85;
+  max-width: 640px;
+  line-height: var(--leading-relaxed);
+}
+.page-hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  background: rgba(255,255,255,0.15);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  margin-bottom: var(--space-4);
+  backdrop-filter: blur(4px);
+}
+
+/* ── Cards ── */
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition-base);
+}
+.card:hover { box-shadow: var(--shadow-md); }
+.card__header {
+  padding: var(--space-5) var(--space-6);
+  border-bottom: 1px solid var(--color-border-light);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+.card__header h2, .card__header h3 {
+  margin: 0;
+  font-size: var(--text-lg);
+}
+.card__body { padding: var(--space-6); }
+.card__footer {
+  padding: var(--space-4) var(--space-6);
+  border-top: 1px solid var(--color-border-light);
+  background: var(--color-bg);
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+}
+
+/* ── Buttons ── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-6);
+  border: 2px solid transparent;
+  border-radius: var(--radius-md);
+  font-weight: var(--weight-semibold);
+  font-size: var(--text-base);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-decoration: none;
+  line-height: 1.4;
+}
+.btn:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 2px;
+}
+.btn--primary {
+  background: var(--color-accent);
+  color: var(--color-white);
+  border-color: var(--color-accent);
+}
+.btn--primary:hover {
+  background: var(--color-accent-dark);
+  border-color: var(--color-accent-dark);
+  color: var(--color-white);
+}
+.btn--secondary {
+  background: var(--color-white);
+  color: var(--color-primary);
+  border-color: var(--color-border);
+}
+.btn--secondary:hover {
+  border-color: var(--color-primary);
+  background: var(--color-primary-subtle);
+}
+.btn--large {
+  padding: var(--space-4) var(--space-8);
+  font-size: var(--text-lg);
+  border-radius: var(--radius-lg);
+}
+.btn--block { width: 100%; }
+.btn--icon {
+  width: 40px; height: 40px;
+  padding: 0;
+  border-radius: var(--radius-md);
+}
+
+/* ── Footer ── */
+.site-footer {
+  background: var(--color-primary-dark);
+  color: rgba(255,255,255,0.7);
+  padding: var(--space-12) 0 var(--space-8);
+  margin-top: var(--space-16);
+}
+.site-footer__grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: var(--space-10);
+  margin-bottom: var(--space-10);
+}
+.site-footer__brand p {
+  font-size: var(--text-sm);
+  line-height: var(--leading-relaxed);
+  max-width: 320px;
+}
+.site-footer h4 {
+  color: var(--color-white);
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--space-4);
+}
+.site-footer__links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+.site-footer__links a {
+  color: rgba(255,255,255,0.65);
+  font-size: var(--text-sm);
+  transition: color var(--transition-fast);
+}
+.site-footer__links a:hover { color: var(--color-accent-light); }
+.site-footer__bottom {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: var(--space-6);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--text-sm);
+}
+.site-footer__legal {
+  display: flex;
+  gap: var(--space-4);
+}
+.site-footer__legal a { color: rgba(255,255,255,0.5); }
+.site-footer__legal a:hover { color: var(--color-white); }
+
+/* ── Disclaimer Banner ── */
+.disclaimer {
+  background: var(--color-info-subtle);
+  border: 1px solid #b8d4f0;
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  margin-top: var(--space-6);
+}
+.disclaimer strong { color: var(--color-text); }
+
+/* ── Tooltip ── */
+.tooltip { position: relative; cursor: help; }
+.tooltip__text {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-primary-dark);
+  color: var(--color-white);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  white-space: nowrap;
+  transition: all var(--transition-fast);
+  z-index: var(--z-dropdown);
+  margin-bottom: var(--space-2);
+  pointer-events: none;
+}
+.tooltip:hover .tooltip__text,
+.tooltip:focus .tooltip__text {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* ── Index Page: Calculator Grid ── */
+.calc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--space-6);
+  margin-top: var(--space-6);
+}
+.calc-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  transition: all var(--transition-base);
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+}
+.calc-card:hover {
+  border-color: var(--color-primary-light);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+  color: inherit;
+}
+.calc-card__icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--text-2xl);
+  margin-bottom: var(--space-4);
+}
+.calc-card__icon--gehalt { background: #e8f0f8; color: var(--color-primary); }
+.calc-card__icon--rente { background: #fef4e6; color: var(--color-accent-dark); }
+.calc-card__icon--arbeit { background: #e6f5ed; color: var(--color-success); }
+.calc-card__icon--studium { background: #f0e8f8; color: #6b46c1; }
+.calc-card h3 {
+  font-size: var(--text-lg);
+  margin: 0 0 var(--space-2);
+}
+.calc-card p {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  margin: 0;
+  flex: 1;
+}
+.calc-card__arrow {
+  margin-top: var(--space-4);
+  color: var(--color-primary-light);
+  font-weight: var(--weight-semibold);
+  font-size: var(--text-sm);
+}
+
+/* ── calculator.css ── */
+/* ══════════════════════════════════════════════════════════
+   CALCULATOR STYLES — Forms, Results, Charts
+   ══════════════════════════════════════════════════════════ */
+
+/* ── Calculator Layout ── */
+.calc-layout {
+  display: grid;
+  grid-template-columns: 1fr var(--sidebar-width);
+  gap: var(--space-8);
+  align-items: start;
+  margin: var(--space-8) 0;
+}
+.calc-form-wrap { min-width: 0; }
+.calc-results-wrap {
+  position: sticky;
+  top: calc(var(--header-height) + var(--space-6));
+}
+
+/* ── Form Groups ── */
+.form-section {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  margin-bottom: var(--space-6);
+}
+.form-section__title {
+  font-size: var(--text-lg);
+  font-weight: var(--weight-semibold);
+  color: var(--color-primary-dark);
+  margin: 0 0 var(--space-5);
+  padding-bottom: var(--space-3);
+  border-bottom: 2px solid var(--color-primary-subtle);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+.form-section__icon {
+  font-size: var(--text-xl);
+  width: 32px;
+  text-align: center;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4) var(--space-6);
+}
+.form-grid--single { grid-template-columns: 1fr; }
+.form-group { display: flex; flex-direction: column; gap: var(--space-1); }
+.form-group--full { grid-column: 1 / -1; }
+
+/* ── Labels ── */
+.form-label {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  color: var(--color-text-secondary);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+.form-label__help {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--color-bg-alt);
+  color: var(--color-text-muted);
+  font-size: 11px;
+  font-weight: var(--weight-bold);
+  cursor: help;
+  border: 1px solid var(--color-border);
+  flex-shrink: 0;
+}
+
+/* ── Inputs ── */
+.form-input, .form-select {
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-size: var(--text-base);
+  background: var(--color-white);
+  transition: all var(--transition-fast);
+  color: var(--color-text);
+}
+.form-input:hover, .form-select:hover { border-color: var(--color-primary-light); }
+.form-input:focus, .form-select:focus {
+  border-color: var(--color-primary);
+  outline: none;
+  box-shadow: 0 0 0 3px var(--color-primary-subtle);
+}
+.form-input--euro {
+  padding-right: var(--space-10);
+}
+.form-input--percent {
+  padding-right: var(--space-8);
+}
+.input-wrapper {
+  position: relative;
+}
+.input-suffix {
+  position: absolute;
+  right: var(--space-4);
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-text-muted);
+  font-weight: var(--weight-medium);
+  font-size: var(--text-sm);
+  pointer-events: none;
+}
+
+.form-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%234a5568' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: var(--space-10);
+  cursor: pointer;
+}
+
+/* ── Radio/Checkbox Groups (styled as button groups) ── */
+.radio-group {
+  display: flex;
+  gap: 0;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--color-white);
+}
+.radio-group input[type="radio"] { position: absolute; opacity: 0; pointer-events: none; }
+.radio-group label {
+  flex: 1;
+  padding: var(--space-3) var(--space-4);
+  text-align: center;
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  color: var(--color-text-secondary);
+  border-right: 1px solid var(--color-border-light);
+}
+.radio-group label:last-child { border-right: none; }
+.radio-group label:hover { background: var(--color-bg); }
+.radio-group input[type="radio"]:checked + label {
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+.radio-group input[type="radio"]:focus-visible + label {
+  box-shadow: inset 0 0 0 2px var(--color-accent);
+}
+
+/* ── Checkbox Toggle ── */
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  cursor: pointer;
+}
+.toggle input { position: absolute; opacity: 0; }
+.toggle__track {
+  width: 44px;
+  height: 24px;
+  background: var(--color-border);
+  border-radius: var(--radius-full);
+  position: relative;
+  transition: background var(--transition-fast);
+  flex-shrink: 0;
+}
+.toggle__track::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--color-white);
+  transition: transform var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+}
+.toggle input:checked ~ .toggle__track {
+  background: var(--color-primary);
+}
+.toggle input:checked ~ .toggle__track::after {
+  transform: translateX(20px);
+}
+.toggle__label {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  color: var(--color-text-secondary);
+}
+
+/* ── Results Panel ── */
+.results-panel {
+  background: var(--color-surface);
+  border: 2px solid var(--color-primary-subtle);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+}
+.results-panel__header {
+  background: linear-gradient(135deg, var(--color-primary-dark), var(--color-primary));
+  color: var(--color-white);
+  padding: var(--space-5) var(--space-6);
+}
+.results-panel__header h3 {
+  color: var(--color-white);
+  font-size: var(--text-lg);
+  margin: 0;
+}
+.results-panel__body { padding: var(--space-6); }
+
+/* Netto highlight */
+.result-netto {
+  text-align: center;
+  padding: var(--space-6) 0;
+  border-bottom: 1px solid var(--color-border-light);
+  margin-bottom: var(--space-5);
+}
+.result-netto__label {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: var(--weight-medium);
+}
+.result-netto__value {
+  font-family: var(--font-heading);
+  font-size: var(--text-4xl);
+  font-weight: var(--weight-bold);
+  color: var(--color-success);
+  line-height: 1.2;
+  margin-top: var(--space-2);
+}
+.result-netto__period {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  margin-top: var(--space-1);
+}
+
+/* Result rows */
+.result-rows { display: flex; flex-direction: column; gap: var(--space-2); }
+.result-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-2) 0;
+  font-size: var(--text-sm);
+}
+.result-row--header {
+  font-weight: var(--weight-semibold);
+  color: var(--color-text);
+  border-bottom: 1px solid var(--color-border-light);
+  padding-bottom: var(--space-3);
+  margin-bottom: var(--space-1);
+  margin-top: var(--space-4);
+}
+.result-row--header:first-child { margin-top: 0; }
+.result-row__label { color: var(--color-text-secondary); }
+.result-row__value {
+  font-weight: var(--weight-semibold);
+  font-variant-numeric: tabular-nums;
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+}
+.result-row__value--negative { color: var(--color-error); }
+.result-row--total {
+  border-top: 2px solid var(--color-primary-subtle);
+  padding-top: var(--space-3);
+  margin-top: var(--space-2);
+  font-weight: var(--weight-bold);
+  font-size: var(--text-base);
+}
+.result-row--total .result-row__value { font-size: var(--text-base); }
+
+/* ── Donut Chart ── */
+.chart-container {
+  display: flex;
+  justify-content: center;
+  padding: var(--space-4) 0;
+  margin-bottom: var(--space-4);
+}
+.donut-chart { position: relative; width: 200px; height: 200px; }
+.donut-chart svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+.donut-chart__center {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.donut-chart__center-value {
+  font-family: var(--font-heading);
+  font-size: var(--text-xl);
+  font-weight: var(--weight-bold);
+  color: var(--color-text);
+}
+.donut-chart__center-label {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}
+.chart-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  justify-content: center;
+  padding: 0 var(--space-4);
+  margin-bottom: var(--space-4);
+}
+.chart-legend__item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-xs);
+  color: var(--color-text-secondary);
+}
+.chart-legend__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* ── Content Section (below calculator) ── */
+.content-section {
+  max-width: 780px;
+  margin: var(--space-12) auto 0;
+  padding: 0 var(--space-6);
+}
+.content-section h2 {
+  font-size: var(--text-2xl);
+  padding-bottom: var(--space-3);
+  border-bottom: 2px solid var(--color-primary-subtle);
+}
+.content-section p, .content-section li {
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-secondary);
+}
+.content-section ul { padding-left: var(--space-6); }
+.content-section li {
+  list-style: disc;
+  margin-bottom: var(--space-2);
+}
+
+/* ── FAQ Accordion ── */
+.faq-list { margin-top: var(--space-6); }
+.faq-item {
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-3);
+  overflow: hidden;
+}
+.faq-question {
+  width: 100%;
+  padding: var(--space-4) var(--space-5);
+  background: var(--color-surface);
+  border: none;
+  text-align: left;
+  font-size: var(--text-base);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background var(--transition-fast);
+}
+.faq-question:hover { background: var(--color-bg); }
+.faq-question::after {
+  content: '+';
+  font-size: var(--text-xl);
+  color: var(--color-text-muted);
+  transition: transform var(--transition-base);
+  flex-shrink: 0;
+  margin-left: var(--space-4);
+}
+.faq-item.open .faq-question::after {
+  content: '−';
+}
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height var(--transition-slow);
+}
+.faq-answer__inner {
+  padding: 0 var(--space-5) var(--space-5);
+  font-size: var(--text-sm);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-secondary);
+}
+
+/* ── responsive.css ── */
+/* ══════════════════════════════════════════════════════════
+   RESPONSIVE — Breakpoints & Mobile Overrides
+   ══════════════════════════════════════════════════════════ */
+
+/* ── Tablet (≤1024px) ── */
+@media (max-width: 1024px) {
+  .calc-layout {
+    grid-template-columns: 1fr;
+  }
+  .calc-results-wrap {
+    position: static;
+    order: -1; /* Results above form on tablet */
+  }
+  .site-footer__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-8);
+  }
+}
+
+/* ── Mobile (≤768px) ── */
+@media (max-width: 768px) {
+  :root {
+    --header-height: 56px;
+  }
+  
+  h1 { font-size: var(--text-2xl); }
+  h2 { font-size: var(--text-xl); }
+  
+  .container { padding: 0 var(--space-4); }
+  
+  /* Header */
+  .nav-toggle { display: block; }
+  .main-nav {
+    display: none;
+    position: absolute;
+    top: var(--header-height);
+    left: 0;
+    right: 0;
+    background: var(--color-primary-dark);
+    flex-direction: column;
+    padding: var(--space-4);
+    border-top: 1px solid rgba(255,255,255,0.1);
+    box-shadow: var(--shadow-lg);
+  }
+  .main-nav.open { display: flex; }
+  .main-nav__link {
+    width: 100%;
+    padding: var(--space-3) var(--space-4);
+    border-radius: var(--radius-md);
+  }
+  
+  /* Hero */
+  .page-hero { padding: var(--space-8) 0 var(--space-10); }
+  .page-hero__subtitle { font-size: var(--text-base); }
+  
+  /* Form */
+  .form-grid { grid-template-columns: 1fr; }
+  .form-section { padding: var(--space-4); }
+  
+  /* Results */
+  .result-netto__value { font-size: var(--text-3xl); }
+  .results-panel__body { padding: var(--space-4); }
+  
+  /* Footer */
+  .site-footer__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+  .site-footer__bottom {
+    flex-direction: column;
+    gap: var(--space-4);
+    text-align: center;
+  }
+  
+  /* Calculator Grid (Index) */
+  .calc-grid { grid-template-columns: 1fr; }
+}
+
+/* ── Tablet y Móvil (≤1024px) ── */
+@media (max-width: 1024px) {
+  .calc-layout {
+    display: flex;
+    flex-direction: column; /* Apilamos en vertical */
+  }
+
+  .calc-form-wrap {
+    order: 1; /* El formulario aparece primero */
+  }
+
+  .calc-results-wrap {
+    order: 2; /* Los resultados aparecen debajo del formulario */
+    position: static; /* Quitamos el modo pegajoso (sticky) en móvil */
+    margin-bottom: var(--space-8);
+  }
+
+  .site-footer__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-8);
+  }
+}
+
+/* ── Print ── */
+@media print {
+  .site-header, .site-footer, .nav-toggle, .form-section,
+  .page-hero, .breadcrumb { display: none !important; }
+  .calc-layout { display: block; }
+  .results-panel { border: 2px solid #000; box-shadow: none; }
+  body { background: #fff; }
+}
+
+/* ── article.css ── */
+/* ══════════════════════════════════════════════════════════════
+   article.css — Estilos para páginas de artículos wiki
+   ══════════════════════════════════════════════════════════════ */
+
+/* ── Layout del artículo ── */
+.article-content {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+}
+
+/* ── Cabecera del artículo ── */
+.article-header {
+  margin-bottom: 2.5rem;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid var(--color-border, #e5e7eb);
+}
+
+.article-header h1 {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 800;
+  line-height: 1.25;
+  color: var(--color-heading, #0f2d5e);
+  margin-bottom: 1rem;
+}
+
+.article-intro {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--color-text-muted, #4b5563);
+  max-width: 680px;
+}
+
+/* ── Secciones de contenido ── */
+.article-content section {
+  margin-bottom: 3rem;
+}
+
+.article-content h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-heading, #0f2d5e);
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 3px solid var(--color-accent, #f5a623);
+  display: inline-block;
+}
+
+.article-content h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-heading, #0f2d5e);
+  margin: 1.75rem 0 0.75rem;
+}
+
+.article-content p {
+  line-height: 1.8;
+  margin-bottom: 1rem;
+  color: var(--color-text, #1f2937);
+}
+
+.article-content ul,
+.article-content ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.article-content li {
+  line-height: 1.75;
+  margin-bottom: 0.4rem;
+  color: var(--color-text, #1f2937);
+}
+
+/* ── Tabla de contenidos (TOC) ── */
+.toc {
+  background: #f8fafc;
+  border: 1px solid var(--color-border, #e5e7eb);
+  border-left: 4px solid var(--color-primary, #0f2d5e);
+  border-radius: 8px;
+  padding: 1.5rem 2rem;
+  margin: 2rem 0 2.5rem;
+}
+
+.toc h2 {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted, #6b7280);
+  margin-bottom: 0.75rem;
+  padding-bottom: 0;
+  border-bottom: none;
+  display: block;
+}
+
+.toc ol {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.toc li {
+  margin-bottom: 0.35rem;
+}
+
+.toc a {
+  color: var(--color-primary, #0f2d5e);
+  text-decoration: none;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  transition: color 0.15s;
+}
+
+.toc a:hover {
+  color: var(--color-accent, #f5a623);
+  text-decoration: underline;
+}
+
+/* ── Info boxes ── */
+.info-box {
+  border-radius: 10px;
+  padding: 1.25rem 1.5rem;
+  margin: 1.75rem 0;
+  line-height: 1.7;
+}
+
+.info-box p:last-child {
+  margin-bottom: 0;
+}
+
+.info-box--highlight {
+  background: linear-gradient(135deg, #eff6ff 0%, #e0f2fe 100%);
+  border: 1px solid #93c5fd;
+  border-left: 5px solid var(--color-primary, #0f2d5e);
+}
+
+.info-box--highlight strong:first-child {
+  display: block;
+  color: var(--color-primary, #0f2d5e);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.4rem;
+}
+
+.info-box--cta {
+  background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+  border: 1px solid #fcd34d;
+  border-left: 5px solid var(--color-accent, #f5a623);
+}
+
+.info-box--cta a {
+  color: var(--color-primary, #0f2d5e);
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.info-box--warning {
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+  border-left: 5px solid #f97316;
+}
+
+/* ── Tablas de datos ── */
+.table-responsive {
+  overflow-x: auto;
+  margin: 1.5rem 0;
+  border-radius: 10px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.08);
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+
+.data-table thead th {
+  background: var(--color-primary, #0f2d5e);
+  color: #fff;
+  font-weight: 700;
+  text-align: left;
+  padding: 0.85rem 1.1rem;
+  white-space: nowrap;
+}
+
+.data-table thead th:first-child { border-radius: 10px 0 0 0; }
+.data-table thead th:last-child  { border-radius: 0 10px 0 0; }
+
+.data-table tbody tr {
+  border-bottom: 1px solid var(--color-border, #e5e7eb);
+  transition: background 0.12s;
+}
+
+.data-table tbody tr:hover { background: #f8fafc; }
+.data-table tbody tr:last-child { border-bottom: none; }
+
+.data-table td {
+  padding: 0.8rem 1.1rem;
+  color: var(--color-text, #1f2937);
+  vertical-align: top;
+}
+
+.data-table tbody tr:first-child td {
+  background: #eff6ff;
+  font-weight: 600;
+  color: var(--color-primary, #0f2d5e);
+}
+
+/* ── FAQ ── */
+#faq h2 { margin-bottom: 1.25rem; }
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.faq-item {
+  border: 1px solid var(--color-border, #e5e7eb);
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+  transition: box-shadow 0.15s;
+}
+
+.faq-item:hover {
+  box-shadow: 0 2px 10px rgba(15,45,94,0.08);
+}
+
+.faq-question {
+  width: 100%;
+  background: none;
+  border: none;
+  text-align: left;
+  padding: 1.1rem 1.25rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-heading, #0f2d5e);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  line-height: 1.4;
+  transition: background 0.12s;
+}
+
+.faq-question::after {
+  content: '+';
+  font-size: 1.4rem;
+  font-weight: 300;
+  color: var(--color-accent, #f5a623);
+  flex-shrink: 0;
+  transition: transform 0.25s;
+}
+
+.faq-question[aria-expanded="true"] { background: #f8fafc; }
+.faq-question[aria-expanded="true"]::after { transform: rotate(45deg); }
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.faq-answer--open { max-height: 500px; }
+
+.faq-answer__inner {
+  padding: 0.9rem 1.25rem 1.1rem;
+  font-size: 0.92rem;
+  line-height: 1.75;
+  color: var(--color-text, #374151);
+  border-top: 1px solid var(--color-border, #e5e7eb);
+}
+
+/* ── Mobile ── */
+@media (max-width: 640px) {
+  .article-content { padding: 1.5rem 1rem 3rem; }
+  .article-header h1 { font-size: 1.5rem; }
+  .toc { padding: 1.1rem 1.25rem; }
+  .data-table { font-size: 0.82rem; }
+  .data-table td, .data-table th { padding: 0.65rem 0.75rem; }
+}
+
+  </style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Zum Inhalt springen</a>
+<header class="site-header" role="banner">
+  <div class="container">
+    <div class="site-header__inner">
+      <a href="index.html" class="site-logo" aria-label="Rechner-Online.info Startseite">
+        <span class="site-logo__icon">R</span>
+        <span>Rechner-Online<span class="site-logo__year">2026</span></span>
+      </a>
+      <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false">☰</button>
+      <nav class="main-nav" role="navigation" aria-label="Hauptnavigation">
+        <a href="index.html" class="main-nav__link ">Startseite</a>
+        <a href="brutto-netto-rechner.html" class="main-nav__link ">Gehaltsrechner</a>
+        <a href="geldwerter-vorteil.html" class="main-nav__link ">Firmenwagen</a>
+        <a href="teilzeitrechner.html" class="main-nav__link ">Teilzeit</a>
+        <a href="arbeitslosengeld-rechner.html" class="main-nav__link ">ALG I</a>
+        <a href="rentenrechner.html" class="main-nav__link ">Rente</a>
+        <a href="/blog" class="main-nav__link ">Blog</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<script>
+/* ══════════════════════════════════════════════════════════
+   UI UTILITIES — Shared UI helpers for all calculator pages
+   ══════════════════════════════════════════════════════════ */
+
+const RechnerUI = (() => {
+  'use strict';
+
+  // ── Mobile Navigation ──
+  function initNav() {
+    const toggle = document.querySelector('.nav-toggle');
+    const nav = document.querySelector('.main-nav');
+    if (toggle && nav) {
+      toggle.addEventListener('click', () => {
+        nav.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', nav.classList.contains('open'));
+      });
+      // Close on outside click
+      document.addEventListener('click', (e) => {
+        if (!toggle.contains(e.target) && !nav.contains(e.target)) {
+          nav.classList.remove('open');
+          toggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
+  }
+
+  // ── FAQ Accordion ──
+  function initFAQ() {
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.parentElement;
+        const answer = item.querySelector('.faq-answer');
+        const isOpen = item.classList.contains('open');
+
+        // Close all others
+        document.querySelectorAll('.faq-item.open').forEach(openItem => {
+          if (openItem !== item) {
+            openItem.classList.remove('open');
+            openItem.querySelector('.faq-answer').style.maxHeight = '0';
+          }
+        });
+
+        if (isOpen) {
+          item.classList.remove('open');
+          answer.style.maxHeight = '0';
+        } else {
+          item.classList.add('open');
+          answer.style.maxHeight = answer.scrollHeight + 'px';
+        }
+      });
+    });
+  }
+
+  // ── Number Input Formatting ──
+  function initEuroInputs() {
+    document.querySelectorAll('.form-input[data-type="euro"]').forEach(input => {
+      input.addEventListener('blur', () => {
+        let val = parseGermanNumber(input.value);
+        if (!isNaN(val) && val > 0) {
+          input.value = val.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        }
+      });
+      input.addEventListener('focus', () => {
+        let val = parseGermanNumber(input.value);
+        if (!isNaN(val)) {
+          input.value = val.toString().replace('.', ',');
+        }
+      });
+    });
+  }
+
+  /** Parse German number format (1.234,56 → 1234.56) */
+  function parseGermanNumber(str) {
+    if (typeof str === 'number') return str;
+    if (!str) return 0;
+    return parseFloat(str.toString().replace(/\./g, '').replace(',', '.')) || 0;
+  }
+
+  // ── Donut Chart ──
+  /**
+   * Draw a donut chart using SVG.
+   * @param {string} containerId - ID of the container element
+   * @param {Array} segments - [{label, value, color}]
+   * @param {string} centerText - Text to show in center
+   */
+  function drawDonut(containerId, segments, centerText, centerLabel) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+
+    const total = segments.reduce((sum, s) => sum + s.value, 0);
+    if (total <= 0) {
+      container.innerHTML = '<p style="text-align:center;color:var(--color-text-muted);padding:2rem;">Bitte Bruttoeinkommen eingeben</p>';
+      return;
+    }
+
+    const size = 200;
+    const cx = size / 2, cy = size / 2;
+    const outerR = 90, innerR = 60;
+    const gap = 0.02; // gap between segments in radians
+
+    let currentAngle = 0;
+    let paths = '';
+
+    segments.forEach(seg => {
+      if (seg.value <= 0) return;
+      const fraction = seg.value / total;
+      const startAngle = currentAngle + gap / 2;
+      const endAngle = currentAngle + fraction * Math.PI * 2 - gap / 2;
+
+      if (endAngle - startAngle < 0.01) {
+        currentAngle += fraction * Math.PI * 2;
+        return;
+      }
+
+      const x1o = cx + outerR * Math.cos(startAngle);
+      const y1o = cy + outerR * Math.sin(startAngle);
+      const x2o = cx + outerR * Math.cos(endAngle);
+      const y2o = cy + outerR * Math.sin(endAngle);
+      const x1i = cx + innerR * Math.cos(endAngle);
+      const y1i = cy + innerR * Math.sin(endAngle);
+      const x2i = cx + innerR * Math.cos(startAngle);
+      const y2i = cy + innerR * Math.sin(startAngle);
+
+      const largeArc = fraction > 0.5 ? 1 : 0;
+
+      paths += `<path d="M ${x1o} ${y1o} A ${outerR} ${outerR} 0 ${largeArc} 1 ${x2o} ${y2o} L ${x1i} ${y1i} A ${innerR} ${innerR} 0 ${largeArc} 0 ${x2i} ${y2i} Z" fill="${seg.color}" opacity="0.9"><title>${seg.label}: ${Steuer2026.formatEuro(seg.value)}</title></path>`;
+
+      currentAngle += fraction * Math.PI * 2;
+    });
+
+    container.innerHTML = `
+      <div class="donut-chart">
+        <svg viewBox="0 0 ${size} ${size}" role="img" aria-label="Gehaltsaufteilung">
+          ${paths}
+        </svg>
+        <div class="donut-chart__center">
+          <div class="donut-chart__center-value">${centerText}</div>
+          <div class="donut-chart__center-label">${centerLabel || ''}</div>
+        </div>
+      </div>
+    `;
+
+    // Legend
+    const legendHTML = segments.filter(s => s.value > 0).map(s =>
+      `<span class="chart-legend__item"><span class="chart-legend__dot" style="background:${s.color}"></span>${s.label}</span>`
+    ).join('');
+    
+    // Insert legend after chart
+    const legendEl = container.parentElement.querySelector('.chart-legend');
+    if (legendEl) legendEl.innerHTML = legendHTML;
+  }
+
+  // ── Form Binding Helper ──
+  /**
+   * Collect all form values from a calculator form.
+   * Uses data-field attributes on inputs.
+   */
+  function collectFormValues(formId) {
+    const form = document.getElementById(formId);
+    if (!form) return {};
+    const values = {};
+    form.querySelectorAll('[data-field]').forEach(el => {
+      const field = el.dataset.field;
+      const type = el.dataset.type || 'text';
+
+      if (el.type === 'radio') {
+        if (el.checked) values[field] = type === 'number' ? parseFloat(el.value) : el.value;
+      } else if (el.type === 'checkbox') {
+        values[field] = el.checked;
+      } else if (type === 'euro' || type === 'number') {
+        values[field] = parseGermanNumber(el.value);
+      } else if (type === 'percent') {
+        values[field] = parseGermanNumber(el.value) / 100;
+      } else {
+        values[field] = el.value;
+      }
+    });
+    return values;
+  }
+
+  /**
+   * Bind onChange/onInput to all form fields and trigger a callback.
+   */
+  function bindCalculation(formId, callback) {
+    const form = document.getElementById(formId);
+    if (!form) return;
+    const handler = () => {
+      const values = collectFormValues(formId);
+      try {
+        callback(values);
+      } catch (e) {
+        console.error('Calculation error:', e);
+      }
+    };
+    form.querySelectorAll('input, select').forEach(el => {
+      el.addEventListener('input', handler);
+      el.addEventListener('change', handler);
+    });
+    // Initial calculation
+    handler();
+  }
+
+  // ── Smooth Number Animation ──
+  function animateValue(elementId, newValue, duration = 300) {
+    const el = document.getElementById(elementId);
+    if (!el) return;
+    el.textContent = Steuer2026.formatEuro(newValue);
+  }
+
+  // ── Init All ──
+  function init() {
+    initNav();
+    initFAQ();
+    initEuroInputs();
+  }
+
+  // Auto-init on DOMContentLoaded
+  if (typeof document !== 'undefined') {
+    document.addEventListener('DOMContentLoaded', init);
+  }
+
+  return {
+    init,
+    initNav,
+    initFAQ,
+    parseGermanNumber,
+    drawDonut,
+    collectFormValues,
+    bindCalculation,
+    animateValue,
+    formatEuro: (n) => Steuer2026.formatEuro(n),
+  };
+})();
+
+if (typeof window !== 'undefined') window.RechnerUI = RechnerUI;
+
+</script>
+
+<main id="main-content">
+  <article class="container article-content">
+    <header class="article-header">
+      <h1>Grundfreibetrag 2026: Das steuerfreie Existenzminimum in Deutschland</h1>
+      <p class="article-intro">Jeder Mensch in Deutschland hat das Recht auf ein Einkommen, das zumindest das nackte Überleben sichert, ohne dass der Staat sofort Einkommensteuer darauf verlangt. Genau das leistet der gesetzliche Grundfreibetrag, der auch 2026 wieder massiv angehoben wurde.</p>
+    </header>
+
+    <!-- QUICK-ANSWER BOX (para Featured Snippet) -->
+    <div class="info-box info-box--highlight">
+      <p><strong>Wie hoch ist der Grundfreibetrag im Jahr 2026?</strong><br>
+      Für das Steuerjahr 2026 wurde der Grundfreibetrag für ledige Steuerzahler auf <strong>12.348 Euro</strong> pro Jahr festgelegt. Für verheiratete Paare oder eingetragene Lebenspartnerschaften (Zusammenveranlagung) verdoppelt sich dieser Betrag exakt auf <strong>24.696 Euro</strong>. Bis zu dieser gesetzlichen Einkommensgrenze fällt in Deutschland absolut keine Einkommensteuer an.</p>
+    </div>
+
+    <!-- INHALTSVERZEICHNIS (Table of Contents) -->
+    <nav class="toc" aria-label="Inhaltsverzeichnis">
+      <h2>Inhaltsverzeichnis</h2>
+      <ol>
+        <li><a href="#section-1">1. Was genau ist der Grundfreibetrag?</a></li>
+        <li><a href="#section-2">2. Die verfassungsrechtliche Garantie: Das Existenzminimum</a></li>
+        <li><a href="#section-3">3. Wie verändern Freibeträge Ihre monatliche Gehaltsabrechnung?</a></li>
+        <li><a href="#tabelle-entwicklung">4. Tabelle: Die Entwicklung des Freibetrags in den letzten 10 Jahren</a></li>
+        <li><a href="#section-5">5. Haben Rentner und Studenten auch einen Grundfreibetrag?</a></li>
+      </ol>
+    </nav>
+
+    <!-- CONTENT SECTIONS -->
+    <!-- INTERNAL LINK BOX -->
+    <div class="info-box info-box--cta">
+      <p><strong>Jetzt den Effekt berechnen:</strong> Möchten Sie wissen, wie sich der neue Freibetrag 2026 exakt auf Ihr monatliches Auszahlungs-Netto auswirkt? Nutzen Sie unseren tagesaktuellen <a href="/brutto-netto-rechner">Brutto-Netto-Rechner</a>.</p>
+    </div>
+
+    <section id="section-1">
+      <h2>Was genau ist der steuerliche Grundfreibetrag?</h2>
+      <p>Das deutsche Steuerrecht ist hochkomplex, folgt aber an der Basis einem einfachen, sozialen Gerechtigkeitsprinzip: der sogenannten wirtschaftlichen Leistungsfähigkeit. Der Staat darf Ihnen nur von dem Geld Steuern abverlangen, das Sie nicht zwingend selbst für Ihre elementarsten Grundbedürfnisse (Wohnen, Essen, Kleidung, Heizung) benötigen.</p>
+      <p>Der Grundfreibetrag (oft umgangssprachlich auch als "Steuerfreibetrag" bezeichnet) bildet die absolute "Nullzone" in der Progressionstabelle der deutschen <a href="/wiki/einkommensteuer">Einkommensteuer</a>. Er schirmt die ersten verdienten Euros Ihres Einkommens vollständig vor dem Zugriff des Finanzamts ab. Erst für den ersten Euro, den Sie <em>oberhalb</em> der 12.348 Euro-Marke (Stand 2026) verdienen, greift der sogenannte Eingangssteuersatz von 14 Prozent.</p>
+      <p>Verdienen Sie im gesamten Jahr 2026 durch Nebenjobs, Minijobs oder eine Teilzeittätigkeit als Lediger insgesamt weniger als 12.348 Euro zu versteuerndes Einkommen, liegt Ihre Steuerlast bei exakt 0,00 Euro.</p>
+    </section>
+
+    <section id="section-2">
+      <h2>Die verfassungsrechtliche Garantie: Das sächliche Existenzminimum</h2>
+      <p>Die Höhe des Grundfreibetrags wird nicht willkürlich durch den Finanzminister in Berlin gewürfelt. Sie beruht auf weitreichenden Urteilen des Bundesverfassungsgerichts. Das höchste deutsche Gericht hat den Staat dazu verurteilt, das "sächliche Existenzminimum" eines jeden Bürgers stets zwingend steuerfrei zu stellen.</p>
+      
+      <p><strong>Die Berechnungsgrundlage:</strong></p>
+      <p>Alle zwei Jahre muss die Bundesregierung deshalb den sogenannten "Existenzminimumbericht" vorlegen. Darin rechnen Statistiker aus, wie viel Geld ein alleinstehender Erwachsener in Deutschland benötigt, um sich ein einfaches Leben (Nahrung, Wohnungsmiete am unteren Rand des Mietspiegels, Kleidung, Strom) leisten zu können. Die Inflation der Lebensmittelpreise und steigende Kaltmieten fließen hier zu 100 % ein.</p>
+      
+      <p>Für 2026 wurde das reine sächliche Existenzminimum laut Prognosen auf ca. 12.096 Euro taxiert. Der Gesetzgeber ist verfassungsrechtlich gezwungen, den Steuerfreibetrag (hier: 12.348 Euro) mindestens knapp oberhalb dieses puren Existenzminimums anzusiedeln.</p>
+    </section>
+
+    <section id="section-3">
+      <h2>Auswirkung: Wie verändern Freibeträge Ihre monatliche Gehaltsabrechnung?</h2>
+      <p>Viele normale Vollzeit-Arbeitnehmer glauben fälschlicherweise, der Grundfreibetrag sei nur für Geringverdiener relevant. Das ist ein großer Irrtum! <strong>Jeder Steuerzahler</strong> in Deutschland, auch der Millionär, profitiert bis zum letzten Cent von diesem Freibetrag.</p>
+      <p>Die Lohnsteuertabellen, die Ihr Arbeitgeber für Ihre monatliche Gehaltsabrechnung verwendet, haben diesen Grundfreibetrag bereits vollautomatisch fest "eingebaut". Die Lohnsoftware teilt die 12.348 Euro durch zwölf Monate. Das bedeutet: Die ersten 1.029 Euro Ihres Bruttogehalts fließen in jedem einzelnen Monat völlig abzugsfrei (ohne Einkommensteuer, Solidaritätszuschlag oder Kirchensteuer) an Sie brutto für netto durch. Erst über dieser Monats-Schwelle beginnt das Programm der Lohnbuchhaltung, Steuern zu berechnen und abzuziehen.</p>
+      <p>Wenn die Bundesregierung den Grundfreibetrag (wie für 2026 geschehen) also um mehrere hundert Euro anhebt, sinkt automatisch für fast 40 Millionen Arbeitnehmer in Deutschland die monatliche Lohnsteuer – Ihr Netto-Auszahlungsbetrag auf Ihrem Girokonto steigt spürbar an, ganz ohne dass Sie dafür mit Ihrem Chef verhandeln mussten.</p>
+    </section>
+
+    <section id="tabelle-entwicklung">
+      <h2>Tabelle: Die Entwicklung des Freibetrags in den letzten 10 Jahren</h2>
+      <p>Die stetige und zuletzt rasante Anhebung des Betrags spiegelt die Inflationsentwicklung seit der Corona-Krise und der Energiekrise deutlich wider. (Für Ehepaare mit <a href="/wiki/steuerklassen">Zusammenveranlagung</a> gelten stets exakt die verdoppelten Tabellen-Werte).</p>
+      
+      <!-- TABLAS -->
+      <div class="table-responsive">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Steuerjahr</th>
+              <th>Grundfreibetrag (für Alleinstehende)</th>
+              <th>Veränderung zum Vorjahr</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>2026</strong></td>
+              <td><strong>12.348 €</strong></td>
+              <td>+ 252 €</td>
+            </tr>
+            <tr>
+              <td>2025</td>
+              <td>12.096 €</td>
+              <td>+ 312 €</td>
+            </tr>
+            <tr>
+              <td>2024</td>
+              <td>11.784 €</td>
+              <td>+ 876 €</td>
+            </tr>
+            <tr>
+              <td>2023</td>
+              <td>10.908 €</td>
+              <td>+ 561 €</td>
+            </tr>
+            <tr>
+              <td>2022</td>
+              <td>10.347 €</td>
+              <td>+ 603 €</td>
+            </tr>
+            <tr>
+              <td>2021</td>
+              <td>9.744 €</td>
+              <td>+ 336 €</td>
+            </tr>
+            <tr>
+              <td>2020</td>
+              <td>9.408 €</td>
+              <td>+ 240 €</td>
+            </tr>
+            <tr>
+              <td>2019</td>
+              <td>9.168 €</td>
+              <td>+ 168 €</td>
+            </tr>
+            <tr>
+              <td>2018</td>
+              <td>9.000 €</td>
+              <td>+ 180 €</td>
+            </tr>
+            <tr>
+              <td>2017</td>
+              <td>8.820 €</td>
+              <td>+ 168 €</td>
+            </tr>
+            <tr>
+              <td>2016</td>
+              <td>8.652 €</td>
+              <td>+ 178 €</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p><em>Im Rückblick zeigt sich: Binnen eines Jahrzehnts musste die "Nullzone" des deutschen Staates um insgesamt rund 3.700 Euro pro Person nach oben korrigiert werden, um der rasanten Teuerung des täglichen Lebensbedarfs wie Strom, Gas und Lebensmitteln rechtskonform Rechnung zu tragen.</em></p>
+    </section>
+
+    <section id="section-5">
+      <h2>Haben Rentner, Azubis und Studenten auch einen Grundfreibetrag?</h2>
+      <p>Ein lautes und deutliches: Ja!</p>
+      
+      <h3>Für Auszubildende und Werkstudenten</h3>
+      <p>Auch wenn Sie erst 18 Jahre alt sind und in der Berufsschule sitzen: Sofern Sie sozialversicherungspflichtig angestellt sind, steht Ihnen der volle Grundfreibetrag von 12.348 Euro (2026) ebenso zu. Ein klassischer Azubi oder ein Student mit Ferienjobs zahlt bei Ausbildungsvergütungen von unter 1.000 Euro monatlich praktisch niemals Lohnsteuer.</p>
+      <p>Sollte der Arbeitgeber beim Ferienjob im Sommer versehentlich doch extrem hohe Lohnsteuer einbehalten haben (weil Sie z.B. fälschlicherweise in Steuerklasse VI abgerechnet wurden), können Sie sich dieses Geld im nächsten Jahr über die Einkommensteuererklärung zu 100 % vom Finanzamt bar zurückholen, wenn Sie den Jahres-Grundfreibetrag in der Summe nicht überschritten haben.</p>
+
+      <h3>Für Senioren (<a href="/rentenrechner">Rentenrechner</a>)</h3>
+      <p>Das Märchen, dass "Rentner keine Steuern zahlen", ist längst Geschichte. Das Gesetz gilt auch im hohen Alter: Jede steuerpflichtige gesetzliche oder private Rente, die (nach Abzug des individuellen, altersabhängigen Rentenfreibetrags) den Grundfreibetrag von 12.348 Euro übersteigt, unterliegt knallhart der deutschen Einkommensteuer. Rentner, deren Bezüge knapp darüber liegen, sind sogar gesetzlich zur eigenständigen Abgabe einer Steuererklärung beim Finanzamt verpflichtet.</p>
+    </section>
+
+    <!-- FAQ SECTION — siempre 5 preguntas -->
+    <section id="faq">
+      <h2>Häufige Fragen (FAQ) zum Grundfreibetrag</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">Muss ich den Grundfreibetrag selbst beim Amt beantragen?</button>
+          <div class="faq-answer"><div class="faq-answer__inner">Nein, niemals. Der Grundfreibetrag ist das absolute Basis-Fundament des deutschen Steuerrechts. Er wird jedem Bürger vollautomatisch vom Lohnprogramm des Arbeitgebers abgezogen und auch bei der jährlichen privaten Einkommensteuererklärung völlig eigenständig durch die Rechner des Finanzamtes berücksichtigt.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">Unterscheiden sich Freibeträge in Ost- und Westdeutschland?</button>
+          <div class="faq-answer"><div class="faq-answer__inner">Nein. Das Einkommensteuergesetz ist Bundesrecht. Der Freibetrag von 12.348 Euro (2026) gilt bundeseinheitlich von Flensburg bis Passau auf den Cent genau gleich, unabhängig von den oftmals sehr massiv abweichenden regionalen Lebenshaltungskosten in Großstädten oder ländlichen Räumen im Osten.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">Gilt der doppelte Freibetrag auch für unverheiratete Paare?</button>
+          <div class="faq-answer"><div class="faq-answer__inner">Nein. Der steuerlich enorm attraktive doppelte Freibetrag von 24.696 Euro durch die Zusammenveranlagung ("Ehegattensplitting") ist per Gesetz streng an das Vorliegen einer staatlich formell geschlossenen, standesamtlichen Ehe oder einer behördlich registrierten Lebenspartnerschaft gebunden. Wilde Ehen profitieren hiervon nicht.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">Ist der Grundfreibetrag das Gleiche wie der Kinderfreibetrag?</button>
+          <div class="faq-answer"><div class="faq-answer__inner">Nein, das sind zwei völlig verschiedene Steuerinstrumente. Der Kinderfreibetrag (2026 meist 9.540 Euro pro Kind) wird bei Familien in der Steuerveranlagung rechnerisch <em>zusätzlich</em> zum eigenen persönlichen Grundfreibetrag (12.348 Euro) der Eltern gewährt, allerdings nur bedingt in direkter Konkurrenz zur Auszahlung des monatlichen staatlichen Kindergelds (Günstigerprüfung).</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">Was passiert, wenn ich genau 12.349 Euro verdiene?</button>
+          <div class="faq-answer"><div class="faq-answer__inner">Sie müssen keine Angst haben, plötzlich arm zu sein. Das deutsche Tarifrecht verlangt nicht, dass Sie bei Überschreitung der Grenze auf Ihr ganzes Geld Steuern zahlen. Wenn Ihr Verdienst bei 12.349 € liegt (also exakt einen Euro über dem Erlaubten), müssen Sie auch wirklich nur auf diesen einen einzigen "überschüssigen" letzten Euro die Eingangssteuer von zirka 14 Cent bezahlen.</div></div>
+        </div>
+      </div>
+    </section>
+  </article>
+</main>
+
+<!-- Schema.org Article -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Grundfreibetrag 2026: Das steuerfreie Existenzminimum in Deutschland",
+  "description": "Wie hoch ist der steuerliche Grundfreibetrag 2026? Alles zur Sicherung des Existenzminimums, der historischen Entwicklung und den Auswirkungen auf Ihre Lohnsteuer.",
+  "author": { "@type": "Organization", "name": "Rechner-Online.info" },
+  "datePublished": "2026-02-23",
+  "dateModified": "2026-02-23"
+}
+</script>
+
+<!-- Schema.org FAQPage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Muss ich den Grundfreibetrag selbst beim Amt beantragen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nein, niemals. Der Grundfreibetrag ist das absolute Basis-Fundament des deutschen Steuerrechts. Er wird jedem Bürger vollautomatisch vom Lohnprogramm des Arbeitgebers abgezogen und auch bei der jährlichen privaten Einkommensteuererklärung völlig eigenständig durch die Rechner des Finanzamtes berücksichtigt."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Unterscheiden sich Freibeträge in Ost- und Westdeutschland?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nein. Das Einkommensteuergesetz ist Bundesrecht. Der Freibetrag von 12.348 Euro (2026) gilt bundeseinheitlich von Flensburg bis Passau auf den Cent genau gleich, unabhängig von den oftmals sehr massiv abweichenden regionalen Lebenshaltungskosten in Großstädten oder ländlichen Räumen im Osten."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Gilt der doppelte Freibetrag auch für unverheiratete Paare?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nein. Der steuerlich enorm attraktive doppelte Freibetrag von 24.696 Euro durch die Zusammenveranlagung (\"Ehegattensplitting\") ist per Gesetz streng an das Vorliegen einer staatlich formell geschlossenen, standesamtlichen Ehe oder einer behördlich registrierten Lebenspartnerschaft gebunden. Wilde Ehen profitieren hiervon nicht."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Ist der Grundfreibetrag das Gleiche wie der Kinderfreibetrag?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nein, das sind zwei völlig verschiedene Steuerinstrumente. Der Kinderfreibetrag (2026 meist 9.540 Euro pro Kind) wird bei Familien in der Steuerveranlagung rechnerisch <em>zusätzlich</em> zum eigenen persönlichen Grundfreibetrag (12.348 Euro) der Eltern gewährt, allerdings nur bedingt in direkter Konkurrenz zur Auszahlung des monatlichen staatlichen Kindergelds (Günstigerprüfung)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Was passiert, wenn ich genau 12.349 Euro verdiene?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sie müssen keine Angst haben, plötzlich arm zu sein. Das deutsche Tarifrecht verlangt nicht, dass Sie bei Überschreitung der Grenze auf Ihr ganzes Geld Steuern zahlen. Wenn Ihr Verdienst bei 12.349 € liegt (also exakt einen Euro über dem Erlaubten), müssen Sie auch wirklich nur auf diesen einen einzigen \"überschüssigen\" letzten Euro die Eingangssteuer von zirka 14 Cent bezahlen."
+      }
+    }
+  ]
+}
+</script>
+
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="site-footer__grid">
+      <div class="site-footer__brand">
+        <a href="index.html" class="site-logo" style="margin-bottom:var(--space-4)">
+          <span class="site-logo__icon">R</span>
+          <span>Rechner-Online</span>
+        </a>
+        <p>Kostenlose Online-Rechner für Gehalt, Steuern, Rente und Sozialversicherung in Deutschland. Alle Berechnungen basieren auf den aktuellen gesetzlichen Vorgaben für das Jahr 2026.</p>
+      </div>
+      <div>
+        <h4>Gehaltsrechner</h4>
+        <div class="site-footer__links">
+          <a href="brutto-netto-rechner.html">Brutto-Netto-Rechner</a>
+          <a href="gehaltsrechner-arbeitgeber.html">Arbeitgeberrechner</a>
+          <a href="geldwerter-vorteil.html">Firmenwagenrechner</a>
+          <a href="teilzeitrechner.html">Teilzeitrechner</a>
+          <a href="kurzarbeitergeld.html">Kurzarbeitergeld</a>
+          <a href="pendlerpauschale.html">Pendlerpauschale</a>
+          <a href="elterngeldrechner.html">Elterngeldrechner</a>
+        </div>
+      </div>
+      <div>
+        <h4>Rente &amp; Soziales</h4>
+        <div class="site-footer__links">
+          <a href="rentenrechner.html">Rentenrechner</a>
+          <a href="rentenpunkte.html">Rentenpunkte</a>
+          <a href="riester-rente.html">Riester-Rente</a>
+          <a href="witwenrente.html">Witwenrente</a>
+          <a href="arbeitslosengeld-rechner.html">ALG I Rechner</a>
+          <a href="buergergeld-rechner.html">Bürgergeld</a>
+        </div>
+      </div>
+      <div>
+        <h4>Studium &amp; mehr</h4>
+        <div class="site-footer__links">
+          <a href="bafoeg-rechner.html">BAföG-Rechner</a>
+          <a href="bafoeg-rueckzahlung.html">BAföG-Rückzahlung</a>
+          <a href="grundsicherung.html">Grundsicherung</a>
+        </div>
+      </div>
+    </div>
+    <div class="site-footer__bottom">
+      <span>&copy; 2026 Rechner-Online.info &mdash; Alle Angaben ohne Gewähr</span>
+      <div class="site-footer__legal">
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
