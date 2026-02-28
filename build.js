@@ -28,8 +28,8 @@ const DIRS = {
 };
 
 const SITE = {
-  domain: 'https://www.rechner-online.info', // CHANGE THIS to your domain
-  siteName: 'Rechner-Online.info',
+  domain: 'https://www.bruttonettoonline.com',
+  siteName: 'bruttonettoonline.com',
   year: 2026,
 };
 
