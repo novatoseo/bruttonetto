@@ -2,18 +2,6 @@
 /**
  * Build System - German Financial Calculators
  * Assembles standalone HTML pages from modular components.
- * 
- * Usage: node build.js [--watch]
- * 
- * Template syntax:
- *   {{COMPONENT:filename}}  → inserts components/filename.html
- *   {{CSS}}                 → inserts all CSS inline
- *   {{JS:filename}}         → inserts js/filename.js inline
- *   {{TITLE}}               → page title from frontmatter
- *   {{META_DESC}}            → meta description from frontmatter
- *   {{SLUG}}                → page slug from frontmatter
- *   {{CANONICAL}}           → canonical URL
- *   {{NAV_ACTIVE:slug}}     → adds 'active' class if current page matches
  */
 
 const fs = require('fs');
@@ -28,7 +16,7 @@ const DIRS = {
 };
 
 const SITE = {
-  domain: 'https://www.bruttonettoonline.com',
+  domain: 'https://www.bruttonettoonline.com', // Ajusta a tu dominio final
   siteName: 'bruttonettoonline.com',
   year: 2026,
 };
@@ -43,26 +31,37 @@ function getComponent(name) {
   const file = path.join(DIRS.components, `${name}.html`);
   if (!fs.existsSync(file)) {
     console.warn(`⚠ Component not found: ${name}`);
-    return `<!-- missing component: ${name} -->`;
+    return ``;
   }
   return readFile(file);
 }
 
-function getAllCSS() {
+// SOLUCIÓN PROBLEMA 4: Carga de CSS Inteligente
+function getCSS(layoutName, meta) {
   const cssDir = DIRS.css;
-  const order = ['variables.css', 'base.css', 'components.css', 'calculator.css', 'responsive.css'];
+  
+  // 1. Archivos base que SIEMPRE se cargan
+  const coreCSS = ['variables.css', 'base.css', 'components.css'];
+  
+  // 2. Archivo específico según el layout
+  if (layoutName === 'calculator') coreCSS.push('calculator.css');
+  if (layoutName === 'article') coreCSS.push('article.css'); // Si en el futuro tienes artículos de blog/wiki
+  
+  // 3. CSS extra si se define en el frontmatter (ej. css: custom.css)
+  if (meta.css) {
+    coreCSS.push(...meta.css.split(',').map(s => s.trim()));
+  }
+
+  // 4. Responsive siempre al final
+  const orderToLoad = [...new Set([...coreCSS, 'responsive.css'])];
+
   let combined = '';
-  for (const file of order) {
+  for (const file of orderToLoad) {
     const filepath = path.join(cssDir, file);
     if (fs.existsSync(filepath)) {
       combined += `/* ── ${file} ── */\n` + readFile(filepath) + '\n';
-    }
-  }
-  // Also include any extra CSS files not in the order
-  const allFiles = fs.readdirSync(cssDir).filter(f => f.endsWith('.css'));
-  for (const file of allFiles) {
-    if (!order.includes(file)) {
-      combined += `/* ── ${file} ── */\n` + readFile(path.join(cssDir, file)) + '\n';
+    } else {
+      console.warn(`⚠ CSS not found: ${file}`);
     }
   }
   return combined;
@@ -78,7 +77,6 @@ function getJS(name) {
 }
 
 function parseFrontmatter(content) {
-  // Normalize line endings (handle \r\n from Windows)
   const normalized = content.replace(/\r\n/g, '\n');
   const match = normalized.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
   if (!match) return { meta: {}, body: normalized };
@@ -87,11 +85,9 @@ function parseFrontmatter(content) {
   match[1].split('\n').forEach(line => {
     const colonIndex = line.indexOf(':');
     if (colonIndex > 0 && /^[a-zA-Z_-]+$/.test(line.slice(0, colonIndex).trim())) {
-      // Line has a valid key: value pair
       lastKey = line.slice(0, colonIndex).trim();
       meta[lastKey] = line.slice(colonIndex + 1).trim();
     } else if (lastKey && line.trim()) {
-      // Continuation line — append to previous key
       meta[lastKey] += ' ' + line.trim();
     }
   });
@@ -100,23 +96,28 @@ function parseFrontmatter(content) {
 
 // ── Template Engine ──────────────────────────────────────
 
-function processTemplate(template, pageMeta) {
+function processTemplate(template, pageMeta, layoutName) {
   let output = template;
 
   // Replace components
   output = output.replace(/\{\{COMPONENT:(\w+)\}\}/g, (_, name) => getComponent(name));
 
-  // Replace CSS
-  output = output.replace(/\{\{CSS\}\}/g, getAllCSS());
+  // Replace CSS (Ahora le pasamos el layoutName para que cargue solo lo necesario)
+  output = output.replace(/\{\{CSS\}\}/g, getCSS(layoutName, pageMeta));
 
   // Replace JS files
   output = output.replace(/\{\{JS:([a-zA-Z0-9_-]+)\}\}/g, (_, name) => getJS(name));
 
-  // Replace meta vars
+  // Limpiar variables de entorno / SEO
+  const safeSlug = (pageMeta.slug || '').replace(/\.html$/, ''); // Asegurar que el slug no tenga .html
   output = output.replace(/\{\{TITLE\}\}/g, pageMeta.title || SITE.siteName);
   output = output.replace(/\{\{META_DESC\}\}/g, pageMeta.description || '');
-  output = output.replace(/\{\{SLUG\}\}/g, pageMeta.slug || '');
-  output = output.replace(/\{\{CANONICAL\}\}/g, `${SITE.domain}/${pageMeta.slug || ''}`);
+  output = output.replace(/\{\{SLUG\}\}/g, safeSlug);
+  
+  // SOLUCIÓN PROBLEMA 5 (Parte A): Canonical limpio
+  const canonicalUrl = safeSlug === 'index' || safeSlug === '' ? SITE.domain : `${SITE.domain}/${safeSlug}`;
+  output = output.replace(/\{\{CANONICAL\}\}/g, canonicalUrl);
+  
   output = output.replace(/\{\{SITE_NAME\}\}/g, SITE.siteName);
   output = output.replace(/\{\{SITE_DOMAIN\}\}/g, SITE.domain);
   output = output.replace(/\{\{YEAR\}\}/g, String(SITE.year));
@@ -124,7 +125,15 @@ function processTemplate(template, pageMeta) {
 
   // Nav active state
   output = output.replace(/\{\{NAV_ACTIVE:(\S+)\}\}/g, (_, slug) => {
-    return slug === pageMeta.slug ? 'active' : '';
+    return slug === safeSlug ? 'active' : '';
+  });
+
+  // SOLUCIÓN PROBLEMA 5 (Parte B): Reescribir internal links para Vercel "cleanUrls"
+  // Transforma href="mi-pagina.html" a href="/mi-pagina"
+  output = output.replace(/href="([^"]+)\.html(#.*)?"/g, (match, p1, hash) => {
+    if (p1.startsWith('http')) return match; // Ignora enlaces externos
+    if (p1 === 'index') return `href="/${hash || ''}"`; // index.html -> /
+    return `href="/${p1}${hash || ''}"`;
   });
 
   // Clean up any unreplaced tokens
@@ -139,17 +148,14 @@ function buildPage(pageFile) {
   const raw = readFile(path.join(DIRS.pages, pageFile));
   const { meta, body } = parseFrontmatter(raw);
   
-  // Get the layout template
   const layoutName = meta.layout || 'calculator';
   const layout = getComponent(`layout-${layoutName}`);
   
-  // Insert page body into layout
   let page = layout.replace('{{BODY}}', body);
   
   // Process all template tags
-  page = processTemplate(page, meta);
+  page = processTemplate(page, meta, layoutName);
   
-  // Determine output filename
   const outName = meta.slug === 'index' ? 'index.html' : `${meta.slug || path.parse(pageFile).name}.html`;
   const outPath = path.join(DIRS.dist, outName);
   
